@@ -1,0 +1,23 @@
+/*  CSS for datavisualisation overlay on dashboard.  */
+
+.datavizbtn{
+    font-size: 11.5px;
+    opacity: .5;
+    display: inline-block;
+    position: relative;
+    top: -22px;
+    left: 3px;
+    text-align: right;
+    padding: 3px 7px;
+    z-index: 2;
+    cursor: pointer;
+    border-radius:3px;
+    background-color:rgba(0,0,0,.6);
+}
+
+.datavizbtn:hover{
+    opacity:1;
+    background-color: rgba(0,0,0,0.9);
+}
+
+body#onMobile .datavizbtn{color:#fff}

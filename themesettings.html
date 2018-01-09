@@ -1,0 +1,214 @@
+<h1 data-i18n="Theme settings">Theme settings</h1>
+<div class="row-fluid">
+    <div class="span6">
+        <h2><span data-i18n="Dashboard options">General options</span>:</h2>
+        <p>
+        <input id="themevar5" class="parentunrequired" name="themevar15" value="dashboard_clock_item" type="checkbox"><label for="themevar15" data-i18n=">Show clock as an item">Show clock as an item</label>
+        <br/>
+        <input id="themevar1" class="parentunrequiredchild" name="themevar11" value="dashboard_move_sun" type="checkbox"><label for="themevar11" data-i18n=">Move clock to the bottom of the page">Move clock to the bottom of the page</label>
+        </p><p>
+        <input id="themevar2" name="themevar12" value="navigation_main_sidebar" checked type="checkbox"><label for="themevar12" data-i18n="Main menu as a sidebar">Main menu as a sidebar</label>
+        </p><p>
+        <input id="themevar3" name="themevar13" value="navigation_settings_sidemenu" type="checkbox"><label for="themevar13" data-i18n="Settingsmenu as a sidebar">Settingsmenu as a sidebar</label>
+        </p><p>
+        <input id="themevar4" name="themevar14" value="center_popups" type="checkbox"><label for="themevar14" data-i18n="Center popups on the screen">Center popups on the screen</label>
+        </p><p>
+        <input id="themevar6" class="parentrequired" name="themevar16" value="mobile_phoney" type="checkbox"><label for="themevar16" data-i18n="Iphone styling on mobile devices">iPhone styling on mobile devices</label>
+        <br/>
+        <input id="themevar7" class="parentrequiredchild" name="themevar17" value="mobile_on_non_mobile" type="checkbox"><label for="themevar17" data-i18n="iPhone styling on non-mobile devices">iPhone styling on non-mobile devices</label>
+        </p><p>
+        <input id="themevar8" class="parentrequired" name="themevar18" value="extra_privacy" type="checkbox"><label for="themevar18" data-i18n="Iphone styling on mobile devices">Privacy for switches</label>
+        <br/>
+        <input id="themevar9" class="parentrequiredchild" name="themevar19" value="full_privacy" type="checkbox"><label for="themevar19" data-i18n="iPhone styling on non-mobile devices">Full privacy mode</label>
+        </p>
+        
+        <br/>
+        
+        <h3><span data-i18n="Dashboard options">Dashboard options</span>:</h3>
+        <p>
+        <input id="themevar21" class="parentrequired" name="themevar21" value="dashboard_show_last_update" type="checkbox"><label for="themevar21" data-i18n="Show the last update time">Show items' last update time</label>
+        <br/>
+        <input id="themevar28" class="parentrequiredchild" name="themevar28" value="time_ago" type="checkbox"><label for="themevar28" data-i18n="Show how long ago items updated">Show how long ago items updated</label>
+        </p><p>
+        <input id="themevar27" class="parentrequired" name="themevar27" value="dashboard_highlighted" type="checkbox"><label for="themevar27" data-i18n="Show three highlighted items">Show three highlighted items</label>
+        <br/>
+        <input id="themevar25" class="parentrequiredchild" name="themevar25" value="dashboard_camera_previews" type="checkbox"><label for="themevar25" data-i18n="Camera previews on the dashboard">Camera previews on the dashboard</label>
+        <br>
+        <input id="themevar23" class="parentrequiredchild" name="themevar23" value="dashboard_show_data_visualizations" type="checkbox"><label for="themevar23" data-i18n="Enable dashboard datavisualizations">Show datavisualizations on dashboard</label>
+        </p><p>
+        <input id="themevar26" name="themevar26" value="dashboard_merge_items_with_same_name" type="checkbox"><label for="themevar26" data-i18n="Merge items with the same name">Merge items with the same name</label>
+        </p><p>
+        <input id="themevar22" name="themevar22" value="dashboard_merge_temp_and_weather" type="checkbox"><label for="themevar22" data-i18n="Merge weather and temperature">Merge weather and temperature</label>
+        </p><p>
+        <input id="themevar29" name="themevar29" value="dashboard_hide_section_titles" type="checkbox"><label for="themevar29" data-i18n="Hide section titles on the dashboard">Hide section titles on the dashboard</label>
+        </p><p>
+        <input id="themevar24" name="themevar24" value="dashboard_vertical_columns" type="checkbox"><label for="themevar24" data-i18n="Vertical columns on the dashboard">Vertical columns on the dashboard</label>
+        </p><p>
+        <input id="themevar30" name="themevar30" value="extra_fluid" type="checkbox"><label for="themevar30" data-i18n="Use entire screen for item display">Use entire screen for item display</label>
+        </p>
+        
+        
+    </div>     
+    <div class="span6">
+        <h2><span data-i18n="Dashboard options">About</span>:</h2>
+        <div id="aboutTheme">
+            
+        <h3>Aurora theme</h3>
+        <p>
+        This is a theme for Domoticz. The goal is to create a more accessible experience to beginners, and more features for fans.
+        </p>
+
+        <h3>GENERAL FEATURES</h3>
+
+
+        <h4>Show Version Number</h4>
+        <p>            
+        This permanently shows the Domoticz version number, not just on mouse-over.
+        </p>
+
+        <h4>Dashboard Move Sun</h4>
+        <p>
+        This moves the sun-up and sun-down times indicator to the footer.
+        </p>
+
+        <h4>Center Popups</h4>
+        <p>    
+        Sometimes items that pop-up, like colour selectors or thermostat setpoints, go off the screen. This forces them 
+        to be in the middle of the screen. Useful on smaller screens.
+        </p>
+            
+        <h4>Privacy</h4>
+        <p>
+        Privacy for switches hides both the log output and the last update time for switches and scenes. This way you and your 
+        family can't see when things were turned on. Privacy everywhere expands this to sensors and utilities too. In this 
+        case the log only shows errors.
+        </p>
+
+        <h3>ITEM GRID CHANGES</h3>
+        <h4>Dashboard Vertical Columns</h4>
+        <p>
+        This feature will create vertical columns on your dashboard, one for each sensor type. BUT this feature only 
+        springs into action if you have enough horizontal space for the amount device-types that you have. So for 5 columns 
+        you need at least a 1300 pixels wide screen, for example. This feature works for both the normal and compact display 
+        option.
+        </p>
+        <h4>Dashboard Merge temperature and weather</h4>
+        <p>
+        This merges these two categories into one "environment" category. Weather items are shown at the top. This is very 
+        useful if a vertical columns display is used on smaller screens, because vertical columns only activates if there is enough space for it.
+        </p>        
+
+        <h3>ITEM DISPLAY CHANGES</h3>
+        <h4>Dashboard Highlights</h4>
+        <p>
+        This super-sizes the first three items for each category. You can use this to highlight 
+        some of your devices, or give their buttons a little more breathing room. This only works for the normal view, 
+        because the compact view is about saving space. This can be combined with Vertical Columns, but will create some 
+        strange behaviour if you have selected Variable Items Per Row, as it only enlarges the first three items of each 
+        category (for now).
+        </p>
+
+        <h4>Dashboard Show Last Update</h4>
+        <p>
+        Enable this if you want items on the dashboard to also display the time they were last updated.
+        </p>
+
+        <h4>Dashboard Merge Items With Same Name</h4>
+        <p>
+        This merges items that have the same name before a dash. It places all their data into the list of data outputs, and uses 
+        the parts after the dash as the name for those values. For example:
+        </p><p>
+        &nbsp;&nbsp;&nbsp;MiFlora plant 1 - Moisture<br/>
+        &nbsp;&nbsp;&nbsp;MiFlora plant 1 - Light level
+        </p><p>
+        ..would be merged into one item with the new name "MiFlora", and it would display data called "Moisture" and "Light Level". 
+        The feature will only merge simple items with just one data value and without buttons or sliders. It merges everything into the 
+        first item it finds, so it will show that item's last update times and battery status.
+        </p>
+
+        <h3>MENU OPTIONS</h3>
+
+        <h4>Navigation Main Sidemenu</h4>
+        <p>
+        This moves the main menu to the left side of the screen. It works best for wide screens (about 980 pixels wide 
+        is my recommendation). It is automatically disabled for mobile phones.
+        </p>
+
+        <h4>Settings Sidemenu</h4>
+        <p>
+        Instead of the tabs at the top of each settings page, you get a sidebar instead. It stays in place. This 
+        includes the 'save' button, so you always have easy access to that. Works well with both the menu at the top or the 
+        side menu.
+        </p>
+
+        <h3>EXTRA OPTIONS</h3>
+
+        <h4>Dashboard Data Visualizations</h4>
+        <p>    
+        This overlays a datavisualisation for certain items. They get complete charts for the past 24 hours. The data is pruned, so the 
+        vizualisation isn't very precise. But it's good enough. It also addssmall "day" / "month" buttons to change the visualised date range.
+        </p>
+            
+        <h4>Camera previews</h4>
+        <p>    
+        This allows you to see webcam output right on the dashboard. In order to get this, you must attach a switch to your camera, and show that switch on the dashboard.
+        </p>            
+
+        <h4>Extra's and Animations</h4>
+        <p>    
+        Adds some pretty details like barometer backgrounds and small animations on icons.
+        </p>
+            
+            
+        <p></p>
+        <p>Made in 2017/2018 bij Tijmen Schep.</p>
+
+        </div>
+        <p>
+            <button class="btn btn-info" id="themeResetButton">Reset theme to default</button>
+        </p>
+    </div>   
+</div>
+<div class="row-fluid">  
+    <div class="span12">
+        <h2><span data-i18n="Background">Visual</span>:</h2>
+        <table class="display" id="themebackground">
+            <tr><td>
+                <div class="colorPicker">
+                    <h3>Text color</h3>
+                    <div id="textcolorpicker"></div>
+                </div>
+                <div class="colorPicker">
+                    <h3>Background color</h3>
+                    <div id="backgroundcolorpicker"></div>
+                </div>
+                <div class="colorpicker colordemo">
+                    <h3>Example</h3>
+                    <div id="colordemo"><div class="name">ITEM NAME</div><br/><div style="margin-left:10px">Item detail</div></div>
+                </div>       
+                <h3>Background Image</h3>
+                <p>
+                <input id="backgroundimageurl" name="backgroundimageurl" class="text ui-widget-content ui-corner-all" type="text"><button id="backgroundimagesetbtn" data-i18n="Set" class="btn btn-info" >Set</button>
+                </p>
+            </td></tr>
+        </table>
+        <p class="tip">You can point to an image on a webserver. If you place an image in the theme folder, you can point to it like this: <span style="font-style: italic">acttheme/screenshot.png</span> </p>
+    </div>
+</div>
+<div class="row-fluid">      
+    <div class="span12">
+        <h2><span data-i18n="Background">User CSS</span>:</h2>
+        <table class="display" id="themebackground">
+            <tr><td>
+                <p>
+                If you know how, you can add your own CSS snippets to change the look of the theme. These changes are only stored in the browser.
+                </p>
+                <textarea id="userCSSinput"></textarea>
+                <div id="userCSSsavebuttonholder">
+                <button id="userCSSsavebtn" data-i18n="Save" class="btn btn-info" >Save</button></div>
+
+            </td></tr>
+        </table>
+
+    </div>         
+</div>

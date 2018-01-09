@@ -1,0 +1,333 @@
+/* Animations and small cool things */
+
+
+/*  Fan spinning animation  */
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
+
+body div.item.fan.on .img img{
+    -webkit-animation: rotation 15s infinite linear;
+    border-radius:50%!important;
+}
+/*body div.item.fan.on .img img:hover{
+    border-radius:50%!important;
+    -webkit-animation: rotation 10s infinite linear; 
+    transition: move 2s ease-in
+}*/
+
+
+/*  BAROMETER EFFECTS 
+
+    STABLE = 0,            // "Stable Weather Pattern"
+    SUNNY = 1,            // "Slowly rising Good Weather", "Clear/Sunny "
+    CLOUDY = 2,            // "Slowly falling L-Pressure ", "Cloudy/Rain "
+    UNSTABLE = 3,        // "Quickly rising H-Press",     "Not Stable"
+    THUNDERSTORM = 4,    // "Quickly falling L-Press",    "Thunderstorm"
+    UNKNOWN = 5            // "Unknown (More Time needed)
+
+    Domoticz has these values:
+
+    domoticz.BARO_STABLE
+    domoticz.BARO_SUNNY
+    domoticz.BARO_CLOUDY
+    domoticz.BARO_UNSTABLE
+    domoticz.BARO_THUNDERSTORM
+    domoticz.BARO_UNKNOWN
+    domoticz.BARO_CLOUDY_RAIN
+
+Although I've also seen "some clouds". But that may come from a MySensors custom sensor. The CSS tries to anticipate other values.
+
+*/
+#dashcontent h2 + div.divider .span4:nth-child(-n+3) .baro tr #img img:hover{border-radius:5px!important;transition: 1s}
+
+#dashcontent h2 + div.divider .span4:nth-child(-n+3) .baro tr #img img:hover,
+#dashcontent div.item.baro tr .img img:hover{border-radius:50%!important;}
+
+body.dashboard .baro tr{
+    opacity: 1.0;
+    -webkit-transition: background 1.5s ease-out;
+    -moz-transition: background 1.5s ease-out;
+    -o-transition: background 1.5s ease-out;
+    -ms-transition: background 1.5s ease-out;
+    transition: background 1.5s ease-out;
+}
+
+
+@keyframes baro-unstable {
+  from {
+      -moz-transform:rotate(0deg);
+      -webkit-transform:rotate(0deg);
+      transition:rotate(0deg) 
+  }
+    
+  to {
+      -moz-transform:rotate(90deg);
+      -webkit-transform:rotate(90deg);
+      transition:rotate(90deg) 
+  }
+}
+
+
+@keyframes baro-change {
+  from {
+      -moz-transform:rotate(15deg);
+      -webkit-transform:rotate(15deg);
+      transition:rotate(15deg) 
+  }
+  to {
+      -moz-transform:rotate(-15deg);
+      -webkit-transform:rotate(-15deg);
+      transition:rotate(-15deg) 
+  }    
+}
+
+@keyframes baro-unknown-loading {
+  from {
+    -webkit-box-shadow: inset 0px 80px 5px 0px rgba(0,0,100,0);
+    -moz-box-shadow: inset 0px 80px 5px 0px rgba(0,0,100,0);
+    box-shadow: inset 0px 80px 5px 0px rgba(0,0,100,0);
+  }
+  to {
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(50,150,250,0.8);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(50,150,250,0.8);
+    box-shadow: inset 0px 0px 5px 0px rgba(50,150,250,0.8);
+  }    
+}
+
+#dashcontent .prediction-unknown tr .img1 img{
+    animation: 10s infinite baro-unknown-loading;
+    border-radius:50%!important;
+    padding:5px;
+    opacity:50;
+}
+
+
+
+/*  STORM  */
+#dashcontent .prediction-thunderstorm tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-thunderstorm.png') no-repeat right top!important; 
+    /*background-color: rgba(250,250,250,0.1)!important;*/
+}
+#dashcontent .prediction-thunderstorm tr .img1 img{
+    -moz-transform:rotate(-60deg);
+    -webkit-transform:rotate(-60deg);
+    transition:rotate(-60deg) 
+}
+
+
+/*  CLOUDY  - this ordering is on purpose, so rain can override cloudy. */
+/*#dashcontent .baro[class*=cloud] tr,*/
+#dashcontent .prediction-cloudy tr,
+#dashcontent .prediction-someclouds tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-cloudy.png') no-repeat right top!important; 
+}
+
+/*  RAINY  */
+#dashcontent .prediction-rain tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-rain.png') no-repeat right top!important; 
+}
+#dashcontent .baro[class*=rain] .img1 img,
+#dashcontent .prediction-rain .img1 img{
+    -moz-transform:rotate(-30deg);
+    -webkit-transform:rotate(-30deg);
+    transition:rotate(-30deg);
+}
+
+
+/*  CHANGE  */
+#dashcontent .prediction-change tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-change.png') no-repeat right top!important; 
+    /*background-color: rgba(250,250,250,0.1)!important;*/
+}
+#dashcontent .prediction-change tr .img1 img{
+    animation: 3s infinite alternate baro-change;
+}
+
+
+/*  SUNNY  */
+#dashcontent .baro[class*=sun] tr,
+#dashcontent .prediction-sun tr,
+#dashcontent .prediction-sunny tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-sunny.png') no-repeat right top!important; 
+}
+#dashcontent baro[class*=sun] tr .img1 img,
+#dashcontent .prediction-sunny tr .img1 img,
+#dashcontent .prediction-sun tr .img1 img{
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transition:rotate(45deg);}
+
+
+/*  STABLE - very sunny, very dry weather */
+#dashcontent .prediction-stable tr{
+    background-image:none;
+    background: rgba(250,250,250,0.1) url('/images/baro-stable.png') no-repeat right top!important;     
+}
+#dashcontent .prediction-stable tr .img1 img{
+    -moz-transform:rotate(80deg);
+    -webkit-transform:rotate(80deg);
+    transition:rotate(80deg);
+}
+
+
+/*  UNSTABLE  - quicky rising high pressure */
+#dashcontent .prediction-unstable tr{background-image:none;}
+
+#dashcontent .prediction-unstable tr .img1 img{
+    animation: 10s infinite baro-unstable;
+}
+
+
+
+/*  FANCY CHECKBOXES  */
+/*
+input[type='checkbox']:not(.noscheck) {
+	max-height: 0;
+	max-width: 0;
+	opacity: 0;
+}
+
+	input[type='checkbox']:not(.noscheck) + label {
+		display: inline-block;
+		position: relative;
+		box-shadow: inset 0 0 0px 1px rgba(191,29,27,1);
+		text-indent: 44px;
+		white-space: nowrap;
+		height: 18px;
+		width: 40px;
+		border-radius: 0px;
+		background: rgba(191,29,27,1);
+		margin: 3px 28px 3px 0px;
+	}
+
+input[type='checkbox']:not(.noscheck) + label:before {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 18px;
+	width: 30px;
+	top: 0px;
+	left: 0px;
+	border-radius: 0px;
+	-moz-transition: .25s ease-in-out;
+	-webkit-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+}
+
+input[type='checkbox']:not(.noscheck) + label:after {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 14px;
+	width: 19px;
+	top: 2px;
+	left: 2px;
+	border-radius: 0px;
+	background: white;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.2), 0 2px 4px rgba(0,0,0,.2);
+	-moz-transition: .25s ease-in-out;
+	-webkit-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+}
+
+input[type='checkbox']:not(.noscheck):checked + label:before {
+	width: 40px;
+	background: rgba(19,191,17,1);
+}
+
+input[type='checkbox']:not(.noscheck):checked + label:after {
+	left: 20px;
+	box-shadow: inset 0 0 0 1px rgba(19,191,17,1), 0 2px 4px rgba(0,0,0,.2);
+}
+*/
+
+
+/*  EXTRA HOVER GLOSS */
+
+.ui-draggable-dragging{
+    transform: scale(1.05);
+}
+
+
+
+
+
+/*
+.btn-primary,
+.btn-success,
+.btn-primary,
+.btn-info{position:relative;overflow:hidden;transform:translate3d(0,0,0)}
+
+.btn-primary:after,
+.btn-success:after,
+.btn-primary:after,
+.btn-info:after{content:"";display:block;position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;background-image:radial-gradient(circle,#000 10%,transparent 10.01%);background-repeat:no-repeat;background-position:50%;transform:scale(10,10);opacity:0;transition:transform .5s,opacity 1s}
+
+.btn-primary:active:after,
+.btn-success:active:after,
+.btn-primary:active:after,
+.btn-info:active:after{transform:scale(0,0);opacity:.2;transition:0s}
+
+.options .btnsmall{position:relative;overflow:hidden;transform:translate3d(0,0,0)}
+.options .btnsmall:after{content:"";display:block;position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;background-image:radial-gradient(circle,#000 10%,transparent 10.01%);background-repeat:no-repeat;background-position:50%;transform:scale(10,10);opacity:0;transition:transform .5s,opacity 1s}
+.options .btnsmall:active:after{transform:scale(0,0);opacity:.2;transition:0s}
+*/
+
+
+/*
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+*/
+
+/*
+@keyframes fadeinto5 {
+    from { opacity: 0; }
+    to   { opacity: .5; }
+}
+.datavizbtn{
+    animation: fadeinto5 1s;
+}
+
+
+@keyframes fadeinto6 {
+    from { opacity: 0; }
+    to   { opacity: .6; }
+}
+.timeagooutput,
+.idnumber,
+.typedata{
+    animation: fadeinto6 1s;
+}
+
+*/
+@keyframes fadeinto10 {
+    from { opacity: 0; }
+    to   { opacity: .6; }
+}
+#status span,
+.status span{
+    animation: fadeinto10 .4s;
+}
+#status span:first-of-type,
+.status span:first-of-type{
+    animation: fadeinto10 .3s;
+}
+#status span:last-of-type,
+.status span:last-of-type{
+    animation: fadeinto10 .5s;
+}

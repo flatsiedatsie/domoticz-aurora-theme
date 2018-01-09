@@ -1,0 +1,88 @@
+/* forced popups to be centered on the screen. */
+
+.ui-dialog,
+.ui-popup{
+    height:auto!important;
+    width:auto!important;    
+    position:fixed!important;
+}
+
+
+/*  height  */
+@media all and (max-height: 480px){
+
+    .ui-dialog,
+    .ui-popup{
+        top: 5%!important;
+        top:calc(50% - 100px)!important;
+        left:30%!important;
+        left:calc(50% - 150px)!important; 
+    }
+}
+@media all and (min-height: 481px) and (max-height: 720px){
+
+    .ui-dialog,
+    .ui-popup{
+        top: 20%!important;
+        top:calc(50% - 200px)!important;
+    }
+}
+
+@media all and (min-height: 721px){
+
+    .ui-dialog,
+    .ui-popup{
+        top: 30%!important;
+        top:calc(50% - 300px)!important;
+    }
+}
+
+/*  width  */
+@media all and (max-width: 481px){
+
+    .ui-dialog,
+    .ui-popup{
+        left:10%!important;
+        left:calc(50% - 150px)!important; 
+    }
+}
+
+@media all and (min-width: 481px)  and (max-width: 800px){
+
+    .ui-dialog,
+    .ui-popup{
+        left:20%!important;
+        left:calc(50% - 220px)!important; 
+    }
+}
+@media all and (min-width: 801px){
+
+    .ui-dialog,
+    .ui-popup{
+        left:30%!important;
+        left:calc(50% - 300px)!important; 
+    }
+}
+
+
+
+#dialog-heosplayer-remote,
+#dialog-media-remote{
+    /*height:100%!important;
+    width:80%!important;*/
+    z-index:300;
+    margin: 0 auto;
+    min-height:400px;
+    min-width:200px;
+}
+
+.MediaRemote{
+    position:inherit;
+    height:90%!important;
+    width:auto!important;
+    margin: 0 auto;
+    z-index:300;
+    min-height:400px;
+    min-width:200px;    
+}
+

@@ -1,0 +1,27 @@
+/*  Make Domoticz even more privacy friendly  */  
+
+
+/*  hide last updated times for switches  */
+
+body.scenes #lastupdate,
+body.scenes .lastupdate,
+body.lightswitches #lastupdate,
+body.lightswitches .lastupdate,
+#dashSwitches #lastupdate {
+     display: none;
+}
+
+#itemtablenostatus #lastupdate {
+    display: none;
+}
+
+#itemtablenostatus .btnsmall[data-i18n="Log"] {
+    display: none;
+}
+
+body.scenes #type,
+body.scenes .type,
+body.lightswitches #type,
+body.lightswitches .type {
+    text-indent: 15px;
+}

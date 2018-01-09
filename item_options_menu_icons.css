@@ -1,0 +1,155 @@
+/*  transforms the options on items' menu into icons  */
+
+dztemperaturewidget .btnsmall,
+dzweatherwidget .btnsmall{
+    font-size:0;
+}
+
+div[class^="span"] div.item .options a, 
+.span3 table > tbody > tr > td:last-of-type a, 
+.span4 table > tbody > tr > td:last-of-type a{
+    left:-20px;
+}
+
+div[class^="span"] div.item .options a:before, 
+.span3 table > tbody > tr > td:last-of-type a:before, 
+.span4 table > tbody > tr > td:last-of-type a:before{
+    max-height: 22px;
+}
+
+
+.divider .span3 table > tbody > tr > td:last-of-type:not(.status), 
+.divider .span4 table > tbody > tr > td:last-of-type:not(.status), 
+body div.item .options{
+    /*background-image:none;*/
+    /*min-height:27px;*/
+}
+
+dztemperaturewidget a.btnsmall,
+dzweatherwidget a.btnsmall,
+dztemperaturewidget a.btnsmall-sel,
+dzweatherwidget a.btnsmall-sel,
+dztemperaturewidget a.btnsmall-dis,
+dzweatherwidget a.btnsmall-dis,
+.span3 table > tbody > tr > td:last-of-type a, 
+.span4 table > tbody > tr > td:last-of-type a,
+.options a.btnsmall,
+.options a.btnsmall-sel,
+.options a.btnsmall-dis{
+    font-size:0;
+    padding:0;
+    border-bottom: none;
+}
+
+
+dztemperaturewidget a.btnsmall::before,
+dzweatherwidget a.btnsmall::before,
+dztemperaturewidget a.btnsmall-sel::before,
+dzweatherwidget a.btnsmall-sel::before,
+dztemperaturewidget a.btnsmall-dis::before,
+dzweatherwidget a.btnsmall-dis::before,
+.span3 table > tbody > tr > td:last-of-type a::before, 
+.span4 table > tbody > tr > td:last-of-type a::before,
+.options a.btnsmall::before,
+.options a.btnsmall-sel::before,
+.options a.btnsmall-dis::before{
+    color:#fff;    
+    display: inline-block;
+    height: auto;
+    width: 14px;
+    border-radius: 3px;
+    padding: 2px 13px;
+    position:relative;
+    opacity:.8;
+    margin:1px 0;
+}
+
+dztemperaturewidget a.btnsmall-dis::before,
+dzweatherwidget a.btnsmall-dis::before,
+.options a.btnsmall-dis:before{background-color:rgba(255,50,50,1);}
+
+
+.divider .span3 td:last-of-type:not(.status) a.btnsmall::before, 
+.divider .span4 td:last-of-type:not(.status) a.btnsmall::before, 
+dztemperaturewidget a.btnsmall::before,
+dzweatherwidget a.btnsmall::before,
+.options .btnsmall:before{background-color:rgba(255,255,255,.1);}
+
+dztemperaturewidget a.btnsmall-dis:hover::before,
+dzweatherwidget a.btnsmall-dis:hover::before,
+dztemperaturewidget a.btnsmall-sel:hover::before,
+dzweatherwidget a.btnsmall-sel:hover::before,
+dztemperaturewidget a.btnsmall:hover::before,
+dzweatherwidget a.btnsmall:hover::before,
+.options a.btnsmall-dis:hover::before,
+.options a.btnsmall-sel:hover::before,
+.options .btnsmall:hover::before{background-color: #53b4e3; opacity:1;}
+
+dztemperaturewidget a.btnsmall-sel::before,
+dzweatherwidget a.btnsmall-sel::before,
+.options .btnsmall-sel:before{background-color: #af2aaf;}
+
+.btnsmall-dis[data-i18n="Log"]:before,
+.btnsmall-sel[data-i18n="Log"]:before,
+.btnsmall[data-i18n="Log"]:before {
+     content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23ffffff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M12%2026h20v4h-20zM12%2014h20v4h-20zM12%202h20v4h-20zM6%200v8h-2v-6h-2v-2zM4%2016.438v1.563h4v2h-6v-4.563l4-1.875v-1.563h-4v-2h6v4.563zM8%2022v10h-6v-2h4v-2h-4v-2h4v-2h-4v-2z%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E);
+}
+
+.btnsmall-dis[data-i18n="Edit"]:before,
+.btnsmall-sel[data-i18n="Edit"]:before,
+.btnsmall[data-i18n="Edit"]:before {
+    /* 
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M27%204l-15%2015-7-7-5%205%2012%2012%2020-20z%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E);
+    */
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23ffffff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M29.181%2019.070c-1.679-2.908-0.669-6.634%202.255-8.328l-3.145-5.447c-0.898%200.527-1.943%200.829-3.058%200.829-3.361%200-6.085-2.742-6.085-6.125h-6.289c0.008%201.044-0.252%202.103-0.811%203.070-1.679%202.908-5.411%203.897-8.339%202.211l-3.144%205.447c0.905%200.515%201.689%201.268%202.246%202.234%201.676%202.903%200.672%206.623-2.241%208.319l3.145%205.447c0.895-0.522%201.935-0.82%203.044-0.82%203.35%200%206.067%202.725%206.084%206.092h6.289c-0.003-1.034%200.259-2.080%200.811-3.038%201.676-2.903%205.399-3.894%208.325-2.219l3.145-5.447c-0.899-0.515-1.678-1.266-2.232-2.226zM16%2022.479c-3.578%200-6.479-2.901-6.479-6.479s2.901-6.479%206.479-6.479c3.578%200%206.479%202.901%206.479%206.479s-2.901%206.479-6.479%206.479z%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E);
+}
+.btnsmall-dis[data-i18n="Timers"]:before,
+.btnsmall-sel[data-i18n="Timers"]:before,
+.btnsmall[data-i18n="Timers"]:before {
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M16%200c-8.837%200-16%207.163-16%2016s7.163%2016%2016%2016%2016-7.163%2016-16-7.163-16-16-16zM20.586%2023.414l-6.586-6.586v-8.828h4v7.172l5.414%205.414-2.829%202.829z%22%3E%3C%2Fpath%3E%0D%0A%0D%0A%3C%2Fsvg%3E);
+}
+.btnsmall-dis[data-i18n="Notifications"]:before,
+.btnsmall-sel[data-i18n="Notifications"]:before,
+.btnsmall[data-i18n="Notifications"]:before {
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M32.047%2025c0-9-8-7-8-14%200-0.58-0.056-1.076-0.158-1.498-0.526-3.532-2.88-6.366-5.93-7.23%200.027-0.123%200.041-0.251%200.041-0.382%200-1.040-0.9-1.891-2-1.891s-2%200.851-2%201.891c0%200.131%200.014%200.258%200.041%200.382-3.421%200.969-5.966%204.416-6.039%208.545-0.001%200.060-0.002%200.121-0.002%200.183%200%207-8%205-8%2014%200%202.382%205.331%204.375%2012.468%204.878%200.673%201.263%202.002%202.122%203.532%202.122s2.86-0.86%203.532-2.122c7.137-0.503%2012.468-2.495%2012.468-4.878%200-0.007-0.001-0.014-0.001-0.021l0.048%200.021zM25.82%2026.691c-1.695%200.452-3.692%200.777-5.837%200.958-0.178-2.044-1.893-3.648-3.984-3.648s-3.805%201.604-3.984%203.648c-2.144-0.18-4.142-0.506-5.837-0.958-2.332-0.622-3.447-1.318-3.855-1.691%200.408-0.372%201.523-1.068%203.855-1.691%202.712-0.724%206.199-1.122%209.82-1.122s7.109%200.398%209.82%201.122c2.332%200.622%203.447%201.318%203.855%201.691-0.408%200.372-1.523%201.068-3.855%201.691z%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E);
+}
+.btnsmall-dis[data-i18n="Reset"]:before,
+.btnsmall-sel[data-i18n="Reset"]:before,
+.btnsmall[data-i18n="Reset"]:before {
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg%20class%3D%22itemOptionsIcon%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0D%0A%3Cpath%20d%3D%22M16%202c-4.418%200-8.418%201.791-11.313%204.687l-4.686-4.687v12h12l-4.485-4.485c2.172-2.172%205.172-3.515%208.485-3.515%206.627%200%2012%205.373%2012%2012%200%203.584-1.572%206.801-4.063%209l2.646%203c3.322-2.932%205.417-7.221%205.417-12%200-8.837-7.163-16-16-16z%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E);
+}
+
+.span3 table > tbody > tr > td:last-of-type a.btnsmall-dis,
+.span3 table > tbody > tr > td:last-of-type a.btnsmall-sel,
+.span3 table > tbody > tr > td:last-of-type a.btnsmall,
+.span4 table > tbody > tr > td:last-of-type a.btnsmall-dis,
+.span4 table > tbody > tr > td:last-of-type a.btnsmall-sel,
+.span4 table > tbody > tr > td:last-of-type a.btnsmall, 
+.options a.btnsmall-sel,
+.options a.btnsmall{
+    padding:0;
+}
+
+.span3 table > tbody > tr > td:last-of-type a,
+.span4 table > tbody > tr > td:last-of-type a, 
+.options a{
+    /*margin-right:30px;*/
+}
+
+/* tried to get the SVG to follow the text color. COuldn't get it to work.
+.btnsmall[data-i18n="Edit"]:before,
+.options svg{fill: currentColor}
+
+svg{
+    color:red;
+    fill: currentColor;
+}
+
+.itemOptionsIcon{color:#00ff00;fill:#ff0000;stroke:#ff00ff;}
+.itemOptionsIcon path{color:#00ff00;fill:#ff0000;stroke:#ff00ff; stroke-width: 2;}
+.itemOptionsIcon {
+  fill: #53b4e3;
+  stroke-width: 3;
+  stroke: #53b4e3;
+}
+*/

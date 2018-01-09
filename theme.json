@@ -1,0 +1,134 @@
+{
+    "type": "theme",    
+    "name": "Aurora",
+    "description": "This is a dark theme for Domoticz",
+    "license": "GPL-2.0+",
+    "version":"1",
+    "author": "Tijmen Schep",
+    "homepage": "https://www.tijmenschep.com",
+    "wiki": "https://www.domoticz.com/wiki/auroratheme",
+    "textcolor": "#ffffff",     
+    "backgroundcolor": "#001133",    
+    "backgroundimage": "",
+    "previewimage": "screenshot.png",
+    "variants": [
+        {"default": "aurora.css"}
+    ],
+    "features": {
+        "navigation_main_sidebar": {
+            "id":2,
+            "enabled":true,
+            "files": ["navigation_main_sidebar.css"]
+        },
+        "dashboard_highlighted": {
+            "id":3,
+            "enabled":true,
+            "files": ["dashboard_highlighted.css", "dashboard_highlights_see-through.css"]
+        },
+        "dashboard_vertical_columns": {
+            "id":4,
+            "enabled":true,
+            "files": ["dashboard_vertical_columns.css"]
+        },        
+        "show_version_number": {
+            "id":5,    
+            "enabled":true,
+            "files": ["show_version_number.css"]
+        },
+        "extras_and_animations": {
+            "id":6,
+            "enabled":true,
+            "files": ["extras_and_animations.css"]
+        },
+        "center_popups": {
+            "id":7,
+            "enabled":true,
+            "files": ["center_popups.css"]
+        },
+        "dashboard_show_last_update": {
+            "id":8,
+            "enabled":true,
+            "files": ["dashboard_show_last_update.css"]
+        },
+        "dashboard_move_sun": {
+            "id":9,
+            "enabled":true,
+            "files": ["dashboard_move_sun.css"]
+        },
+        "dashboard_show_data_visualizations": {
+            "id":10,
+            "enabled":false,
+            "files": ["dashboard_show_data_visualizations.js","dashboard_show_data_visualizations.css"]
+        },
+        "navigation_settings_sidemenu": {
+            "id":11,
+            "enabled":true,
+            "files": ["navigation_settings_sidemenu.css"]
+        },
+        "dashboard_merge_items_with_same_name": {
+            "id":12,
+            "enabled":false,
+            "files": ["dashboard_merge_items_with_same_name.js"]
+        },        
+        "dashboard_merge_temp_and_weather": {
+            "id":13,
+            "enabled":true,
+            "files": []
+        },
+        "dashboard_camera_previews": {
+            "id":14,
+            "enabled":false,
+            "files": ["dashboard_camera_previews.js","dashboard_camera_previews.css"]
+        },
+        "dashboard_clock_item": {
+            "id":15,
+            "enabled":false,
+            "files": []
+        },
+        "mobile_phoney": {
+            "id":16,
+            "enabled":true,
+            "files": ["mobile_phoney.css"]
+        },
+        "mobile_on_non_mobile": {
+            "id":17,
+            "enabled":false,
+            "files": []
+        },
+        "time_ago": {
+            "id":18,
+            "enabled":true,
+            "files": ["time_ago.js"]
+        },
+        "blockly_import_export": {
+            "id":19,
+            "enabled":true,
+            "files": ["blockly_import_export.js"]
+        },
+        "extra_fluid": {
+            "id":20,
+            "enabled":false,
+            "files": ["extra_fluid.css"]
+        },
+        "dashboard_hide_section_titles": {
+            "id":21,
+            "enabled":false,
+            "files": ["dashboard_hide_section_titles.css"]
+        },
+        "extra_privacy": {
+            "id":22,
+            "enabled":true,
+            "files": ["extra_privacy.css"]
+        },
+        "full_privacy": {
+            "id":23,
+            "enabled":false,
+            "files": ["full_privacy.css"]
+        },
+        "item_options_menu_icons.css": {
+            "id":24,
+            "enabled":true,
+            "files": ["item_options_menu_icons.css"]
+        }
+    }
+}

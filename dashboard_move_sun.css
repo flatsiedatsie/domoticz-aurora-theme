@@ -1,0 +1,19 @@
+/*  This moves the Sun-up and sun-down indicator to the footer. */
+
+#prebannav #timesun {
+    display:inline-block;
+    height:0!important;
+}
+
+#prebannav #timesun div {
+    color:#aaa;
+    z-index:100;
+    position:absolute;
+    left:20px;
+    bottom:0;
+}
+
+
+@media only screen and (max-width: 640px) {
+    #prebannav #timesun div {display:none}
+    }

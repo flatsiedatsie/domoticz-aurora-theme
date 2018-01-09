@@ -1,0 +1,99 @@
+/* camera  */
+
+.cameraPlayButtons{height:0}
+.cameraPlayButtons{display:none}
+
+button.playpause:hover::after {
+    width: .5em;
+}
+button.playpause::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    width: 0;
+    height: 2em;
+    top: 1.5em;
+    left: 2.25em;
+    transition: .218s ease;
+}
+button.playpause:hover::before {
+    height: 2em;
+    border-width: 0 0 0 2em;
+}
+button.playpause::before {
+    content: "";
+    position: absolute;
+    top: 1.5em;
+    left: 1.5em;
+    height: 0;
+    border-style: solid;
+    border-width: 1em 0 1em 2em;
+    border-color: transparent transparent transparent #FFFFFF80;
+    transition: .218s ease;
+}
+button.playpause {
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 5em;
+    width: 5em;
+    font-size: 0.5em;
+    cursor: pointer;
+    top: 70px;
+}
+
+/*
+
+button.playpause{background-color:transparent;border-radius: 0;box-sizing: content-box}
+
+button.playpause:not(.playing) {
+    width: 4px;
+    height: 16px;
+    border-right: 4px solid #000;
+    border-left: 4px solid #000;
+}
+button.playpause.playing {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 12px solid #000;
+    border-bottom: 8px solid transparent;
+}
+*/
+
+@media all and (min-width: 768px){
+    
+    .cameraPlayButtons{display: block}
+
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear #bigtext,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear .bigtext{
+        top:-28px;
+    }
+
+    .bigtext img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear #bigtext img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear .bigtext img{
+        vertical-align: text-bottom;
+        height:20px; width:20px;
+    }
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera:not(.keepclear) #bigtext img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera:not(.keepclear) .bigtext img{
+        vertical-align: baseline;
+        height:60px; width:60px;
+        margin-left:20px
+    }
+
+    body:not(.dashboard) #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item.camera #bigtext,
+    body:not(.dashboard) #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item.camera .bigtext{
+        top:-30px;
+    }
+
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear #img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear .img{top:-33px;}
+
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear #img img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .camera.keepclear .img img {width:30px;height:30px;}
+
+
+}

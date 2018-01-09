@@ -1,0 +1,176 @@
+/* Creates a Settings sidebar and thinner items menu on big screens */
+
+@media only screen and (min-width:1200px) and (min-height:600px){    
+
+    /* Sidebar menu */
+    
+    #settingscontent #tabs{
+        position: fixed;
+        width: 200px;
+        border-bottom:0;
+        overflow:hidden;
+        padding-left:1px;
+        padding-top:1px;
+    }
+    
+    #settingscontent .nav-tabs > li{
+        width:200px;
+    }
+    
+    #settingscontent .nav-tabs > li > a{
+        border-radius:0;
+        /*word-break: break-all;
+        word-wrap: break-word;*/
+    }    
+    
+    #settingscontent .sub-tabs-apply{
+        position:inherit;
+        margin-top:20px;
+        text-align:center;
+        border-radius:5px;
+    }
+    
+    #settingscontent .tab-content{
+        width:84%;
+        width: calc(100% - 240px);
+        overflow: inherit;
+        margin-left: 220px;
+    }
+    
+    #settingscontent .sub-tabs a:not(.sub-tabs-apply){
+        margin-top:0;
+        margin-bottom:0;
+    }
+    
+    
+    
+    
+    
+    /*  custom icons  */
+
+/*
+    body .iconlist,
+    body .iconcell{
+        background-color:transparent;
+        display:flex;
+        flex-wrap:wrap;
+        min-height:400px!important;
+        max-height:100%!important;
+        border:none;
+        position:fixed;
+        top:100px;
+        left:250px;
+    }
+
+    body #iconsmain > table{
+        position: fixed;
+        width: 170px;
+        top:105px;
+    }    
+    
+    body #iconsmain table td{
+        display: block;
+    }
+    
+    body #iconsmain > table:first-of-type td:last-of-type{
+        margin-top:20px;
+    }
+    
+    body #iconsmain > div{
+        width:180px
+    }
+    
+    body #iconsmain > div:not(:first-of-type){
+        background-color:blue;
+    }
+    
+    
+    body #iconsmain > div:nth-child(2){
+        position: fixed;
+        width: 160px;
+        top:305px;
+        background-color:red;
+    }
+    
+    body #iconsmain > div:nth-child(3){
+        position: fixed;
+        width: 180px;
+        top:505px;
+        padding:10px;
+        background-color:green;
+    }    
+    
+    body #iconsmain > div > table{
+        100%;
+    }
+    
+    #iconsmain input{width:auto!important}
+    
+*/
+    body .iconlist,
+    body .iconcell{
+        background-color:transparent;
+        display:flex;
+        flex-wrap:wrap;
+        height:100%!important;
+        max-height:100%!important;
+        border:none;
+    }
+
+    body #iconsmain .btn-danger{
+        float:right;
+        margin-top:20px;
+        position: relative;
+        top: 205px;
+    }
+    
+    body #iconsmain table{
+        width:230px;
+    }
+    
+    body #iconsmain > div:not(.row){
+        width:230px;
+        margin-top:20px;
+    }    
+    
+    body #iconsmain table td{
+        display: block;
+        text-align:left;
+    }
+    
+    /*
+    body #iconsmain > div.row > table td:not(:last-of-type) button{
+        float:right;
+    }*/
+    
+
+    body #iconsmain > div.row{
+        width:calc(100% - 250px);
+        float:right;
+        overflow:auto;
+        max-height: 80%;
+        height: calc(100% - 120px);
+    }
+    
+    #iconsmain input{width:100%!important;margin-bottom:15px;}
+    
+    #iconsmain label,
+    #iconsmain label span{text-align:left;}    
+    
+    
+    
+    /* Fixtes the settings tabs at the top of the screen. */
+    #settingscontent .sub-tabs{
+        position: fixed;
+        width: calc(100% - 120px);
+        background-color: #031935;
+        padding-top: 21px;
+        top: 0;
+        left: 87px;
+        z-index: 4;
+        box-shadow: 0 5px 10px 0 #031935;
+    }
+    
+    #settingscontent{margin-top:70px;}
+    
+}

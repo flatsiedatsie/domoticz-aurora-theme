@@ -1,0 +1,27 @@
+#lastupdate {
+     display: none;
+}
+
+body #type,
+body .type {
+    text-indent: 15px;
+}
+
+body:not(#onMobile):not(.dashboard) #type .typedata, 
+body:not(#onMobile):not(.dashboard) #type .idnumber,
+body:not(#onMobile):not(.dashboard) .type .typedata, 
+body:not(#onMobile):not(.dashboard) .type .idnumber{
+    text-indent: 0;
+    margin-left:15px;
+}
+
+body:not(#onMobile):not(.dashboard) div.item.statusTimeout #type,
+body:not(#onMobile):not(.dashboard) div.item #type,
+body:not(#onMobile):not(.dashboard) div.item .type{
+    text-indent: 0;
+}
+
+
+.btnsmall[data-i18n="Log"] {
+    display: none!important;
+}

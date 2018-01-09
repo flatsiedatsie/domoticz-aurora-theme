@@ -1,0 +1,852 @@
+
+
+
+
+/*  BODY  */
+html body#onMobile{
+    background-color:#fff!important;
+    color:#333;
+    padding:0;
+    width:100%;
+    overflow-x:hidden;
+}
+
+body#onMobile #holder {background-color: #fff}
+
+/*
+html body#onMobile:not(.dashboard){
+    background-color:#ddd!important;
+    color:#333;
+    padding:0;
+}
+*/
+
+
+body#onMobile .row-fluid [class^="span"]{
+    background-color:transparent;
+}
+
+
+/*  NAVBAR  */
+
+body#onMobile .navbar{
+    box-shadow: none;
+}
+
+
+body#onMobile .navbar .nav .current_page_item > a, 
+body#onMobile .navbar .nav .current_page_item > a:hover{
+    color:#000!important;
+}
+
+
+
+
+@media all and (max-width: 479px) {
+    
+
+    html body#onMobile .navbar,
+    html body#onMobile .navbar .navbar-inner,
+    html body#onMobile .navbar .navbar-inner .container,
+    html body#onMobile .navbar .navbar-inner .container #appnavbar{margin:0;width:100%}
+    html body#onMobile .navbar .navbar-inner{padding: 10px 10px 0 10px}
+    
+    html body#onMobile .navbar-inner .container #appnavbar{
+        float:none;
+        display:flex;
+        /*max-height:40px;*/
+        width:100%;
+    }
+    html body#onMobile .navbar-inner .container #appnavbar li{
+        flex-grow: 1;
+    }
+    
+
+
+    html body#onMobile .navbar{
+        position: fixed;
+        height: 50px;
+    }
+    html body#onMobile #holder{
+        margin-top:60px;
+    }
+    
+    html body#onMobile .navbar .nav li a{background-color:transparent;}
+    
+}
+@media all and (min-width: 480px) {
+    
+    #copyright{display:none!important}
+    body#onMobile .navbar{ background-color: #eee;}
+    
+}
+
+
+
+
+body#onMobile .navbar .current_page_item{
+    background-color:transparent
+}
+body#onMobile .navbar .current_page_item img{
+    -webkit-filter: hue-rotate(122deg);
+    filter: hue-rotate(122deg);
+    -webkit-filter: saturate(2);
+    filter: saturate(2);
+    -webkit-filter: contrast(1.75);
+    filter: contrast(1.75);
+}
+
+
+
+/*  PREBANNAV  */
+
+body#onMobile #bannav{text-align: center}
+
+html body#onMobile #timesun{display:none}
+html body#onMobile .beforebannav,
+html body#onMobile .prebannav{font-size:0;color:white}
+
+
+
+body#onMobile table.bannav td,
+body#onMobile table#bannav td{text-align: left;}
+
+/*
+body#onMobile #temptophtm td:last-of-type select{
+    width:90%!important;
+    margin-right: 5%;
+}*/
+
+
+
+
+/*  ITEMS (&prebannav) */
+
+body#onMobile.dashboard #dashcontent div[class^="span"]{
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+@media all and (max-width: 479px) {
+    
+    span[data-i18n="Room"]{display:none}
+    
+    html body#onMobile #comboroom{
+        font-size:1.4rem;
+        text-align:center;
+        width:calc(100% - 40px)!important;
+        border-radius: 5px;
+        background-color:#69b3d8;
+        margin-left:20px;
+        margin-right:20px;
+    }
+    
+    html body#onMobile.dashboard #comboroom{margin-top:10px;}
+    
+    /*body#onMobile .bannav{padding:0 20px 0 20px}*/
+    
+    body#onMobile table.beforebannav,
+    body#onMobile table.prebannav,
+    body#onMobile table.bannav,
+    body#onMobile table#bannav{
+        width:100%;
+        padding:10px 20px 0 20px
+        /*text-align: center;*/
+    }
+    
+    body#onMobile table.prebannav a,
+    body#onMobile table.bannav a,
+    body#onMobile table#bannav a{
+        width:100%;
+        text-align:center;
+    }
+
+    body#onMobile:not(.temperature) table.prebannav td:nth-child(2),
+    body#onMobile:not(.temperature) table.bannav td:nth-child(2),
+    body#onMobile:not(.temperature) table#bannav td:nth-child(2){
+        padding-left:10px;
+    }
+    
+}
+@media all and (min-width: 480px) {
+    html body#onMobile #comboroom{
+        font-size:1.4rem;
+        text-align:center;
+        width:150px;
+        margin-right:1%;
+        border-radius: 5px;
+        background-color:#69b3d8;
+    }
+    
+    body#onMobile.dashboard #dashcontent div[class^="span"]{
+        border-bottom: 1px solid #ccc;
+    }
+    
+}
+
+
+body#onMobile table > tbody > tr{
+    background-color:#fff!important;
+    color:#333;
+    /*box-shadow: 2px 10px 18px 0px rgba(50, 50, 50, 0.05);*/
+    box-shadow: none;
+}
+
+body#onMobile table.dataTable tr{
+    border-bottom:1px solid #eee;
+}
+
+
+body#onMobile.dashboard #dashcontent div.item{margin-bottom:0}
+
+
+body#onMobile:not(.dashboard) div.item{border-bottom:1px solid white;border-top:1px solid #ccc;}
+
+
+body#onMobile:not(.dashboard) div[class^="span"]{
+    border-top:1px solid #999;
+    padding-right:20px;
+}
+
+body#onMobile:not(.dashboard) .span3 table > tbody> tr > td:last-of-type, /* these 'last-of-type'things should be removed after the theme becomes the new default. They were a hack to target the options td. */
+body#onMobile:not(.dashboard) .span4 table > tbody> tr > td:last-of-type{background-color:transparent}
+
+body#onMobile #dashcontent h2 + div.divider .span4:nth-child(-n+3) tr,
+body#onMobile .ui-draggable:not(.ui-dialog) tr{
+    background-image:none!important;
+    background: #fff!important;   
+    box-shadow: none;
+}
+
+@media all and (min-width: 480px) {
+    body#onMobile #dashcontent h2 + div.divider .span4:nth-child(-n+3) tr,
+    body#onMobile .ui-draggable:not(.ui-dialog) tr{
+        box-shadow: 2px 10px 18px 0px rgba(50, 50, 50, 0.05);
+    }
+}
+
+
+
+/* CONTAINERS  */
+
+body#onMobile .mobileitem th{
+    text-align: center;
+    background: #fff !important;
+    font-size: 1.1rem;
+}
+
+body#onMobile .mobileitem th img{display: none}
+
+body#onMobile.dashMobile #dashcontent{padding:0;}
+
+body#onMobile .mobileitem td#name{padding-left:15px;}
+body#onMobile .mobileitem td#status{padding-right:15px;}
+
+/*   CONTENT  */
+
+body#onMobile .dashCategory > h2{
+    color: #111 !important;
+    font-size: 1rem;
+    font-weight: bold;
+    -webkit-text-size-adjust: none;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    padding: 20px 20px 20px 20px;
+    text-transform: capitalize;
+    text-align: center;
+    opacity: 1;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid #ddd;
+}
+
+body#onMobile  .item tr > td,
+body#onMobile  .item tr > td > span{
+    color:#000;
+}
+
+@media all and (max-width: 479px) {
+    body#onMobile #dashcontent .item tr > td{
+        /*padding-left:20px;
+        padding-right:20px;*/
+    }
+}
+
+
+body#onMobile:not(.dashboard) .item .lcursor{
+    left: 10px;
+    top: -30px;
+}
+
+/*
+body#onMobile:not(.dashboard) .item #bigtext,
+body#onMobile:not(.dashboard) .item .bigtext{padding-right:10px}
+*/
+#onMobile.dashboard #dashSwitches .bigtext{font-size:0}
+
+body#onMobile.dashboard .item:not(.statusTimeout) .bigtext > span {background-color:white;padding-left:3px}
+
+/*
+body#onMobile:not(.dashboard) .item #img img,
+body#onMobile:not(.dashboard) .item .img img{margin-right:10px}
+*/
+
+body#onMobile.dashboard #dashcontent .item tr > #name{
+    padding-top:21px;
+}
+
+body#onMobile #dashcontent .withstatus #name,
+body#onMobile div.item.statusNormal td#name,
+body#onMobile #dashcontent .item tr > #name,
+body#onMobile #dashcontent .item tr > .name{
+    color:#333!important;
+    text-transform: capitalize;
+    box-shadow: none;
+    background-color:transparent;
+}
+body#onMobile .item tr{
+    background:none;
+}
+
+body#onMobile.dashboard .withstatus #img, 
+body#onMobile.dashboard .withstatus .img{
+    top: -48px;
+}
+body#onMobile.dashboard .withstatus #img img, 
+body#onMobile.dashboard .withstatus .img img{
+    width:40px;
+    height:40px;
+}
+
+body#onMobile:not(.dashboard) .item table tr > td#name,
+body#onMobile:not(.dashboard) .item table tr > td.name{
+    text-transform: capitalize;
+    box-shadow: none;
+}
+body#onMobile table#itemtable tbody tr{
+    border-radius: 0;
+}
+
+body#onMobile:not(.dashboard) .item.statusProtected table tr > td#name,
+body#onMobile:not(.dashboard) .item.statusProtected table tr > td.name{
+    color:#333!important;
+    background-color:#d9d9d9;    
+}
+body#onMobile:not(.dashboard) .item.statusNormal table tr > td#name,
+body#onMobile:not(.dashboard) .item.statusNormal table tr > td.name{
+    color:#333!important;
+    background-color:#f7f7f7;
+}
+
+body#onMobile.dashboard .span4 #bigtext, 
+body#onMobile.dashboard .span4 .bigtext{
+    top: -33px;
+}
+body#onMobile.dashboard .span4 .withstatus #bigtext, 
+body#onMobile.dashboard .span4 .withstatus .bigtext{
+    right: 55px;
+}
+
+body#onMobile .item.statusTimeout tr > td#bigtext, 
+body#onMobile .item.statusTimeout tr > td.bigtext,
+body#onMobile .item.statusTimeout tr > td#bigtext span, 
+body#onMobile .item.statusTimeout tr > td.bigtext span,
+body#onMobile .item.statusTimeout tr > td#name, 
+body#onMobile .item.statusTimeout tr > td.name,
+body#onMobile .item.statusTimeout tr > td#name span, 
+body#onMobile .item.statusTimeout tr > td.name span{
+    color:#fff;
+}
+
+
+body#onMobile .item.statusTimeout table tr > td#name, 
+body#onMobile .item.statusTimeout table tr > td.name,
+body#onMobile .item.statusTimeout table tr > td#name span, 
+body#onMobile .item.statusTimeout table tr > td.name span{
+    color:white!important;
+    background-color: #DF2D3A!important;
+}
+
+
+
+body#onMobile #dashcontent #lastupdate,
+body#onMobile #dashcontent .lastupdate{
+    display:none!important;
+}
+
+body#onMobile:not(.dashboard) #lastupdate,
+body#onMobile:not(.dashboard) .lastupdate{
+    width:100%;
+    z-index: 5
+}
+
+body#onMobile:not(.dashboard) #lastupdate > span,
+body#onMobile:not(.dashboard) .lastupdate > span{
+    /*display: block;
+    width: 90%;
+    padding: 2px 0;
+    font-size:0.9rem;
+    z-index:3;*/
+    border-bottom: 1px solid #eee;
+}
+
+
+body#onMobile #dashcontent .item.withstatus .status .wrapper{
+    padding-bottom: 10px;
+}
+
+body#onMobile:not(.dashboard) #status,
+body#onMobile:not(.dashboard) .status{
+    /*line-height:1.2rem;*/
+}
+
+body#onMobile:not(.dashboard) #status > span,
+body#onMobile:not(.dashboard) .status > span{
+    /*font-size:0.9rem;
+    padding-top:4px;*/
+}
+
+body#onMobile:not(.weather):not(.temperature) .item.withstatus #status > .wrapper > span, 
+body#onMobile:not(.weather):not(.temperature) .item.withstatus .status > .wrapper > span{
+    padding-left:20px;
+}
+
+body#onMobile #dashcontent .item.withstatus #status > .wrapper > span, 
+body#onMobile #dashcontent .item.withstatus .status > .wrapper > span{
+    box-shadow: inset 0 1px 0 0 rgba(100, 100, 100, 0.1);
+}
+
+
+body#onMobile .divider .span3 table > tbody > tr > td:last-of-type:not(.selectors), 
+body#onMobile .divider .span4 table > tbody > tr > td:last-of-type:not(.selectors){
+    background-color: #ccc;
+}
+body#onMobile div.item .options{
+    background-image: none;
+    background-color: white;
+}
+
+/*
+body#onMobile:not(.dashboard) div.item .options{position: relative;top:-3px}
+*/
+
+body#onMobile.dashboard .item .options{
+    padding: 0 20px 10px 20px !important;
+    background: none;
+    background-image:none;
+}
+
+body#onMobile .options a.btnsmall::before{
+    background-color: #69b3d8;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+body#onMobile .options a.btnsmall-sel::before{
+    background-color: #af2aaf;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/*
+body#onMobile:not(.dashboard) #type,
+body#onMobile:not(.dashboard) .type{
+    padding-left:15px;
+}
+*/
+
+body#onMobile:not(.dashboard) #type .typedata, 
+body#onMobile:not(.dashboard) #type .idnumber, 
+body#onMobile:not(.dashboard) .type .typedata, 
+body#onMobile:not(.dashboard) .type .idnumber, 
+body#onMobile:not(.dashboard) div.item.statusTimeout #type, 
+body#onMobile:not(.dashboard) div.item #type, 
+body#onMobile:not(.dashboard) div.item .type {
+    text-indent: 0;
+    color:transparent;
+}
+body#onMobile:not(.dashboard) div.item #type span, 
+body#onMobile:not(.dashboard) div.item .type span{color:transparent}
+
+
+
+body#onMobile:not(.dashboard) #type,
+body#onMobile:not(.dashboard) .type{
+    /*font-size:.9rem;
+    color:#fff!important;
+    text-indent: 0;*/
+}
+
+/*
+body#onMobile:not(.dashboard) #img2 {
+    right: 47px;
+}*/
+
+body#onMobile div.item.statusTimeout td#lastupdate > span::before, 
+body#onMobile div.item.statusTimeout td.lastupdate > span::before{
+    width: 16px;
+    height: 16px;
+}
+
+
+
+/*  SLIDERS AND BUTTONS */
+
+body#onMobile td.selectors{
+    padding: 0 15px 15px 15px;
+}
+
+body#onMobile #dashcontent div[class^="span"] td > div.dimslider{
+    width: calc(100% - 40px);
+    
+}
+
+body#onMobile .span4 #type > .dimslider{
+    height:10px;
+    margin-top: 10px !important;
+    border-left:0px;
+    border-right:0px;
+    border-radius: 5px!important;
+}
+body#onMobile.dashboard div[class^="span"] td > div.dimslider{
+    height:10px;
+    margin-top: 5px !important;
+    margin-bottom:5px!important;
+    border-left:0px;
+    border-right:0px;
+    border-radius: 5px!important;
+}
+body#onMobile:not(.dashboard) .span4 #type > .dimslider{
+    height:10px;
+    margin-top: 0px !important;
+    border-left:0px;
+    border-right:0px;
+    border-radius: 5px!important;
+}
+
+body#onMobile .span4 #type > .dimslider .ui-slider-handle,
+body#onMobile div[class^="span"] td > div.dimslider .ui-slider-handle{
+    background-size: 30px 30px;
+}
+
+body#onMobile div[class^="span"] .dimslider .ui-slider-handle{
+    top:-16px
+}
+
+
+
+body#onMobile .item .btn-group button{
+    border: 1px solid #69b3d8;;
+    border-radius:0;
+}
+body#onMobile.dashmobile .btn-group{
+    min-width: 200px;
+    display: flex;
+}
+body#onMobile.dashmobile .btn-group button{
+    flex-grow: 1;
+}
+
+
+body#onMobile dztemperaturewidget a.btnsmall::before,
+body#onMobile dzweatherwidget a.btnsmall::before,
+body#onMobile a.btnsstyle,
+body#onMobile a.btnsstyle-rev,
+body#onMobile .item .btn-group .btn-info{
+    background-image:none;
+    background-color:#69b3d8;
+}
+body#onMobile .item .btn-group .btn-default{
+    background-image:none;
+    background-color:transparent;
+    color: #69b3d8;
+}
+
+
+body#onMobile .selectorlevels .ui-selectmenu-button{border:none;}
+
+body#onMobile .selectorlevels .ui-selectmenu-button span.ui-selectmenu-text{
+    background-color:#69b3d8;
+}
+
+/*  IMAGES  */
+
+body#onMobile .navbar #appnavbar > li:not(.current_page_item) > a > img,
+body#onMobile div.item img{
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1); 
+}
+
+
+
+body#onMobile div.item.on:not(.webcam) img{
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(.5) /*saturate(3) hue-rotate(0deg)*/;
+    filter: grayscale(.5) /*saturate(3) hue-rotate(0deg);*/
+}
+body#onMobile div.item.on:not(.webcam) .img{
+    background-color: green;
+    border-radius:50%
+}
+
+/*
+body#onMobile:not(.dashboard) #img2,
+body#onMobile:not(.dashboard) .img2{right:50px}
+
+body#onMobile:not(.dashboard) #img3,
+body#onMobile:not(.dashboard) .img3{right:80px}
+*/
+
+body#onMobile.dashboard .withstatus .img{
+    margin-right:20px;
+}
+
+body#onMobile #dashcontent .withstatus #img,
+body#onMobile #dashcontent .withstatus .img{
+    width: auto
+}
+
+
+
+/*   VIDEO  */
+
+body#onMobile .camera tr{min-height:150px}
+
+body#onMobile button.playpause::before{
+    border-color: transparent transparent transparent #00000080;
+}
+
+body#onMobile .camera #bigtext{font-size:0}
+
+
+/*  ITEM FOOTER  */
+
+body#onMobile .itemfooter{display:none}
+
+
+/*  SETTINGS  */
+
+@media all and (max-width: 479px) {
+    body#onMobile #settingscontent td{
+        width:100%;
+        text-align: left!important;
+        padding-left:0;
+    }
+}
+/*  slide down menu  */
+
+body#onMobile #settingscontent .sub-tabs li:not(.pull-right){
+    margin:0;
+    margin-left:-1px;
+    margin-top:-1px;
+}
+
+body#onMobile #settingscontent .sub-tabs li:not(.pull-right) a{
+    border-radius:0;
+    border: 1px solid #69b3d8;
+    margin: 0;
+}
+
+/*
+body#onMobile #settingscontent .sub-tabs li:first-of-type a{
+    border-left: 1px solid #69b3d8;
+}*/
+
+/*
+@media all and (min-height: 600px) {
+    
+    body#onMobile #settingscontent .sub-tabs li:not(.pull-right){margin-bottom:-1px}
+    body#onMobile #settingscontent .sub-tabs li:not(.pull-right) a{
+        margin-bottom:0px
+    }
+}
+*/
+
+body#onMobile #settingscontent .sub-tabs li:not(.active):not(.pull-right) a{
+    background:transparent;
+}
+
+body#onMobile #settingscontent .sub-tabs li.pull-right a{
+    background:transparent;
+    border: 1px solid #69b3d8!important;   
+    color: #69b3d8!important;  
+}
+
+
+@media all and (max-width: 479px) {
+    
+    body#onMobile.setup #holder .container-fluid{margin-top:0}
+    
+    body#onMobile #tabs li:not(.pull-right){
+        clear:left;
+        width: calc(100% - 170px);
+        position:relative
+    }
+    /*
+    body#onMobile #tabs li:not(.pull-right) a{
+        clear:left;
+        width: calc(100% - 150px)
+    }*/
+    
+    body#onMobile #tabs li.active a{
+       padding-right: 20px;
+    }
+    
+    body#onMobile #tabs:not(.menuopen) li.active a:after {
+        content: '';
+    position: absolute;
+    right: 10px;
+    top: 15px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #fff;
+        clear: both;
+        overflow: visible;
+    }
+    
+    
+    body#onMobile #tabs li a:not(.pull-right){display:block}
+    
+    body#onMobile #tabs li:not(.active):not(.pull-right){display:none;float:none}
+    
+}
+
+@media all and (max-width: 769px) {
+    body#onMobile #settingscontent .sub-tabs{
+        padding: 5px 20px;
+        background-color:#f9f9f9;
+    }
+    
+    #onMobile.dashboard #dashcontent div.item{margin-bottom:0}
+
+    #onMobile.dashboard #dashcontent div[class^="span"],
+    #onMobile.dashboard #dashcontent div.item{margin-bottom:2px}
+    
+}
+
+
+body#onMobile label {white-space: normal}
+
+body#onMobile .row-fluid [class^="span"]{
+    background-color:#fff;
+    color:#333;
+    box-shadow: 2px 10px 18px 0px rgba(50, 50, 50, 0.05);
+}
+
+body#onMobile h1,
+body#onMobile .row-fluid [class^="span"] h2{
+    color: #111 !important;
+    font-weight: bold;
+    -webkit-text-size-adjust: none;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    padding: 10px 20px 20px 20px;
+    text-transform: capitalize;
+    text-align: center;
+    opacity: 1;
+}
+body#onMobile section h1{font-size: 1.5rem}
+body#onMobile .row-fluid [class^="span"] h2{font-size: 1rem}
+
+
+
+/*  other messy domoticz parts.. */
+
+/* hacking around all the parts that don't follow span convention*/
+body#onMobile div.ui-popup,
+body#onMobile #protectiontable, 
+body#onMobile #loghistory table, 
+body#onMobile #notifications>table, 
+body#onMobile #metercounters table, 
+body#onMobile #othersettings table, 
+body#onMobile #floorplans table, 
+body#onMobile #settingscontent #ActiveTabs,
+body#onMobile #emailtable,
+body#onMobile #hardwarecontent > div:not(.page-header-small):not(.bannav):not(#bannav), 
+body#onMobile #hardwarecontent > table:not(.page-header-small):not(.bannav):not(#bannav),
+body#onMobile #hardwarecontent #ipnodeparamstable,
+body#onMobile body#onMobile #nodeparamstable,
+body#onMobile #utilitycontent #notificationparamstable,
+body#onMobile #plancontent #activeparamstable,
+body#onMobile #usercontent #userparamstable, 
+body#onMobile #cameracontent #activeparamstable, 
+body#onMobile #hardwarecontent #hardwareparamstable, 
+body#onMobile #lightcontent #paramstable:not(:nth-of-type(1)):not(:nth-of-type(2)), 
+body#onMobile #scenecontent #paramstable:not(:nth-of-type(1)):not(:nth-of-type(2)), 
+body#onMobile #weathercontent #notificationparamstable,
+body#onMobile #lightcontent #timerparamstable, 
+body#onMobile #tempnotifications #notificationparamstable, 
+body#onMobile #lightcontent #notificationparamstable, 
+body#onMobile #scenecontent #timerparamstable,
+body#onMobile #notificationtable:not(.dataTable),
+body#onMobile #notifications>table, 
+body#onMobile #paramstable,
+body#onMobile #fibaromain #uservariablesedittable,
+body#onMobile #customlog, 
+body#onMobile #timerparamstable,
+body#onMobile #linkparamstable, 
+body#onMobile #influxremote,
+body#onMobile #linkhttpparamstable, 
+body#onMobile #httpremote,
+body#onMobile #linkgooglepubsubparamstable, 
+body#onMobile #googlepubsubremote,
+body#onMobile #fibaromain #linkparamstable, 
+body#onMobile #fibaromain #fibaroremote,
+body#onMobile #userparamstable,
+body#onMobile #activeparamstable, 
+body#onMobile #lightcontent paramstable, 
+body#onMobile #scenecontent #paramstable, 
+body#onMobile #notificationparamstable, 
+body#onMobile #hardwareparamstable
+{
+    background-color: #fff!important;
+    color:#000!important;
+    border-color: transparent!important;
+    box-shadow: 2px 10px 18px 0px rgba(50, 50, 50, 0.05);
+}
+
+
+
+/*
+#main-view > .container > div:not(.dataTables_wrapper)
+body#onMobile table.display td{
+    background-color:red!important;
+    border:13px solid purple!important
+    display: block!important;
+    width:100%!important;        
+}*/
+
+body#onMobile .dataTables_wrapper{
+    overflow-x:scroll;
+    width:100%;
+    display:block;
+}
+
+@media all and (max-width: 639px) {
+    
+    body#onMobile .dataTables_length,
+    body#onMobile .dataTables_filter{
+        width:100%;
+        display:block;
+    }
+    
+    body#onMobile #main-view > .container > table.display{
+        margin-left:20px
+    }
+    body#onMobile #main-view > .container > table.display td{
+        display: block!important;
+        width: calc(100% - 40px)!important;
+        /*background-color:#ff99ff!important;*/
+        /*border:1px solid purple!important;*/
+        text-align:left!important;
+        
+    }
+    
+    body#onMobile #main-view > .container > table.display td {
+        /*width:100%!important*/
+    }
+    
+    
+}
+    

@@ -1,0 +1,55 @@
+/*  this allows items to use even more of the space on the screen.  */
+
+
+body:not(.settings) #main-view > .container {
+    width: 100%!important;
+}
+
+body .span3,
+body .span4{
+    margin-bottom:1em; 
+    flex-grow: 1;
+}
+
+body:not(.settings) .span3{
+    width: 220px;
+    min-width:150px;
+}
+
+body:not(.settings) .span4{
+    width: 320px;
+    min-width:250px;
+}
+
+#dashcontent{
+    width:100%;
+}
+
+/*@media all and (min-width: 601px) and (max-width: 1000px)*/
+
+@media all and (min-width: 601px) and (max-width: 767px){
+    body:not(.settings) .span4,
+    body:not(.settings) .span3{margin:0 10px}
+}
+
+@media all and (min-width: 768px) and (max-width: 1100px){
+     /*body:not(.settings) .span4{max-width:calc(50%);}    
+    body:not(.settings) .span3{max-width:calc(33.33%);}*/
+    body:not(.settings) .span4{max-width:calc(50% - 20px);}    
+    body:not(.settings) .span3{max-width:calc(33.33% - 16px);}    
+}
+
+@media all and (min-width: 1101px) and (max-width: 1500px){
+    body:not(.settings) .span4{max-width:calc(33.33% - 16px);}
+    body:not(.settings) .span3{max-width:calc(25% - 20px);}    
+    /*body:not(.settings) .span4{max-width:33.33%;}
+    body:not(.settings) .span3{max-width:25%;}*/
+}
+
+@media all and (min-width: 1501px){
+    /*body.dashboard .span4:last-of-type{max-width:400px;padding-right:20px}    
+    body.dashboard .span4:last-of-type{max-width:700px;padding-right:20px}*/
+    body:not(.settings) .span4,
+    body:not(.settings) .span3{max-width:calc(25% - 16px);}     
+}
+
