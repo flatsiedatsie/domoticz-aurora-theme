@@ -14,9 +14,26 @@ html {
     background-image:none; 
 }
 
-body{
+html body{
+    background: #11213d;
     border:1px solid transparent; /* weird hack. But it works.*/
     /*fill: currentColor; tried to get SVG to play along */
+}
+
+#holder{
+    position: inherit;
+    min-height:100vh;
+}
+
+@media all and (min-width: 768px){
+    /*html,body{height:calc(100% - 30px)!important;}*/
+    /*#holder{min-height:calc(100% - 30px)!important;}*/
+    #holder .container-fluid{
+        padding-bottom:0;
+        margin-top:0;
+        padding-top:10px;
+        height:100%;
+    }
 }
 
 /* settings/hardware background color*/
@@ -72,6 +89,8 @@ div.ui-popup,
     background-color:#eee;
 }
 
+body.dashboard .beforebannav{padding: 0 10px}
+
 #beforebannav,
 #timesun{
     color:#ddd;
@@ -118,7 +137,11 @@ body:not(#onMobile) .span4{ /*  this removes the colour that was set by custom.c
 /* titles */
 
 h1,h2,h3{opacity:.7;font-weight: normal}
-h1#backendpagetitle{text-transform: capitalize;text-align: center}
+h1#backendpagetitle{
+    text-transform: capitalize;
+    text-align: center;
+    display: none;
+}
 
 .row-fluid h1,
 .row-fluid h2,
@@ -305,7 +328,7 @@ body:not(.dashboard) .selectorlevels .ui-buttonset .ui-button{border-radius:3px!
 }
 
 .ui-corner-bottom, .ui-corner-br, .ui-corner-all:not(.dimslider), .ui-corner-top, .ui-corner-right, .ui-corner-left, .ui-corner-tr{
-    border-radius:0!important;
+    /*border-radius:0!important;*/
 }
 
 /* PRAGMATIC -  temporarily disabled to make everything look similar
@@ -375,10 +398,40 @@ body.dashboard .item .btn-group{margin:0!important}
 }
 
 
+
+
+
+/*  login page  */
+
+#offline,
+#login{
+    height:300px;
+    min-height:300px;
+    /*position: initial!important;*/
+    margin:0!important;
+    transform: translate(-50%, -50%);
+}
+
+#login #submit{margin-top:10px;}
+
+
+#login::before, #login::after,
+#offline h3::after, #offline h3::before,
+#login h1::after, #login h1::before{display: none;}
+
+/*  offline page  */
+
+/*
+#offline{
+    height:auto;
+    margin: -200px 0 0 -150px;
+}
+*/
+
 /*  settings specific */
 
 .relatedIcon{
-vertical-align: text-bottom;
+    vertical-align: text-bottom;
 }
 
 #dashcontent h2{
@@ -672,7 +725,10 @@ body:not(.dashboard) div.item .options {
     #rain #name span{color:#fff;}
     
     #dashcontent .item.withstatus #status .wrapper,    
-    #dashcontent .item.withstatus .status .wrapper{display: flex;height:auto;}
+    #dashcontent .item.withstatus .status .wrapper{
+        display: flex;
+        height:auto;
+    }
 
 }
 
@@ -719,10 +775,6 @@ body:not(.dashboard) div.item .options {
 
     /*  footer  */
 
-    /*html,body{height:calc(100% - 30px)!important;}*/
-    /*#holder{min-height:calc(100% - 30px)!important;}*/
-    #holder .container-fluid{padding-bottom:0;margin-top:0;padding-top:10px}
-
     #copyright{
         background-color: rgba(0,0,0,.1)
     }
@@ -750,14 +802,7 @@ body:not(.dashboard) div.item .options {
 
 }
 
-#offline{
-    height:auto;
-    margin: -200px 0 0 -150px;
-}
-#offline h3::after{
-    content:"";
-    background-color: transparent;
-}
+
 
 
 

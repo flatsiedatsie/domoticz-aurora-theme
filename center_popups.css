@@ -1,79 +1,28 @@
 /* forced popups to be centered on the screen. */
 
+#dialog-camera-live,
 .ui-dialog,
 .ui-popup{
     height:auto!important;
     width:auto!important;    
     position:fixed!important;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
-
-/*  height  */
-@media all and (max-height: 480px){
-
-    .ui-dialog,
-    .ui-popup{
-        top: 5%!important;
-        top:calc(50% - 100px)!important;
-        left:30%!important;
-        left:calc(50% - 150px)!important; 
-    }
-}
-@media all and (min-height: 481px) and (max-height: 720px){
-
-    .ui-dialog,
-    .ui-popup{
-        top: 20%!important;
-        top:calc(50% - 200px)!important;
-    }
-}
-
-@media all and (min-height: 721px){
-
-    .ui-dialog,
-    .ui-popup{
-        top: 30%!important;
-        top:calc(50% - 300px)!important;
-    }
-}
-
-/*  width  */
-@media all and (max-width: 481px){
-
-    .ui-dialog,
-    .ui-popup{
-        left:10%!important;
-        left:calc(50% - 150px)!important; 
-    }
-}
-
-@media all and (min-width: 481px)  and (max-width: 800px){
-
-    .ui-dialog,
-    .ui-popup{
-        left:20%!important;
-        left:calc(50% - 220px)!important; 
-    }
-}
-@media all and (min-width: 801px){
-
-    .ui-dialog,
-    .ui-popup{
-        left:30%!important;
-        left:calc(50% - 300px)!important; 
-    }
-}
-
-
-
+#dialog-lmsplayer-remote,
 #dialog-heosplayer-remote,
 #dialog-media-remote{
-    /*height:100%!important;
-    width:80%!important;*/
-    z-index:300;
     margin: 0 auto;
-    min-height:400px;
+    min-height:300px;
     min-width:200px;
+    height: 50vh;
+    position:fixed!important;
+    top:50%!important;
+    left:50%!important;
+    transform: translate(-50%, -50%)!important;
+    background: #000;
 }
 
 .MediaRemote{

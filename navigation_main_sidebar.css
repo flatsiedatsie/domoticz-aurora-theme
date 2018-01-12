@@ -89,6 +89,7 @@
         left: 52px;
         /*width: calc(100% - 76px);
         left: 54px;*/
+        position: relative;
         }
 
     .navbar{

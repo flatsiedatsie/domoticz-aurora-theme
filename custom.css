@@ -110,7 +110,9 @@ html body{background:none;padding:0}
 html,
 html body{background-attachment: fixed;background-size: cover}
 
-#main-view{padding-top:0px}
+.bannercontent{height:100%}
+
+#main-view{padding-top:0px;height:100%;}
 
 
 #holder .container-fluid {
@@ -170,7 +172,7 @@ textarea{width:100%}
 input{margin-right:3px}
 
 #status span:empty,
-.status span:empty{display:none}
+.status span:empty{display:none!important}
 
 body:not(#onMobile) .span3,
 body:not(#onMobile) .span4{ /*  this is overridden later. It helps if there is a javascript error, then you can still see the content. */
@@ -1914,7 +1916,6 @@ body.dashboard div.item.SelectorSwitch #bigtext{display:none}
     border-color: #999;
     color: #333;
     margin-left:0!important;
-    background-color: whitesmoke;
 }
 /*
 .ui-widget-content td{display:table-cell;}
@@ -3048,3 +3049,8 @@ body #iconsmain table{
 @media only screen and (min-width: 600px){
     #blocklyimportexportbuttons{display: block}
 }
+
+
+
+/*  finally, load the theme.js file. IN the future it might be fun to load different sub-theme files via JS. But for now let's load it. This way the theme still looks good if javascript fails. */
+@import url("theme.css");

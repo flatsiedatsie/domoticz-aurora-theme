@@ -75,7 +75,7 @@ var baseURL = protocol + '//' + host + folder;
 console.log("base URL = " + baseURL);
 var theme = {}; // object that holds all the theme settings
 var bands = {}; // object that holds all the items to be merged
-var currentPage = "dashboard";
+var currentPage = "Login";
 var frontend = true;
 var onMobile = false;
 var themeMachineName = "";
@@ -105,9 +105,7 @@ function areWeOnMobile(){
         $('body').attr('id','onMobile');
         onMobile = true;
     } else {
-        console.log("THEHE JS - is mobile view also on the desktop? " + theme.features.mobile_on_non_mobile.enabled)
-        if (typeof theme.features.mobile_on_non_mobile.enabled !== "undefined"){
-        
+        if (typeof theme.name !== "undefined"){
             if (theme.features.mobile_phoney.enabled == true && theme.features.mobile_on_non_mobile.enabled == true) {
                 console.log("THEME JS - setting mobile tag on non-mobile device")
                 //document.body.setAttribute("id", "onMobile");
@@ -139,8 +137,11 @@ function themeLoadObject(){
                     theme = themex; // set global object
                     console.log("THEME JS - Theme name = " + theme.name);
                     themeMachineName = machineName(theme.name);
-                    localStorage.setObject("themeObject", theme);
-                    checkIfDomoticzHasThemeSettings(); // if there were no local settings, perhaps Domoticz also has no settings.
+                    if (isEmptyObject(theme) == false){
+                        localStorage.setObject("themeObject", theme);
+                    }
+                    console.log("+++ theme settings check, and current page is " + currentPage);
+                    checkIfDomoticzHasThemeSettings(); // if there were no local settings, perhaps Domoticz also has no settings. Let's make sure.
                 }, function(xhr) { console.error(xhr); }
             );
             
@@ -176,10 +177,8 @@ function themeLoadObject(){
         console.log("-----------");
         /*HideNotify();
         bootbox.alert($.t('This browser cannot really run this theme because it does not support "local storage".'));*/
-        $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - your browser does not support local storage.');
-                      
+        $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - your browser does not support local storage, so cannot save preferences.');
     }
-    
 }
 
 
@@ -194,6 +193,7 @@ function checkIfDomoticzHasThemeSettings()
         success: function (data) {
             if (data.status == "ERROR") {
                 console.log("server responded with error while getting user variables");
+                $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your preferences from Domoticz.');
             }
             // If we got good data from Domoticz, load the preferences.
             if (typeof data.result !== "undefined") {
@@ -252,7 +252,9 @@ function getThemeStylingSettingsFromDomoticz(idx)
                 setUserColors();
             }
             console.log("THEME JS - succesfully loaded theme styling settings from Domoticz");
-            localStorage.setObject("themeObject", theme); // save loaded preferences in local object.
+            if (isEmptyObject(theme) == false){
+                localStorage.setObject("themeObject", theme);
+            }
         },
         error: function () {
             console.log("THEME JS - Error reading settings from Domoticz for theme" + theme.name + "from user variable #" + idx);
@@ -273,6 +275,7 @@ function getThemeFeatureSettingsFromDomoticz(idx)
         success: function (data) {
             if (data.status == "ERROR") {
                 console.log("THEME JS - Although they seem to exist, there was an error loading theme preferences from Domoticz");
+                $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your user variable.');
             }
             // If we got good data from Domoticz, load the preferences.
             if (typeof data.result !== "undefined") {
@@ -390,8 +393,9 @@ function enableThemeFeatures()
     loadUserCSS();
     setUserColors();
     
-    // Let's start checking for page content
+    // Everything should be loaded. Let's start checking for page content
     pageChangeDetected();
+    console.log("THEME JS - everything is loaded.");
     
 }
 
@@ -471,21 +475,53 @@ function setUserColors()
 
 
 function pageChangeDetected(){
-    console.log("inside page change detected");
+    console.log("THEME JS - inside page change detected");
     waterfallRunning = false;
-    //pageChangeDetected = true;
-    if(typeof theme.name === "undefined"){console.log("no theme object yet, user probably just opened this webpage. Cancelling.");return}
-    
-    console.log(window.location.href);
-    var url = window.location.href;
-    if(typeof url.slice(-1) === "undefined"){console.log("slice undefined");return}
-    if(url.slice(-1) == "/"){console.log("slash");return}
-    if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ undefined");return}
-    
-    currentPage = url.split("/#/")[1].toLowerCase();
-    console.log("THEME JS - new page: " + currentPage);
     
     areWeOnMobile();
+    
+    
+    
+    try {
+        // detect current page based on url in the browser.
+        console.log(window.location.href);
+        var url = window.location.href;
+        if(typeof url.slice(-1) === "undefined"){console.log("slice undefined");return}
+        if(url.slice(-1) == "/"){console.log("slash");return}
+        if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ undefined");return}
+        currentPage = url.split("/#/")[1].toLowerCase(); 
+        console.log("THEME JS - pagechangedetected: current page is " + currentPage);
+    }
+    catch (e) {
+        console.log("THEME JS - ERROR: not able to find out what page we are on.");
+        $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - the theme is unable to figure out what page you are on!');
+        currentPage = "Dashboard";
+    }
+        
+
+    console.log("+++ pagechangedetected: theme object on next line. Empty? "+ isEmptyObject(theme));
+    console.log(theme);
+    
+    if(currentPage != "login" && isEmptyObject(theme) == true ){
+        console.log("THEME JS - pageChangeDetected: we're not on the login page, but the theme object is empty. ");
+        themeLoadObject();
+    } if(currentPage == "login" && isEmptyObject(theme) == true ){
+        console.log("THEME JS - On the login page. Cancelling. ");
+        return
+    }
+    
+    // In theory you can only get here if the theme object has been loaded.
+    
+    if(typeof theme.name === "undefined"){
+        console.log("WEIRD: no theme object yet. Cancelling.");
+        themeLoadObject();
+        return
+    }
+       
+    
+    
+    
+   
     
     clockIsRunning = false;
     //addHooks();
@@ -549,7 +585,12 @@ function pageChangeDetected(){
                                 return
                             }else{
                                 $("body").addClass('backend').removeClass('frontend'); 
-                                if(currentPage == "setup" || currentPage == "events" || currentPage == "update" || currentPage == "forecast" || currentPage == "about" ){ 
+                                if(currentPage == "setup" 
+                                    || currentPage == "events" 
+                                    || currentPage == "update" 
+                                    || currentPage == "forecast" 
+                                    || currentPage == "login" 
+                                    || currentPage == "about" ){ 
                                     $('#backendpagetitle').hide();
                                 }else{
                                     $('#backendpagetitle').text(currentPage);
@@ -701,7 +742,7 @@ $( document ).ready(function()
     requirejs.config({ waitSeconds: 30 }); // makes sure there is no timeout. There are some synchronous calls somewhere (not in this theme!), which slow everthing down.
     
     // first, load in the CSS file with the most changes to the styling. This could become a settings option with a dropdown, so the user can pick a 'subtheme' styling variant.
-    console.log("THEME JS - Loading default style variant");
+    console.log("THEME JS - Loading theme.css");
     var CSSfile = "acttheme/theme.css?aurora";
     var fileref = document.createElement("link");
     fileref.setAttribute("rel", "stylesheet");
@@ -709,7 +750,8 @@ $( document ).ready(function()
     fileref.setAttribute("href", CSSfile);
     document.getElementsByTagName("head")[0].appendChild(fileref);
     
-    themeLoadObject(); // On first boot, load theme preferences and files.
+    //themeLoadObject(); // On first boot, load theme preferences and files.
+    pageChangeDetected();
     
     // continuously check if the URL has changed. The theme then responds to that by setting the variable 'limbo' to true. When new content is loaded the limbo state is disabled at the end of the frontend waterfall.
     $(window).on('hashchange', function(e){
@@ -1488,8 +1530,8 @@ function newData() //freshJSON
     $('main-view').css('background-color','transparent');
 
     if(rerunImprovement == true){
-        setTimeout(frontendImprovement,20);
-        console.log("__rerunning improvements in 20 milliseconds__");
+        console.log("__rerunning improvements in 50 milliseconds__");
+        setTimeout(frontendImprovement,40);
     }else{
         waterfallRunning = false;
     }
@@ -1654,10 +1696,12 @@ function updateLastUpdated()
                 $(this).find('.itemfooter .lastupdated').text( $(this).find('.lastupdate > span').text() );
             });
             
-            if (theme.features.time_ago.enabled == true){
-                $.lately({
+            if (typeof(Storage) !== "undefined" && theme.features.time_ago.enabled == true) {
+                if (typeof $.lately !== "undefined") {
+                    $.lately({
                     'target' : '.lastupdate > span'
-                });
+                    }); 
+                }
             }
             setTimeout(updateClocks, 7000);
         }else {
@@ -1749,7 +1793,10 @@ function showThemeSettings()
                             HideNotify();
                             bootbox.alert('<h3>Congratulations on the theme upgrade!</h3><p>Please reset the theme by clicking here:</p><p><a onClick="resetTheme(); return false;" href=""><button class="btn btn-info">reset theme</button></a>, or find the theme reset button on the theme settings page.<p>');
                             theme.upgradeAlerted = "true";
-                            localStorage.setObject("themeObject", theme);
+                            if (isEmptyObject(theme) == false){
+                                localStorage.setObject("themeObject", theme);
+                            }
+                            
                         }
                     }
                 });
