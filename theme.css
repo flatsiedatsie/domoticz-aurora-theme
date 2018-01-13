@@ -854,8 +854,10 @@ div.item.bandleader.withstatus .status div[class^='iconholder']{
 
 body table#itemtable tbody tr{background-color:rgba(255,255,255,0.1);color:#eee}
 
+/*
 body.weather .status > span[data-i18n],
 body.temperature .status > span[data-i18n]{padding-right:5px;}
+*/
 
 body.weather .status > span.wasbr,
 body.temperature .status > span.wasbr{display:none}
@@ -863,16 +865,16 @@ body.temperature .status > span.wasbr{display:none}
 body.weather .status > span:not(.wasbr),
 body.temperature .status > span:not(.wasbr){
     background-color:rgba(0,0,0,.1);
-    padding:1px 1px 2px 5px;
+    padding:1px 1px 2px 1;
     margin-bottom:2px;
     display:inline-block;
-    border-radius:2px;
+    border-bottom: 1px solid rgba(255,255,255,.3);
 }
 body.weather .status > span.ng-binding,
 body.temperature .status > span.ng-binding{
     /*padding-right:3px; */
-    margin-right:7px;
-    padding-right:6px;
+    margin-right:12px;
+    padding-right:1px;
     /*border-bottom-right-radius:3px;
     border-top-right-radius: 3px;*/
     /*border-right:2px solid rgba(255,255,255,.4);*/

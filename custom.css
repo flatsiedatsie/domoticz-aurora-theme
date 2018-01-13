@@ -726,13 +726,19 @@ body .item tr > .name {
     height: 40px;
     border-style: none!important;
     border-width:0!important;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
     box-sizing: border-box;
     padding: 13px 5px 9px 35px;
     text-transform: uppercase;
     margin:0!important;
 }
+body .item tr > #name > span,
+body .item tr > .name > span{
+    white-space: nowrap;
+}
+white-space: nowrap;
+
 body .ui-draggable .item tr > #name,
 body .ui-draggable .item tr > .name{
     cursor: move;

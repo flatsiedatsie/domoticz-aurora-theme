@@ -65,14 +65,7 @@ The theme adds tags to the HTML to make theming easier. Important tags you may w
 
 */
 
-var pathArray = location.href.split( '/' );
-var protocol = pathArray[0];
-var host = pathArray[2];
 var folder = "";
-console.log("folder = " + pathArray[3]);
-if (pathArray[3]!="" && pathArray[3]!="#") { folder="/"+pathArray[3] }
-var baseURL = protocol + '//' + host + folder;
-console.log("base URL = " + baseURL);
 var theme = {}; // object that holds all the theme settings
 var bands = {}; // object that holds all the items to be merged
 var currentPage = "Login";
@@ -82,21 +75,41 @@ var themeMachineName = "";
 var lastOpenedBlockly = {};
 var fullscreenPossible = false;
 var lastPrivacyPrunedTime = 0;
-var improveLoopCounter = 0;
-var oldLastUpdateTime = 0; // used to check if domoticz has incorporated new updated data.
-var freshJSON = {};
-var newDataWatcherIsRunning = false;
+//var oldLastUpdateTime = 0; // used to check if domoticz has incorporated new updated data.
+var freshJSON = {}; // the latest data from domoticz.
+//var newDataWatcherIsRunning = false;
 var lastUpdateWatcherisRunning = false;
 var clockIsRunning = false;
-var limbo = true; // in the end, not realy needed. The container refreshes, and that resets the visibility already.
-var waterfallRunning = false;
+var limbo = true; // When on a new page, but items have not loaded yet.
+var waterfallRunning = false; // If the upgrade proces is already running, then no need to run it again.
 var rerunImprovement = false; // if improvements called while already running, this helps run it again after it's done.
+var loadingTheme = false;
+
+    
+try {
+    var pathArray = location.href.split( '/' );
+    var protocol = pathArray[0];
+    var host = pathArray[2];
+    console.log("folder = " + pathArray[3]);
+    if (pathArray[3]!="" && pathArray[3].charAt(0)!="#") { folder="/"+pathArray[3] } // pathArray[3]!="#") && 
+    var baseURL = protocol + '//' + host + folder;
+    console.log("base URL = " + baseURL);
+}
+catch (e) {
+    console.log("THEME JS - ERROR: not able to find out what the base path is.");
+    $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - the theme is not able to find out what the base path is.');
+}
+
+
+
+
 // for debugging:
 //localStorage.clear();
 
 
+// this function sets the body ID to reflect if we ae on a mobile device or not.
 function areWeOnMobile(){
-    console.log("THEME JS - checking if mobile display should be used");
+    console.log("THEME JS - areweonmobile: checking if on mobile device");
     // mobile device detection
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
         || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) {
@@ -417,7 +430,7 @@ function loadThemeFeatureFiles(featureName) // feed this function the feature na
         }
         if(files[i].split('.').pop() == "css"){
             var CSSfile = "" + baseURL + "/acttheme/" + files[i] + "?" + themeMachineName;
-            //console.log(CSSfile);
+            console.log(CSSfile);
             var fileref = document.createElement("link");
             fileref.setAttribute("rel", "stylesheet");
             fileref.setAttribute("type", "text/css");
@@ -480,15 +493,13 @@ function pageChangeDetected(){
     
     areWeOnMobile();
     
-    
-    
     try {
         // detect current page based on url in the browser.
         console.log(window.location.href);
         var url = window.location.href;
         if(typeof url.slice(-1) === "undefined"){console.log("slice undefined");return}
-        if(url.slice(-1) == "/"){console.log("slash");return}
-        if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ undefined");return}
+        if(url.slice(-1) == "/"){console.log("url ended in slash. Probably just opened. Cancelling, have to wait a bit.");return}
+        if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ was undefined, couldn't split url.");return}
         currentPage = url.split("/#/")[1].toLowerCase(); 
         console.log("THEME JS - pagechangedetected: current page is " + currentPage);
     }
@@ -497,35 +508,35 @@ function pageChangeDetected(){
         $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - the theme is unable to figure out what page you are on!');
         currentPage = "Dashboard";
     }
-        
+    
+
 
     console.log("+++ pagechangedetected: theme object on next line. Empty? "+ isEmptyObject(theme));
     console.log(theme);
     
     if(currentPage != "login" && isEmptyObject(theme) == true ){
         console.log("THEME JS - pageChangeDetected: we're not on the login page, but the theme object is empty. ");
-        themeLoadObject();
+        if(loadingTheme == false){
+            loadingTheme = true;
+            themeLoadObject();
+        }
+        return
     } if(currentPage == "login" && isEmptyObject(theme) == true ){
-        console.log("THEME JS - On the login page. Cancelling. ");
+        console.log("THEME JS - On the login page. Cancelling, waiting for user to log in first. ");
         return
     }
     
     // In theory you can only get here if the theme object has been loaded.
     
     if(typeof theme.name === "undefined"){
-        console.log("WEIRD: no theme object yet. Cancelling.");
+        console.log("WEIRD: no theme object yet. Cancelling. This should not be possible.");
         themeLoadObject();
         return
     }
        
     
-    
-    
-   
-    
     clockIsRunning = false;
-    //addHooks();
-    
+     
     // are we on the front or backend?
     if( currentPage == ""   
         || currentPage == "dashboard" 
@@ -542,7 +553,7 @@ function pageChangeDetected(){
     }else{
         console.log("THEME JS - NEW BACK END");
         frontend = false;
-    } 
+    }
     
 
     // Step 2: waiting for new things to be loaded into the main content area.
@@ -850,6 +861,9 @@ $( document ).ready(function()
                 if( $('.item td#name').length  != $('.item td.name').length){
                     console.log("__ajax: boring, but upgrades are lacking! Running improvements.");
                     frontendImprovement();
+                }else if( $('section > h2').length  < $('section > .divider').length + 1){
+                    console.log("__ajax: boring, but so many dividers! Running improvements.");
+                    frontendImprovement();
                 }
             }
 
@@ -1066,7 +1080,7 @@ function startViewChangeObserver()
     }
 }
 
-
+ 
 
 // makes changes to HTML on each new loaded page.
 function frontendImprovement()

@@ -319,15 +319,15 @@ input[type='checkbox']:not(.noscheck):checked + label:after {
     from { opacity: 0; }
     to   { opacity: .6; }
 }
-#status span,
-.status span{
+body.bashboard #status span,
+body.bashboard .status span{
     animation: fadeinto10 .4s;
 }
-#status span:first-of-type,
-.status span:first-of-type{
+body.bashboard #status span:first-of-type,
+body.bashboard .status span:first-of-type{
     animation: fadeinto10 .3s;
 }
-#status span:last-of-type,
-.status span:last-of-type{
+body.bashboard #status span:last-of-type,
+body.bashboard .status span:last-of-type{
     animation: fadeinto10 .5s;
 }
