@@ -151,6 +151,13 @@
         padding-top: 3px;
         padding-bottom: 3px;
     }
+    
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3)#clockitem div.item.withstatus tr #status > span.wrapper,    /*  big clock  */
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3)#clockitem div.item.withstatus tr .status > span.wrapper{
+        justify-content: space-around;
+    }    
+    
+    
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.withstatus tr #status > span.wrapper > img,    
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.withstatus tr .status > span.wrapper > img{box-shadow: none}
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.withstatus tr #status > span.wrapper > span,

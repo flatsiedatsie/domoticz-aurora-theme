@@ -119,8 +119,8 @@ body table#itemtablenotype tr td:first-child{
     border-top-right-radius:3px!important;
 }
 
-body:not(#onMobile) .span3,
-body:not(#onMobile) .span4{ /*  this removes the colour that was set by custom.css, in order to make everything visible when there is a theme error. */
+body:not(#onMobile) div:not(.settingscontent) .span3,
+body:not(#onMobile) div:not(.settingscontent) .span4{ /*  this removes the colour that was set by custom.css, in order to make everything visible when there is a theme error. */
     background: none;
 }
 
@@ -253,7 +253,7 @@ body:not(.dashboard) .item .lastupdate > span{
     /*background: -moz-linear-gradient(to bottom, rgba(241,245,250,0.9) 0%, rgba(241,245,250,1) 100%); 
     background: -webkit-linear-gradient(to bottom, rgba(241,245,250,1) 0% ,rgba(241,245,250,1) 55px, rgba(241,245,250,0.05) 55px, rgba(241,245,250,0.1) 60px,rgba(241,245,250,0.1) 100%);
     background: linear-gradient(to bottom, rgba(241,245,250,1) 0% ,rgba(241,245,250,1) 55px, rgba(241,245,250,0.05) 55px,rgba(241,245,250,0.1) 60px, rgba(241,245,250,0.1) 100%); */
-    box-shadow: 2px 2px 18px 0px rgba(50, 50, 50, 0.2);
+    /*box-shadow: 2px 2px 18px 0px rgba(50, 50, 50, 0.2);*/
 }
 
 /*
@@ -444,7 +444,11 @@ body.dashboard .item .btn-group{margin:0!important}
     margin-top:30px;
 }
 
-select.combobox option{background-color:inherit}
+select.combobox option{
+    background-color:black;
+    color:white;
+    font-size:1em;
+}
 
 
 .related > .span2,

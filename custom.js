@@ -15,7 +15,7 @@ http://domoticz.com/wiki/How_to_theme_Domoticz
 Here are some snippets you may find useful:
 
 - Check is a theme feature is enabled: 
-if (theme.features.featurename.enabled == true) { // do something here}
+if (theme.features.featurename.enabled === true) { // do something here}
 
 - Check if the user is on a mobile device
 if(  $('body#onmobile') ) { // do something here }
@@ -68,7 +68,7 @@ The theme adds tags to the HTML to make theming easier. Important tags you may w
 var folder = "";
 var theme = {}; // object that holds all the theme settings
 var bands = {}; // object that holds all the items to be merged
-var currentPage = "Login";
+var currentPage = "login";
 var frontend = true;
 var onMobile = false;
 var themeMachineName = "";
@@ -83,15 +83,19 @@ var clockIsRunning = false;
 var limbo = true; // When on a new page, but items have not loaded yet.
 var waterfallRunning = false; // If the upgrade proces is already running, then no need to run it again.
 var rerunImprovement = false; // if improvements called while already running, this helps run it again after it's done.
-var loadingTheme = false;
+var loadedThemeObject = false;
+var loadedSettingsFromDomoticz = false;
+var loadedThemeCSSandJS = false;
 
-    
+var baseURL = "";
+
+/*
 try {
-    var pathArray = location.href.split( '/' );
+    var pathArray = location.href.split('/');
     var protocol = pathArray[0];
     var host = pathArray[2];
     console.log("folder = " + pathArray[3]);
-    if (pathArray[3]!="" && pathArray[3].charAt(0)!="#") { folder="/"+pathArray[3] } // pathArray[3]!="#") && 
+    if (pathArray[3] != "" && pathArray[3].charAt(0) != "#") { folder = "/" + pathArray[3] } // pathArray[3]!="#") && 
     var baseURL = protocol + '//' + host + folder;
     console.log("base URL = " + baseURL);
 }
@@ -99,8 +103,7 @@ catch (e) {
     console.log("THEME JS - ERROR: not able to find out what the base path is.");
     $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - the theme is not able to find out what the base path is.');
 }
-
-
+*/
 
 
 // for debugging:
@@ -115,23 +118,23 @@ function areWeOnMobile(){
         || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) {
         $("body").attr('id', 'onMobile');
         document.body.setAttribute("id", "onMobile");
-        $('body').attr('id','onMobile');
+        $('body').attr('id', 'onMobile');
         onMobile = true;
     } else {
-        if (typeof theme.name !== "undefined"){
-            if (theme.features.mobile_phoney.enabled == true && theme.features.mobile_on_non_mobile.enabled == true) {
-                console.log("THEME JS - setting mobile tag on non-mobile device")
+        if (typeof theme.name !== "undefined") {
+            if (theme.features.mobile_phoney.enabled === true && theme.features.mobile_on_non_mobile.enabled === true) {
+                console.log("THEME JS - setting mobile tag on non-mobile device");
                 //document.body.setAttribute("id", "onMobile");
-                $('body').attr('id','onMobile');
+                $('body').attr('id', 'onMobile');
                 onMobile = true;
             } else {
                 //document.body.setAttribute("id", "notMobile");
-                $('body').attr('id','notMobile');
+                $('body').attr('id', 'notMobile');
                 onMobile = false;
             }
         }
     }
-    if(frontend = true){
+    if (frontend === true) {
         $("body").addClass('frontend').removeClass('backend'); // a small quick hack to find out why these tags are disappearing. Probably domoticz doing that.
     }
 }
@@ -139,47 +142,35 @@ function areWeOnMobile(){
 
 // This function is the start of loading the theme settings. It loads an object with all the settings from the theme.json file.
 // Form then on it checks if Domoticz has alternative settings to the defaults.
-function themeLoadObject(){
+function themeLoadObject() {
     console.log("THEME JS - starting processes of loading theme preferences");
     // If there are no locally stored settings yet, then load defaults from server.
-    if (typeof(Storage) !== "undefined") {
+    if (typeof (Storage) !== "undefined") {
         if (localStorage.getItem("themeObject") === null) {
             console.log("THEME JS - No locally stored theme object found, now loading the theme json.");
             loadJSON('acttheme/theme.json',
-                function(themex) {
+                function (themex) {
                     theme = themex; // set global object
                     console.log("THEME JS - Theme name = " + theme.name);
                     themeMachineName = machineName(theme.name);
-                    if (isEmptyObject(theme) == false){
+                    if (isEmptyObject(theme) === false) {
                         localStorage.setObject("themeObject", theme);
                     }
-                    console.log("+++ theme settings check, and current page is " + currentPage);
-                    checkIfDomoticzHasThemeSettings(); // if there were no local settings, perhaps Domoticz also has no settings. Let's make sure.
+                    console.log("+++ theme object succesfully loaded from theme.json file, and stored in local storage");
+                    pageChangeDetected(); // continue with the first-load checklist.
+                //checkIfDomoticzHasThemeSettings(); // if there were no local settings, perhaps Domoticz also has no settings. Let's make sure.
                 }, function(xhr) { console.error(xhr); }
             );
-            
-        }else{ // If local preferences have been set, load those.
+        } else { // If local preferences have been set, try to load those.
             console.log("THEME JS - theme object was already found in the browser.");
             theme = localStorage.getObject("themeObject");
             console.log(theme);
             themeMachineName = machineName(theme.name);
-            
-            if(typeof theme.userstylingvariable !== "undefined"){
-                console.log("THEME JS - found a locally stored styling index (" + theme.userstylingvariable + ") for preferences stored in Domoticz. Will quickly load them.")
-                getThemeStylingSettingsFromDomoticz(theme.userstylingvariable);
-            }
-            if(typeof theme.userfeaturesvariable !== "undefined" ){
-                console.log("THEME JS - found a locally stored index (" + theme.userfeaturesvariable + ") for preferences stored in Domoticz. Will quickly load them.")
-                getThemeFeatureSettingsFromDomoticz(theme.userfeaturesvariable);
-            }else{
-                console.log("THEME JS - user variable ID was NOT found inside theme object. Continueing with local data.");
-                enableThemeFeatures();
-            }
+            pageChangeDetected();
         }
-        
-    }else {
-        // No Web Storage support.. Old browser? Loading backup css file.
-        var CSSfile = "acttheme/oldbrowser.css"
+    } else {
+        // FALL BACK. No Web Storage support.. Old browser? Loading backup css file.
+        var CSSfile = "acttheme/oldbrowser.css";
         var fileref = document.createElement("link");
         fileref.setAttribute("rel", "stylesheet");
         fileref.setAttribute("type", "text/css");
@@ -195,9 +186,8 @@ function themeLoadObject(){
 }
 
 
-
 // No local settings found in the browser. Local json files was loaded as default. The next step is checking for settings inside Domoticz, and to update the preferences from that, if possible. This will take a while..
-function checkIfDomoticzHasThemeSettings()
+function checkIfDomoticzHasThemeSettings() 
 {
     $.ajax({
         url: "/json.htm?type=command&param=getuservariables",
@@ -209,34 +199,39 @@ function checkIfDomoticzHasThemeSettings()
                 $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your preferences from Domoticz.');
             }
             // If we got good data from Domoticz, load the preferences.
-            if (typeof data.result !== "undefined") {
+            else if (typeof data.result !== "undefined") {
                 var didDomoticzHaveSettings = false;
                 var featuresVarName = "theme-" + themeMachineName + "-features";
                 var stylingVarName = "theme-" + themeMachineName + "-styling";
                 
                 $.each(data.result, function(variable, value) {
+                    console.log("looping over user variables list");
                     if(value.Name == featuresVarName){
                         console.log("THEME JS - found theme feature settings in Domoticz database (user variable #" + value.idx + ")");
                         didDomoticzHaveSettings = true;
                         theme.userfeaturesvariable = value.idx;
-                        getThemeFeatureSettingsFromDomoticz(value.idx)
+                        getThemeFeatureSettingsFromDomoticz(value.idx);
                     }
                     if(value.Name == stylingVarName){
                         console.log("THEME JS - found theme styling settings in Domoticz database (user variable #" + value.idx + ")");
                         didDomoticzHaveSettings = true;
                         theme.userstylingvariable = value.idx;
-                        getThemeStylingSettingsFromDomoticz(value.idx)
+                        getThemeStylingSettingsFromDomoticz(value.idx);
                     }
                 });
-                if(didDomoticzHaveSettings == false){
+                if(didDomoticzHaveSettings === false){
                     console.log("THEME JS - Domoticz didn't have settings for the theme, will create them now from defaults.");
                     enableThemeFeatures(); // load defaults from the object
                     storeThemeSettingsInDomoticz("save"); // store new default settings in Domoticz, for next time..
+                }else{
+                    console.log("THEME JS - Succesfully received user variable numbers from Domoticz.");
                 }
+            } else {
+                console.log("User variable list: data.result was undefined. Weird.");
             }
         },
         error: function () {
-            console.log("The theme was unable to get data from Domoticz");
+            console.log("The theme was unable to check if Domoticz had theme settings. Permission denied? Still on login page? No connection? Stopping..");
         }
     });
 }
@@ -265,12 +260,12 @@ function getThemeStylingSettingsFromDomoticz(idx)
                 setUserColors();
             }
             console.log("THEME JS - succesfully loaded theme styling settings from Domoticz");
-            if (isEmptyObject(theme) == false){
+            if (isEmptyObject(theme) === false){
                 localStorage.setObject("themeObject", theme);
             }
         },
         error: function () {
-            console.log("THEME JS - Error reading settings from Domoticz for theme" + theme.name + "from user variable #" + idx);
+            console.log("THEME JS - ERROR reading styling settings from Domoticz for theme" + theme.name + "from user variable #" + idx);
         }
     });
 }
@@ -289,9 +284,12 @@ function getThemeFeatureSettingsFromDomoticz(idx)
             if (data.status == "ERROR") {
                 console.log("THEME JS - Although they seem to exist, there was an error loading theme preferences from Domoticz");
                 $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your user variable.');
+                loadedSettingsFromDomoticz = false;
+                pageChangeDetected();
             }
             // If we got good data from Domoticz, load the preferences.
-            if (typeof data.result !== "undefined") {
+            else if (typeof data.result !== "undefined") {
+                console.log("THEME JS - succesfully loaded theme feature settings from Domoticz");
                 var themeSettingsFromDomoticz = JSON.parse(data.result[0].Value);
                 // Update the theme object with the settings from Domoticz.
                 $.each(theme.features, function(key,feature){
@@ -301,15 +299,22 @@ function getThemeFeatureSettingsFromDomoticz(idx)
                         theme.features[key].enabled = false;
                     }
                 });
+                
+                localStorage.setObject("themeObject", theme); // save loaded preferences in local object.
+                loadedSettingsFromDomoticz = true;
+                pageChangeDetected();
+            }else{
+                console.log("THEME JS - ERROR, couldn't load your theme preferences from Domoticz. They were there before..");
+                pageChangeDetected();
             }
-            console.log("THEME JS - succesfully loaded theme settings from Domoticz");
-            localStorage.setObject("themeObject", theme); // save loaded preferences in local object.
-            enableThemeFeatures();
+            
         },
         error: function () {
-            console.log("THEME JS - Error reading settings from Domoticz for theme" + theme.name + "from user variable #" + idx);
+            console.log("THEME JS - ERROR reading feature settings from Domoticz for theme" + theme.name + "from user variable #" + idx);
             // load defaults, just to be safe.
             enableThemeFeatures();
+            loadedSettingsFromDomoticz = false;
+            pageChangeDetected();
         }
     });
 }
@@ -318,12 +323,12 @@ function getThemeFeatureSettingsFromDomoticz(idx)
 function storeThemeSettingsInDomoticz(action)
 {
     // prepare variables
-    console.log("THEME JS - storing settings in Domoticz")
+    console.log("THEME JS - storing settings in Domoticz");
     
     // 1. FEATURES
     var themeSettingsForDomoticz = [];
     $.each(theme.features, function(key,feature){
-        if(feature.enabled == true){
+        if(feature.enabled === true){
             themeSettingsForDomoticz.push(feature.id);
         }
     });
@@ -396,7 +401,7 @@ function enableThemeFeatures()
 {
     // load all JS and CSS files
     $.each(theme.features, function(key,feature){
-        if(feature.enabled == true){
+        if(feature.enabled === true){
             if(feature.files.length > 0){
                 loadThemeFeatureFiles(key);
             }
@@ -407,15 +412,15 @@ function enableThemeFeatures()
     setUserColors();
     
     // Everything should be loaded. Let's start checking for page content
-    pageChangeDetected();
-    console.log("THEME JS - everything is loaded.");
-    
+    console.log("THEME JS - everything is loaded. Calling pageChangeDetected.");
+    //pageChangeDetected();
+    loadedThemeCSSandJS = true;
 }
 
 
 function loadThemeFeatureFiles(featureName) // feed this function the feature name
 {
-    console.log("THEME JS - loading files for " + featureName + " feature");
+    //console.log("THEME JS - loading files for " + featureName + " feature");
     
     // get file list from theme settings object
     var files = theme.features[featureName].files;
@@ -450,8 +455,8 @@ function unloadThemeFeatureFiles(featureName) // feed this function the feature 
 function setUserColors()
 {
     // Should we use the mobile view when on desktop?
-    if (theme.features.mobile_phoney.enabled == true && theme.features.mobile_on_non_mobile.enabled == true) {
-        console.log("THEME JS - setting mobile tag on non-mobile device")
+    if (theme.features.mobile_phoney.enabled === true && theme.features.mobile_on_non_mobile.enabled === true) {
+        console.log("THEME JS - setting mobile tag on non-mobile device");
         document.body.setAttribute("id", "onMobile");
     
     }else {
@@ -486,56 +491,103 @@ function setUserColors()
 }
 
 
-
+// this function manages the step by step loading of the theme. each loading step calls back to the function, which then moves to the next stage.
 function pageChangeDetected(){
-    console.log("THEME JS - inside page change detected");
+    //console.log("THEME JS - inside page change detected. currentPage was " + currentPage);
     waterfallRunning = false;
     
-    areWeOnMobile();
     
+    // 1. First we make sure that angular has done it's thing of creating a proper angular URL.
     try {
         // detect current page based on url in the browser.
         console.log(window.location.href);
         var url = window.location.href;
-        if(typeof url.slice(-1) === "undefined"){console.log("slice undefined");return}
-        if(url.slice(-1) == "/"){console.log("url ended in slash. Probably just opened. Cancelling, have to wait a bit.");return}
-        if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ was undefined, couldn't split url.");return}
-        currentPage = url.split("/#/")[1].toLowerCase(); 
-        console.log("THEME JS - pagechangedetected: current page is " + currentPage);
+        if(typeof url.slice(-1) === "undefined"){console.log("slice undefined");return;} // this can probably be removed.
+        if ( url.indexOf("/#/") < 1 ){
+            console.log("no /#/ in url");
+            return;
+        }else{
+            console.log("THEME JS - pageChangeDetected. currentPage was " + currentPage);
+            currentPage = url.split("/#/")[1].toLowerCase();
+            baseURL = url.split("/#/")[0];
+            console.log("THEME JS - pageChangeDetected. currentPage is " + currentPage);
+            //console.log("THEME JS - pagechangedetected: new base URL is " + baseURL);
+        }
+        //f(url.slice(-1) == "/"){console.log("url ended in slash. Probably just opened. Cancelling, have to wait a bit.");return}
+        //if(typeof url.split("/#/")[1] === "undefined"){console.log("/#/ was undefined, couldn't split url.");return}
+        //currentPage = url.split("/#/")[1].toLowerCase(); 
+        //console.log("THEME JS - pagechangedetected: current page is " + currentPage);
     }
     catch (e) {
-        console.log("THEME JS - ERROR: not able to find out what page we are on.");
+        console.log("THEME JS - ERROR: not able to find out what page we are on:");
+        console.log(e);
         $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - the theme is unable to figure out what page you are on!');
-        currentPage = "Dashboard";
+        //currentPage = "Dashboard";
+        return;
     }
+
     
-
-
+    // 2. then we check if we are on the login page or not, and if the theme object has been loaded.
     console.log("+++ pagechangedetected: theme object on next line. Empty? "+ isEmptyObject(theme));
     console.log(theme);
     
-    if(currentPage != "login" && isEmptyObject(theme) == true ){
-        console.log("THEME JS - pageChangeDetected: we're not on the login page, but the theme object is empty. ");
-        if(loadingTheme == false){
-            loadingTheme = true;
+    if(currentPage == "login" && isEmptyObject(theme) === true ){
+        console.log("THEME JS - On the login page, and theme object is empty. Cancelling, waiting for user to log in first. ");
+        return;
+    }
+    if(currentPage != "login" && isEmptyObject(theme) === true ){
+        console.log("THEME JS - pageChangeDetected: we're not on the login page, but the theme object is empty. We may be early.. or late. ");
+        if(loadedThemeObject === false){
+            loadedThemeObject = true;
             themeLoadObject();
         }
-        return
-    } if(currentPage == "login" && isEmptyObject(theme) == true ){
-        console.log("THEME JS - On the login page. Cancelling, waiting for user to log in first. ");
-        return
-    }
+        return;
+    } 
+
     
     // In theory you can only get here if the theme object has been loaded.
     
     if(typeof theme.name === "undefined"){
         console.log("WEIRD: no theme object yet. Cancelling. This should not be possible.");
         themeLoadObject();
-        return
+        return;
     }
-       
     
-    clockIsRunning = false;
+    // 3. we make sure there is a connection with Domoticz, and get the feature preferences stored there. Finally, the files are loaded.
+    if(currentPage != "login" && isEmptyObject(theme) === false){
+        
+        // loading all the theme's CSS and JS files.
+        if(loadedSettingsFromDomoticz === false && loadedThemeCSSandJS === false){
+            if(typeof theme.userfeaturesvariable !== "undefined"){
+                console.log("THEME JS - found a locally stored index (" + theme.userfeaturesvariable + ") for preferences stored in Domoticz. Will quickly load them.");
+                getThemeFeatureSettingsFromDomoticz(theme.userfeaturesvariable);            
+                console.log("THEME JS - found a locally stored styling index (" + theme.userstylingvariable + ") for preferences stored in Domoticz. Will quickly load them.");
+                getThemeStylingSettingsFromDomoticz(theme.userstylingvariable);
+
+            }else{
+                console.log("THEME JS - user variable ID was NOT found inside theme object. Will try to get user variables list from Domoticz.");
+                checkIfDomoticzHasThemeSettings();
+                //enableThemeFeatures();
+            }
+        }
+        else if (loadedSettingsFromDomoticz === true && loadedThemeCSSandJS === false) {
+            startLoadObserver();    
+            enableThemeFeatures(); // finally!
+
+        }
+        
+    }
+    
+    //
+    
+    
+    if(currentPage == "login" && isEmptyObject(theme) === false && loadedThemeCSSandJS === true){
+        // we returned to the login page after the theme objectand files were already loaded. Period of inactivity?
+        console.log(" ");
+        console.log(" ");
+        console.log("_________________________________________________");
+        console.log("user was logged out after a period of inactivity?");
+    }
      
     // are we on the front or backend?
     if( currentPage == ""   
@@ -555,64 +607,78 @@ function pageChangeDetected(){
         frontend = false;
     }
     
+    
+    //if( loadObserver === "undefined"){
+    //    console.log("this shouldn't happen: pagechangedetected is starting the load observer.");
+    //    startLoadObserver();   
+    //}
+    
+}
 
-    // Step 2: waiting for new things to be loaded into the main content area.
+// the observer checks if new things are being loaded into the main content area.
+function startLoadObserver()
+{
+    
+    if (!$( ".bannercontent" ).length){console.log("loadObserver couldn't start: no bannercontent container yet.");return;}
+    
     var contentHolder = $( ".bannercontent" )[0]; 
     // Create an observer instance. It will check if content has loaded.
     //if(typeof loadObserver === "undefined"){
-    if(typeof loadObserver === "undefined"){
-        var loadObserver = new window.MutationObserver(function( mutations ) {
+    if(typeof window.loadObserver === "undefined"){
+        loadObserver = new window.MutationObserver(function( mutations ) {
             console.log("____load observer fired");
             console.log(mutations);
             if(currentPage == "weather" || currentPage == "temperature" || currentPage == "dashboard"){
                 setTimeout(frontendImprovement,19);
             }
             mutations.forEach(function( mutation ) {
-                console.log("currentPage = " + currentPage);
-                console.log("frontend = " + frontend);
-                var newNodes = mutation.addedNodes; // DOM NodeList
-                if( newNodes !== null ) { // If there are new nodes added
-                    //console.log('new nodes..');
-                    var $nodes = $( newNodes ); // jQuery set
-                    $nodes.each(function() {
-                        var $node = $( this );
-                        //console.log($node);
-                        if ( $node.attr('id') == "main-view" ){
-                            console.log('__observer: A new mainview was loaded.');
-                            //loadObserver.disconnect();
-                            limbo = false;
-                            
-                            // here the road splits:
-                            
-                            $("body").removeClass();
-                            $("body").addClass(currentPage);
-                            if(frontend == true){
-                                $("body").addClass('frontend').removeClass('backend'); 
-                                $('#backendpagetitle').hide();
-                                console.log("__loadobserver found mainview__");
-                                frontendImprovement();
+                console.log("loadobserver: currentPage = " + currentPage);
+                console.log("loadobserver: frontend = " + frontend);
+                if (currentPage != "login"){
+                    var newNodes = mutation.addedNodes; // DOM NodeList
+                    if( newNodes !== null ) { // If there are new nodes added
+                        //console.log('new nodes..');
+                        var $nodes = $( newNodes ); // jQuery set
+                        $nodes.each(function() {
+                            var $node = $( this );
+                            //console.log($node);
+                            if ( $node.attr('id') == "main-view" ){
+                                console.log('__observer: A new mainview was loaded.');
                                 //loadObserver.disconnect();
-                                //loadObserver.observe(contentHolder, {childList:true});
-                                return
-                            }else{
-                                $("body").addClass('backend').removeClass('frontend'); 
-                                if(currentPage == "setup" 
-                                    || currentPage == "events" 
-                                    || currentPage == "update" 
-                                    || currentPage == "forecast" 
-                                    || currentPage == "login" 
-                                    || currentPage == "about" ){ 
+                                limbo = false;
+
+                                // here the road splits:
+
+                                $("body").removeClass();
+                                $("body").addClass(currentPage);
+                                if(frontend === true){
+                                    $("body").addClass('frontend').removeClass('backend'); 
                                     $('#backendpagetitle').hide();
+                                    console.log("__loadobserver found mainview__");
+                                    frontendImprovement();
+                                    //loadObserver.disconnect();
+                                    //loadObserver.observe(contentHolder, {childList:true});
+                                    return;
                                 }else{
-                                    $('#backendpagetitle').text(currentPage);
-                                    $('#backendpagetitle').show();
+                                    $("body").addClass('backend').removeClass('frontend'); 
+                                    if(currentPage == "setup" 
+                                        || currentPage == "events" 
+                                        || currentPage == "update" 
+                                        || currentPage == "forecast" 
+                                        || currentPage == "login" 
+                                        || currentPage == "about" ){ 
+                                        $('#backendpagetitle').hide();
+                                    }else{
+                                        $('#backendpagetitle').text(currentPage);
+                                        $('#backendpagetitle').show();
+                                    }
+                                    //loadObserver.disconnect();
+                                    backendImprovement();
                                 }
-                                //loadObserver.disconnect();
-                                backendImprovement();
+                                oncePerPage();
                             }
-                            oncePerPage();
-                        }
-                    });
+                        });
+                    }
                 }
             });
         });
@@ -620,13 +686,18 @@ function pageChangeDetected(){
         if(typeof contentHolder !== "undefined"){
             console.log("observer: observing mainview container");
             loadObserver.observe(contentHolder, {childList:true});
+            //console.log("__just set loadobserver__");
+            //setTimeout(frontendImprovement,1);
         }else{
             console.log("observer: error observing main content container. starting improvement in 2 seconds. ");
             console.log("__failed loadobserver__");
             setTimeout(frontendImprovement,2000);
         }
     }
+
 }
+
+
 
 
 
@@ -658,26 +729,23 @@ function backendImprovement()
     // settings
     if(currentPage == "setup"){showThemeSettings();}
     
-    
     // log: privacy pruning if necessary
     if(currentPage == "log"){
         
         // full privacy: only let the error part of the log remain.
-        if (theme.features.extra_privacy.enabled == true && theme.features.full_privacy.enabled == true){
+        if (theme.features.extra_privacy.enabled === true && theme.features.full_privacy.enabled === true){
             
-            console.log("Log: going full privacy");
-            
+            console.log("THEME JS - Log: going full privacy");
             $('#logcontent a[data-i18n="All"]').parent().remove();
             $('#logcontent a[data-i18n="Status"]').parent().remove();
             $('#logcontent li:first-of-type').addClass('active'); // set error tab as active
-            
             $('#logcontent #taball').remove();
             $('#logcontent #tabstatus').remove();
             $('#logcontent > table td:last-of-type').hide(); // hide search
             $('#logcontent #taberror').show(); // set error tab as active
 
         // extra privacy: remove status tab and remove some items from the log feed.
-        } else if (  theme.features.extra_privacy.enabled == true ){
+        } else if (  theme.features.extra_privacy.enabled === true ){
                 
             console.log("log: extra privacy pruning");
             // remove status tab entirely, as it has mainly user switch commands.
@@ -713,7 +781,6 @@ function backendImprovement()
                     }
                 });    
             });
-
             // Configuration of the observer:
             var config = {
                 childList: true, 
@@ -728,7 +795,7 @@ function backendImprovement()
     
     // custom icons
     if(currentPage == "customicons"){
-        $( 'body.customicons #iconsmain > table:first-of-type tr' ).prepend('<td id="customiconsmenu"><button id="browseIconsBtn" class="button">Browse..</button><p id="browseIconsLabel">No file selected.</p></td>')
+        $( 'body.customicons #iconsmain > table:first-of-type tr' ).prepend('<td id="customiconsmenu"><button id="browseIconsBtn" class="button">Browse..</button><p id="browseIconsLabel">No file selected.</p></td>');
 
         $( '#browseIconsBtn' ).click(function(){
            $( '#fileupload' ).click();
@@ -737,14 +804,13 @@ function backendImprovement()
         $( '#fileupload').change(function(){
            $( '#browseIconsLabel' ).text($( this ).val() ); 
             if( $( this ).val() != "No file selected."){
-                
             }
         });
         $('#fileupload').hide();
     }
-    
     $('#holder').show();
 }
+
 
 
 $( document ).ready(function()
@@ -761,14 +827,17 @@ $( document ).ready(function()
     fileref.setAttribute("href", CSSfile);
     document.getElementsByTagName("head")[0].appendChild(fileref);
     
-    //themeLoadObject(); // On first boot, load theme preferences and files.
-    pageChangeDetected();
+    startLoadObserver(); // will give notice when Domoticz reloads (or unloads) entire views.
+    
+    pageChangeDetected(); //bootstrap
     
     // continuously check if the URL has changed. The theme then responds to that by setting the variable 'limbo' to true. When new content is loaded the limbo state is disabled at the end of the frontend waterfall.
     $(window).on('hashchange', function(e){
+        console.log("THEMEJS - URL change detected");        
         limbo = true;
-        console.log("THEMEJS - URL change detected");
-        isPageChangeDetected = true;
+        clockIsRunning = false;             
+        freshJSON = {};
+        bands = {};
         
         pageChangeDetected();
         
@@ -780,19 +849,18 @@ $( document ).ready(function()
             privacyObserver.disconnect();
             delete privacyObserver;
         }
-        if (typeof loadObserver !== "undefined") {
+        /*if (typeof loadObserver !== "undefined") {
             loadObserver.disconnect();
             delete loadObserver;
-        }      
+        }*/
         if (typeof weatherAndTempObserver !== "undefined") {
             weatherAndTempObserver.disconnect();
             delete weatherAndTempObserver;
-        }   
-                 
-        freshJSON = {};
-        bands = {};
+        }
     });
 
+    
+    
     // Many changes to the Domoticz HTML output have been proposed, but not all made it in. This theme adds those changes via JS.  
     $('#appnavbar li.divider').remove();
     $('#cLightSwitches img').attr('src', 'images/lightbulb.png');
@@ -816,8 +884,8 @@ $( document ).ready(function()
         
         if(onMobile){ $('body').attr('id','onMobile'); } // this means war :-)
         
-        if (frontend == false){return}
-        if(frontend == false){
+        if (frontend === false){return;}
+        if(frontend === false){
             console.log("I should not exist on the backend");
         }
         
@@ -842,7 +910,7 @@ $( document ).ready(function()
         }
         
         else if ( settings.url.startsWith("json.htm?type=devices") ) { 
-            if(limbo == true){limbo = false; return}
+            if(limbo === true){limbo = false; return;}
             console.log("__//ajax devices__");
             //frontendImprovement();
 
@@ -858,13 +926,7 @@ $( document ).ready(function()
                 return;
             }else{ 
                 console.log("ajax: boring, no real new data");
-                if( $('.item td#name').length  != $('.item td.name').length){
-                    console.log("__ajax: boring, but upgrades are lacking! Running improvements.");
-                    frontendImprovement();
-                }else if( $('section > h2').length  < $('section > .divider').length + 1){
-                    console.log("__ajax: boring, but so many dividers! Running improvements.");
-                    frontendImprovement();
-                }
+                setTimeout(frontendImprovement,1);
             }
 
             if( !$('.item #name').length){
@@ -880,7 +942,7 @@ $( document ).ready(function()
 
             //console.log("lastUpdateWatcherisRunning = " + lastUpdateWatcherisRunning);
             console.log("last update time: " + $.LastUpdateTime);
-            if(lastUpdateWatcherisRunning == false && typeof $.LastUpdateTime !== "undefined"){
+            if(lastUpdateWatcherisRunning === false && typeof $.LastUpdateTime !== "undefined"){
                 lastUpdateWatcherisRunning = true;
                 console.log("+++ inside, starting lastUpdate watcher");
 
@@ -892,17 +954,14 @@ $( document ).ready(function()
             }
 
 
-
-
             // EXPERIMENT - watch the incoming items for html change. This is very useful for the weather and temperature pages, which completely reset the html when an update comes in.
-            //if( currentPage == "dashboard" || lastUpdateWatcherisRunning == false){
+            //if( currentPage == "dashboard" || lastUpdateWatcherisRunning === false){
                 //console.log("MUTATION OBSERVER to the resque.");
 
                 // we have good data, so let's put an observer in place to check if these items' html changes, and then immediately fix it.
                 if(typeof xhr.responseJSON.result !== "undefined" ){
 
-
-                    console.log("type of obeerverCanary");
+                    console.log("type of observerCanary");
                     console.log(typeof observerCanary);
                     // good data means that the canary, if it existed, has to go.
                     if(typeof observerCanary === "undefined"){
@@ -927,20 +986,20 @@ $( document ).ready(function()
 
                     console.log("mutationobserver: will try to choose a canary in the coalmine from the fresh data");
                     var closingdiv = xhr.responseJSON.result.length - 1;
-                    var targetidx = xhr.responseJSON.result[closingdiv].idx;
+                    ///var targetidx = xhr.responseJSON.result[closingdiv].idx;
                     //if( $('div[class^="span"]').length ){
                     //if( $('div[id*="' + xhr.responseJSON.result[closingdiv].idx + '"] #bigtext').length ){
                     console.log("name length: " + $('#name').length );
                     console.log( $('#name') );
                     if( $('#name').length ){
 
-                        console.log("observer: there is fresh data, and the target exists. retargetting observer.");
+                        console.log("canary observer: there is fresh data, and the target exists. Selecting new canary.");
                         //canary = $( 'div[id*="' + xhr.responseJSON.result[closingdiv].idx + '"] #bigtext')[0];
                         canary = $( '*[id*="' + xhr.responseJSON.result[closingdiv].idx + '"] #name')[0];
-                        console.log("observer: starting to observe:");
+                        console.log("canary observer: starting to observe:");
                         console.log(canary);
                         if(typeof canary !== "undefined"){
-                            console.log('__starting canary')
+                            console.log('__starting canary observer');
                            observerCanary.observe(canary, config);
                         }else{
                             console.log("__no canary to observe, starting oldschool");
@@ -968,7 +1027,7 @@ $( document ).ready(function()
                 // This is a long longer used bit of script that would check if there really is new data based on the LastUpdateTime timestamp that Domoticz uses internally to describe the time since the last update. 
                 // console.log("repetitious $.LastUpdateTime = " + $.LastUpdateTime);
                 /*
-                if(newDataWatcherIsRunning == false && typeof $.LastUpdateTime !== "undefined"){
+                if(newDataWatcherIsRunning === false && typeof $.LastUpdateTime !== "undefined"){
                     console.log("THEME JS - setting interval for data update watcher");
                     setInterval(function() {
                         //if (typeof $.LastUpdateTime !== "undefined"){
@@ -985,7 +1044,7 @@ $( document ).ready(function()
             //}
         }
         else if ( settings.url.startsWith("json.htm?type=command&param=getSunRiseSet") ) {
-            console.log("ajax: sunrise sunset")
+            console.log("ajax: sunrise sunset");
             $('#main-view').show();
             areWeOnMobile(); // apparently the theme is too fast, and Domoticz overwrites this after the theme sets it. So here we set it again.
             console.log("__sunrise sunset in 100 milliseconds__");
@@ -1007,13 +1066,13 @@ function oncePerPage()
 {
     console.log("THEME JS - doing once per page things. ");
     // if there is a background image, tweak the colours to pop out more.
-    if(theme.backgroundimage != "" && onMobile == false){
+    if(theme.backgroundimage != "" && onMobile === false){
         var darkerbg = hexToRgbA(theme.backgroundcolor);
         $('h1,h2,h3').css('opacity', '1');
         $('.span3, .span4, .navbar').css('background-color', darkerbg);
     }
     
-    if(onMobile == true){
+    if(onMobile === true){
         $('#timesun').remove();
     }
     
@@ -1057,6 +1116,7 @@ function startWeatherAndTempObserver()
     }
 }
 
+
 // this watches for big changes after a new page has been loaded. An observer instead of a timer is used to help slow devices.
 function startViewChangeObserver()
 {
@@ -1076,21 +1136,24 @@ function startViewChangeObserver()
     if(currentPage == "dashboard"){
         console.log("starting dashboard observer");
         var contentHolder = $( ".bannercontent" )[0];
-        viewChangeObserver.observe(target, {childList:true});
+        //viewChangeObserver.observe(target, {childList:true});
+        viewChangeObserver.observe(contentHolder, {childList:true});
     }
 }
 
- 
 
-// makes changes to HTML on each new loaded page.
+//This can always be called to check if content has loaded and has been upgraded.
 function frontendImprovement()
 {
     if( !$('.divider').length ){
-        console.log("==THEME JS - frontend improvement: no dividers to work with on the page yet");
+        console.log("==THEME JS - ERROR: frontend improvement: no dividers to work with on the page yet. Cancelling frontendImprovement");
         return;
     }
-    
-    if(waterfallRunning == false){
+    if( typeof theme.name === "undefined" ){
+        console.log("==THEME JS - ERROR: frontend improvement: no theme object available while starting improvement");
+        return;
+    }    
+    if(waterfallRunning === false){
         waterfallRunning = true;
     }else{
         console.log("____frontendImprovement already running, cancelling");
@@ -1098,12 +1161,30 @@ function frontendImprovement()
         rerunImprovement = true;
         return;
     }
+    if( $('.item td#name').length  != $('.item td.name').length){
+        console.log("Items exist, but upgrades are missing! Running improvements.");
+        waterfall();
+    }else if( $('section > h2').length  < $('section > .divider').length + 1){
+        console.log("Dividers exist but have not been merged. Running improvements.");
+        waterfall();
+    }
     
+    function waterfall(){
+        mergeDividers();
+        improveClasses();
+        newData();
+        if (currentPage == "dashboard"){ addDashboardGoodies(); }
+    }
+}
 
+
+// makes changes to HTML on each new loaded page.
+function mergeDividers()
+{
     
     //$('main-view').hide();
     //$('main-view').css('background-color','red');
-    console.log("inside frontendImprovement");
+    console.log("inside mergeDividers");
     
     // simply the dashboard, remove dividers so that more fluid layouts become possible.
     if(currentPage == "dashboard"){
@@ -1126,7 +1207,7 @@ function frontendImprovement()
         });
         
         // merge weather into temperature
-        if (theme.features.dashboard_merge_temp_and_weather.enabled == true){
+        if (theme.features.dashboard_merge_temp_and_weather.enabled === true){
             if($('#dashWeather div[class^="span"]').length && $('#dashTemperature div[class^="span"]').length){
                 console.log("THEME JS - merging weather and temperature");
                 $('#dashWeather div[class^="span"]').prependTo('#dashTemperature .divider')[0];
@@ -1143,12 +1224,7 @@ function frontendImprovement()
         }
     }
     
-    // give all banner navigation tables a class name.
-    $('#timesun').closest('table:not(.bannav)').addClass("prebannav"); 
-    
-    setTimeout(improveClasses,1);
-    
-    //improveClasses();
+    //setTimeout(improveClasses,1);
 }
 
 
@@ -1197,8 +1273,6 @@ function improveClasses()
             $(this).find('.status').hide();
         }
     });
-
-    
     
 
     // simplify type details, but only if there are no sliders, since it damages those (because it replaces the html, so funcions are detached) 
@@ -1210,7 +1284,7 @@ function improveClasses()
         $('body:not(.dashboard) .type:not(:has(br)):not(:has(.idnumber)):not(:has(.dimslider)):not(:has(.selectorlevels))').each(function(index) {
             console.log("THEME JS - adding ID number");
             var oldType = "";
-            var testje = oldType.split(',').pop();
+            //var testje = oldType.split(',').pop();
             oldType = $(this).text();
             var myNumber = "?";
             if(currentPage == "weather" || currentPage == "temperature"){
@@ -1240,7 +1314,7 @@ function improveClasses()
     // adding classes for certain types of icons to support a little animation and dataviz. Not all of them are currently used, but future themers might enjoy them.    
     $('img[src*="images/Fan"]').closest('.item').addClass('fan');
     $('img[src*="images/baro"]').closest('.item').addClass('baro');
-    if(currentPage == "dashboard" && theme.features.dashboard_show_data_visualizations.enabled == true){
+    if(currentPage == "dashboard" && theme.features.dashboard_show_data_visualizations.enabled === true){
         $('img[src*="images/temp"]').closest('.item').addClass('temp');
         $('img[src*="images/current"]').closest('.item').addClass('current');
         $('img[src*="images/Light"]').closest('.item').addClass('light');
@@ -1254,46 +1328,26 @@ function improveClasses()
         $('img[src*="images/Wind"]').closest('.item').addClass('wind'); 
     }
 
-    if (currentPage == "dashboard"){    
-        if (theme.features.dashboard_highlighted.enabled == true &&  theme.features.dashboard_camera_previews.enabled == true){
-            //prepareCameraPreviews();
-            setTimeout(prepareCameraPreviews,1500);
-        }
-
-        if (theme.features.dashboard_clock_item.enabled == true && currentPage == "dashboard" ) {
-            $('#timesun').remove();
-            
-            if( $('.span4').length ){
-                var clockitem = '<div class="span4" id="clockitem" style="position: relative;"><div id="bstatus" class="item statusNormal withstatus statuscount2"><table id="itemtablesmall" class="itemtablesmall" cellspacing="0" cellpadding="0" border="0"><tbody><tr>';
-            }else{
-                var clockitem = '<div class="span3" id="clockitem" style="position: relative;"><div id="bstatus" class="item statusNormal withstatus statuscount2"><table id="itemtablesmall" class="itemtablesmall" cellspacing="0" cellpadding="0" border="0"><tbody><tr>';
-            }
-            clockitem += '<td id="name" class="name"><span data-i18n="Clock">Clock</span></td><td id="status" class="status"><span class="wrapper"><span id="timesun">...</span></span></td><td id="lastupdate" class="lastupdate"><span>&nbsp;</span></td></tr></tbody></table</div><!--item end--></div>'
-            $('#dashSwitches .divider').prepend(clockitem);
-        }
-
-        if (theme.features.dashboard_highlighted.enabled == true && theme.features.dashboard_show_data_visualizations.enabled == true && currentPage == "dashboard") {
-            if (typeof addDataviz === "function") {
-                setTimeout(addDataviz,1000);
-            }
-        }
-    }
+    // give all banner navigation tables a class name.
+    $('#timesun').closest('table:not(.bannav)').addClass("prebannav");
+    
     
     // privacy feature: show last updated time
-    if (theme.features.extra_privacy.enabled == true && theme.features.full_privacy.enabled == true){
+    if (theme.features.extra_privacy.enabled === true && theme.features.full_privacy.enabled === true){
             $('.lastupdate,#lastupdate').remove();
     }
-            
-    if (currentPage == "dashboard" && theme.features.dashboard_show_last_update.enabled == true){
+    
+    // show last update time?
+    if (currentPage == "dashboard" && theme.features.dashboard_show_last_update.enabled === true && theme.features.full_privacy.enabled === false){
         console.log("THEME JS - showing last update in new footer");
 
         // creating a brand new footer div.
         $('body.dashboard .lastupdate').hide();
 
         // privacy features, like removing last update time where necessary, removing log buttons, etc.
-        if (theme.features.extra_privacy.enabled == true && theme.features.full_privacy.enabled == true){
+        if (theme.features.extra_privacy.enabled === true && theme.features.full_privacy.enabled === true){
             $('.lastupdate,#lastupdate').remove(); // full privacy
-        }else if (theme.features.extra_privacy.enabled == true){ // some privacy
+        }else if (theme.features.extra_privacy.enabled === true){ // some privacy
             $('section:not(#dashSwitches) .item:not(:has(.itemfooter))').append('<div class="itemfooter"><div class="lastupdated"></div><div class="timeagooutput"></div></div>');
             setTimeout(updateLastUpdated,1000); // tick tock, this is a clock that updates the 'time ago' time.
         } else if(!$('.itemfooter').length){ // no privacy
@@ -1302,7 +1356,7 @@ function improveClasses()
         }
         
         // set the battery data
-        if(theme.features.full_privacy.enabled != true){
+        if(theme.features.full_privacy.enabled !== true){
             console.log("THEME JS - Adding battery icon.");
             $.each(freshJSON, function(key,itemData){
                 if( itemData.BatteryLevel < 101 ){
@@ -1327,7 +1381,7 @@ function improveClasses()
         }
     }
     //newData();
-    setTimeout(newData,1);
+    //setTimeout(newData,1);
 }
 
 
@@ -1382,7 +1436,7 @@ function newData() //freshJSON
 
             // Turn BR delimination into proper span wrapped data.
             var i;
-            var newhtml = ""
+            var newhtml = "";
             var brExp = /<br\s*\/?>/i;
             var lines = html.split(brExp);
             for (i = 0; i < lines.length; ++i){
@@ -1417,7 +1471,7 @@ function newData() //freshJSON
             
             /* Turn ", " delimination into proper span wrapper data .*/
             var i;
-            var newhtml = ""
+            var newhtml = "";
             var brExp = /\, /i;
             var lines = html.split(brExp);
             for (i = 0; i < lines.length; ++i){
@@ -1462,12 +1516,12 @@ function newData() //freshJSON
     
     
     // privacy pruning - removing log buttons
-    if (theme.features.extra_privacy.enabled == true && theme.features.full_privacy.enabled == true){
+    if (theme.features.extra_privacy.enabled === true && theme.features.full_privacy.enabled === true){
         console.log("should hide log buttons on switches");
         $('.btnsmall[data-i18n="Log"]').remove();
         $('.lastupdate').remove();
         $('.itemfooter').remove();
-    } else if (theme.features.extra_privacy.enabled == true){
+    } else if (theme.features.extra_privacy.enabled === true){
         if(currentPage == "lightswitches" || currentPage == "scenes"){
             console.log("should hide log buttons on switches and scenes page");
             $('.btnsmall[data-i18n="Log"]').remove();
@@ -1475,7 +1529,7 @@ function newData() //freshJSON
     }
     
     // privacy pruning - removing last update time on dashboard switches
-    if (theme.features.extra_privacy.enabled == true && currentPage == "dashboard"){
+    if (theme.features.extra_privacy.enabled === true && currentPage == "dashboard"){
         console.log("privacy: should hide last updated on dashboard");
         $('#dashSwitches .lastupdate').remove();
         $('#dashSwitches .itemfooter').remove();
@@ -1486,7 +1540,7 @@ function newData() //freshJSON
         
         // Merges items with similar names. Yes that's a lot of safety checks :-)
         if (typeof(Storage) !== "undefined" && typeof theme.features.dashboard_merge_items_with_same_name.enabled !== "undefined") {
-            if (theme.features.dashboard_merge_items_with_same_name.enabled == true) {
+            if (theme.features.dashboard_merge_items_with_same_name.enabled === true) {
                 if (typeof mergeItems === "function") {
                     mergeItems(); 
                 }
@@ -1497,7 +1551,7 @@ function newData() //freshJSON
         $.each(freshJSON, function(key,itemData){
 
             //battery icon
-            if(theme.features.full_privacy.enabled != true){ // its a bit of a shame that this is inside the footer. The footer is hidden when privacy feature is enabled. todo: improve this.
+            if(theme.features.full_privacy.enabled !== true){ // its a bit of a shame that this is inside the footer. The footer is hidden when privacy feature is enabled. todo: improve this.
                 if( itemData.BatteryLevel < 101 ){
                     console.log("THEME JS - newdata: updating battery level info for " + itemData.Name);
                     var batteryLevelHeight = itemData.BatteryLevel + '%';
@@ -1518,7 +1572,7 @@ function newData() //freshJSON
             }
 
             // weather forecast
-            if( theme.features.extras_and_animations.enabled == true && typeof itemData.ForecastStr !== "undefined"){
+            if( theme.features.extras_and_animations.enabled === true && typeof itemData.ForecastStr !== "undefined"){
                 console.log("THEME JS - adding forecast data to item for visualisation");
 
                 var prediction = "prediction-" + machineName(itemData.ForecastStr);
@@ -1543,7 +1597,7 @@ function newData() //freshJSON
     //$('main-view').show();
     $('main-view').css('background-color','transparent');
 
-    if(rerunImprovement == true){
+    if(rerunImprovement === true){
         console.log("__rerunning improvements in 50 milliseconds__");
         setTimeout(frontendImprovement,40);
     }else{
@@ -1553,7 +1607,48 @@ function newData() //freshJSON
 }
 
 
+// finally, after the waterfall of html and css improvements, add the fun stuff (dataviz, etc).
+function addDashboardGoodies()
+{
+    if (typeof(Storage) !== "undefined" && typeof theme.name !== "undefined"){
+        
+        if (theme.features.dashboard_merge_items_with_same_name.enabled === true) {
+            if (typeof mergeItems === "function") {
+                mergeItems(); 
+            }
+        }
+        
+        if (theme.features.dashboard_highlighted.enabled === true &&  theme.features.dashboard_camera_previews.enabled === true){
+            if (typeof prepareCameraPreviews === "function") {
+                setTimeout(prepareCameraPreviews,1500);
+            }
+        }
 
+        if (theme.features.dashboard_clock_item.enabled === true && currentPage == "dashboard" ) {
+            if( !$('#clockitem').length ){
+                console.log("THEME JS - creating clock item");
+                $('#timesun').remove();
+
+                if( $('.span4').length ){
+                    var clockitem = '<div class="span4" id="clockitem" style="position: relative;"><div id="bstatus" class="item statusNormal withstatus statuscount2"><table id="itemtablesmall" class="itemtablesmall" cellspacing="0" cellpadding="0" border="0"><tbody><tr>';
+                }else{
+                    var clockitem = '<div class="span3" id="clockitem" style="position: relative;"><div id="bstatus" class="item statusNormal withstatus statuscount2"><table id="itemtablesmall" class="itemtablesmall" cellspacing="0" cellpadding="0" border="0"><tbody><tr>';
+                }
+                clockitem += '<td id="name" class="name"><span data-i18n="Clock">Clock</span></td><td id="status" class="status"><span class="wrapper"><span id="timesun">...</span></span></td><td id="lastupdate" class="lastupdate"><span>&nbsp;</span></td></tr></tbody></table</div><!--item end--></div>'
+                $('#dashSwitches .divider').prepend(clockitem);
+            }
+        }
+
+        if (theme.features.dashboard_highlighted.enabled === true && theme.features.dashboard_show_data_visualizations.enabled === true && currentPage == "dashboard") {
+            if (typeof addDataviz === "function") {
+                setTimeout(addDataviz,1000);
+            }
+        }
+    }
+}
+
+
+// add buttons to thermostat setpoint items
 function prepareInlineSetPoint()
 {
     //console.log("=====preparing inline setpoint=========");
@@ -1572,6 +1667,8 @@ function prepareInlineSetPoint()
         $(this).find('#bigtext .wrapper:not(:has(.upicon))').append(updownhtml);
     });
 }
+
+
 function inlineSetPoint(idx,temp,change){
     //console.log("inside inline setpoint");
     if(change == "up"){temp = temp + 1;}
@@ -1645,16 +1742,14 @@ function inlineSetPoint(idx,temp,change){
              });
              */
             
-            
-            
 		},
 		error: function () {
 			HideNotify();
 			bootbox.alert($.t('Problem setting Setpoint value'));
 		}
 	});
-        
 }
+
 
 // Blockly import export buttons
 function blocklyCreateExportButtons()
@@ -1686,7 +1781,7 @@ function updateLastUpdated()
     //console.log("THEME JS - starting the clock");
     
     
-    if (theme.features.time_ago.enabled == true){
+    if (theme.features.time_ago.enabled === true){
         $('.lastupdated').hide();
 
         $('.timeagooutput').click(function() {
@@ -1710,7 +1805,7 @@ function updateLastUpdated()
                 $(this).find('.itemfooter .lastupdated').text( $(this).find('.lastupdate > span').text() );
             });
             
-            if (typeof(Storage) !== "undefined" && theme.features.time_ago.enabled == true) {
+            if (typeof(Storage) !== "undefined" && theme.features.time_ago.enabled === true) {
                 if (typeof $.lately !== "undefined") {
                     $.lately({
                     'target' : '.lastupdate > span'
@@ -1723,13 +1818,14 @@ function updateLastUpdated()
             clockIsRunning = false;
         }
     }
-    if(clockIsRunning == false){
+    if(clockIsRunning === false){
         clockIsRunning = true;
         updateClocks();
     }
 }
 
 
+// this sets the user CSS.
 function loadUserCSS(){
     var userCSS = localStorage.getItem('userCSS');
     if(typeof userCSS !== "undefined"){
@@ -1748,7 +1844,7 @@ function showThemeSettings()
     
     if( !$('#tabsystem').length ){
         console.log("no tabsystem yet.. cancelling");
-        setTimeout(showThemeSettings, 100)
+        setTimeout(showThemeSettings, 100);
         return;
     }
     
@@ -1790,15 +1886,22 @@ function showThemeSettings()
             $('#my-tab-content').append('<div class="tab-pane" id="tabtheme"><section id="theme">Loading..</section></div>');
             $('#my-tab-content #theme').load("acttheme/themesettings.html",loadedSettingsHTML);
             
+            // loadedSettingsHTML() was here
+            
+        }
+    } else {
+        // No Web Storage support.. hmm.
+    }
+}
             function loadedSettingsHTML(){ // when inserting is done..
                 console.log("THEME JS - theme settings html loaded");
                 $('#ActiveTabs').appendTo('#theme');
                 $('#ActiveTabs').wrapAll('<div class="row-fluid" />');
                 $("#tabtheme .span6 input:checkbox").each(function() {
                     if(typeof theme.features[this.value] !== "undefined"){
-                        if (theme.features[this.value].enabled == true) {
+                        if (theme.features[this.value].enabled === true) {
                             $(this).prop("checked", true);
-                        }else if (theme.features[this.value].enabled == false) {
+                        }else if (theme.features[this.value].enabled === false) {
                             $(this).prop( "checked", false );
                         }
                     }else{
@@ -1807,7 +1910,7 @@ function showThemeSettings()
                             HideNotify();
                             bootbox.alert('<h3>Congratulations on the theme upgrade!</h3><p>Please reset the theme by clicking here:</p><p><a onClick="resetTheme(); return false;" href=""><button class="btn btn-info">reset theme</button></a>, or find the theme reset button on the theme settings page.<p>');
                             theme.upgradeAlerted = "true";
-                            if (isEmptyObject(theme) == false){
+                            if (isEmptyObject(theme) === false){
                                 localStorage.setObject("themeObject", theme);
                             }
                             
@@ -1903,19 +2006,16 @@ function showThemeSettings()
                         if(this.value == "extra_privacy" || this.value == "full_privacy"){
                            $.get('/json.htm?type=command&param=addlogmessage&message=' + theme.name + ' theme: privacy setting "' + this.value + '" was disabled.');
                         }
-                        
                     }
                     // store the new settings.
                     localStorage.setObject("themeObject", theme);
                     storeThemeSettingsInDomoticz("update");
-                    
                 });
                 
                 // button to reset the theme.
                 $('#themeResetButton').click(function() {
                     resetTheme();
                 });
-                
                 
                 //load user CSS into textarea
                 if(typeof localStorage.getItem('userCSS') === "string"){
@@ -1931,12 +2031,6 @@ function showThemeSettings()
                     localStorage.setItem('userCSS', userCSS);
                 });
             }
-        }
-    } else {
-        // No Web Storage support.. hmm.
-    }
-}
-
 
 // reset theme to defaults. Useful after an upgrade.
 function resetTheme(){
