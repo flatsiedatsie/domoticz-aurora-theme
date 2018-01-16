@@ -405,12 +405,13 @@ body.dashboard .item .btn-group{margin:0!important}
 }
 
 
-
-
-
 /*  login page  */
 
-#offline,
+#offline{
+    height:110px!important;
+}
+
+
 #login{
     height:300px;
     min-height:300px;
@@ -421,10 +422,14 @@ body.dashboard .item .btn-group{margin:0!important}
 
 #login #submit{margin-top:10px;}
 
-
-#login::before, #login::after,
-#offline h3::after, #offline h3::before,
-#login h1::after, #login h1::before{display: none;}
+#offline::before, 
+#offline::after,
+#offline h3::before,
+#offline h3::after, 
+#login::before, 
+#login::after,
+#login h1::before,
+#login h1::after{display: none;}
 
 /*  offline page  */
 
@@ -452,7 +457,7 @@ body.dashboard .item .btn-group{margin:0!important}
 }
 
 select.combobox option{
-    background-color:black;
+    background-color: #1c2b46;
     color:white;
     font-size:1em;
 }
@@ -467,7 +472,7 @@ select.combobox option{
     border-top: 1px dotted rgba(150,150,150,0.05);
 }
 
-select{background-color: rgba(0,0,0,.3); color:#fff;border:0}
+select{background-color: #11213d; color:#fff;border:0} /* rgba(0,0,0,.3); */
 
 
 #settingscontent textarea,
@@ -615,13 +620,15 @@ body#onMobile table.mobileitem{background-color: transparent;color:inherit}
 
 body#onMobile table.mobileitem td{color:inherit;box-shadow: none}
 
-table.mobileitem .btn-group{margin-top:0; width:calc(100vw - 10px);display:flex}
-table.mobileitem .btn-group button{flex-grow:1;}
+
 
 
 
 /*  pull down menu  */
 @media all and (max-width: 479px) {
+    
+    table.mobileitem .btn-group{margin-top:0; width:calc(100vw - 10px);display:flex}
+    table.mobileitem .btn-group button{flex-grow:1;}
     
     #holder .container-fluid{margin-top:0}
     

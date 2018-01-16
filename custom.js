@@ -658,7 +658,7 @@ function startLoadObserver()
                                     frontendImprovement();
                                     //loadObserver.disconnect();
                                     //loadObserver.observe(contentHolder, {childList:true});
-                                    return;
+                                    //return;
                                 }else{
                                     $("body").addClass('backend').removeClass('frontend'); 
                                     if(currentPage == "setup" 
@@ -720,6 +720,8 @@ function oldschool()
 function backendImprovement()
 {
     console.log("THEME JS - now in backend improvements");
+    
+    areWeOnMobile();
     
     // events    
     if(currentPage == "events"){
@@ -1087,6 +1089,8 @@ function oncePerPage()
         setTimeout(frontendImprovement,20);
         setTimeout(frontendImprovement,4000);
     }
+    
+    areWeOnMobile();
 }
 
 
