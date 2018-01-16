@@ -76,7 +76,7 @@ body#onMobile .navbar .nav .current_page_item > a:hover{
 }
 @media all and (min-width: 480px) {
     
-    #copyright{display:none!important}
+    body#onMobile #copyright{display:none!important}
     body#onMobile .navbar{ background-color: #eee;}
     
 }
@@ -672,46 +672,6 @@ body#onMobile #settingscontent .sub-tabs li.pull-right a{
     color: #69b3d8!important;  
 }
 
-
-@media all and (max-width: 479px) {
-    
-    body#onMobile.setup #holder .container-fluid{margin-top:0}
-    
-    body#onMobile #tabs li:not(.pull-right){
-        clear:left;
-        width: calc(100% - 170px);
-        position:relative
-    }
-    /*
-    body#onMobile #tabs li:not(.pull-right) a{
-        clear:left;
-        width: calc(100% - 150px)
-    }*/
-    
-    body#onMobile #tabs li.active a{
-       padding-right: 20px;
-    }
-    
-    body#onMobile #tabs:not(.menuopen) li.active a:after {
-        content: '';
-    position: absolute;
-    right: 10px;
-    top: 15px;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #fff;
-        clear: both;
-        overflow: visible;
-    }
-    
-    
-    body#onMobile #tabs li a:not(.pull-right){display:block}
-    
-    body#onMobile #tabs li:not(.active):not(.pull-right){display:none;float:none}
-    
-}
 
 @media all and (max-width: 769px) {
     body#onMobile #settingscontent .sub-tabs{

@@ -1,14 +1,18 @@
 /* forced popups to be centered on the screen. */
 
-#dialog-camera-live,
+#dialog-camera-live{}
+
+
 .ui-dialog,
 .ui-popup{
     height:auto!important;
     width:auto!important;    
     position:fixed!important;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
+    top:50vh!important;
+    left:50%!important;
+    transform: translate(-50%, -50%)!important;
+    min-height:200px!important;
+    min-width:200px!important;
 }
 
 #dialog-lmsplayer-remote,
@@ -19,7 +23,7 @@
     min-width:200px;
     height: 50vh;
     position:fixed!important;
-    top:50%!important;
+    top:50vh!important;
     left:50%!important;
     transform: translate(-50%, -50%)!important;
     background: #000;
@@ -30,7 +34,7 @@
     height:90%!important;
     width:auto!important;
     margin: 0 auto;
-    z-index:300;
+    /*z-index:300;*/
     min-height:400px;
     min-width:200px;    
 }

@@ -35,12 +35,12 @@ body:not(.settings) .span4{
 @media all and (min-width: 768px) and (max-width: 1100px){
      /*body:not(.settings) .span4{max-width:calc(50%);}    
     body:not(.settings) .span3{max-width:calc(33.33%);}*/
-    body:not(.settings) .span4{max-width:calc(50% - 20px);}    
-    body:not(.settings) .span3{max-width:calc(33.33% - 16px);}    
+    body:not(.settings) .span4{max-width:calc(33.33% - 20px);}    
+    body:not(.settings) .span3{max-width:calc(33.33% - 20px);}    
 }
 
 @media all and (min-width: 1101px) and (max-width: 1500px){
-    body:not(.settings) .span4{max-width:calc(33.33% - 16px);}
+    body:not(.settings) .span4{max-width:calc(33.33% - 20px);}
     body:not(.settings) .span3{max-width:calc(25% - 20px);}    
     /*body:not(.settings) .span4{max-width:33.33%;}
     body:not(.settings) .span3{max-width:25%;}*/
@@ -50,6 +50,6 @@ body:not(.settings) .span4{
     /*body.dashboard .span4:last-of-type{max-width:400px;padding-right:20px}    
     body.dashboard .span4:last-of-type{max-width:700px;padding-right:20px}*/
     body:not(.settings) .span4,
-    body:not(.settings) .span3{max-width:calc(25% - 16px);}     
+    body:not(.settings) .span3{max-width:calc(25% - 20px);}     
 }
 

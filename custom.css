@@ -761,7 +761,7 @@ body .ui-draggable .item tr > .name{
     position: relative;
     /*top: -27px;
     right: 40px;*/
-    top:7px;
+    top:4px;
     right:10px;
     margin:0!important;
     height:0;
@@ -882,16 +882,22 @@ body .ui-draggable .item tr > .name{
 }
 
 #dashcontent td#status,
-#dashcontent td.status {
+body.dashboard td.status {
     display:none;
     height:0;
     white-space: nowrap;
     width:100%;
 }
 
+body:not(.dashboard) td#status,
+body:not(.dashboard) td.status{
+    top: 45px;
+    line-height: .8rem;
+}
+
 /* New display of status elements*/
 #dashcontent .item.withstatus #status,
-#dashcontent .item.withstatus .status{
+body.dashboard .item.withstatus .status{
     /*display:none;*/
     display:block;
     left:0;
@@ -902,7 +908,7 @@ body .ui-draggable .item tr > .name{
 }
 
 #dashcontent .item.withstatus #status .wrapper,
-#dashcontent .item.withstatus .status .wrapper{
+body.dashboard .item.withstatus .status .wrapper{
     height:0;
     width:100%;
     overflow:visible;
@@ -931,7 +937,7 @@ body:not(.dashboard) td.status > span > span.separator{padding-right:3px;}
 */
 
 #dashcontent .item.withstatus #status > .wrapper > span,
-#dashcontent .item.withstatus .status > .wrapper > span{
+body.dashboard .item.withstatus .status > .wrapper > span{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -2140,6 +2146,7 @@ table.mobileitem{
     padding: 0;
     margin-top:20px;
     border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 table.mobileitem > thead{
@@ -2147,14 +2154,13 @@ table.mobileitem > thead{
 }
 
 table.mobileitem > thead > tr {
-    background-color:#dce9f9;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
     display:flex;
 }
 table.mobileitem > thead > tr > th:first-of-type{
     flex-grow:1;
 }
+
+table.mobileitem .status > span > span{margin-right:7px;}
 
 .mobileitem .btn-mini{
 /*    height: 80%;
@@ -2169,6 +2175,7 @@ table.mobileitem > thead > tr > th:first-of-type{
 .mobileitem th{
     display:inline;
     background-color: transparent;
+    text-shadow: none;
 }
 
 .mobileitem tr{
@@ -2191,8 +2198,6 @@ table.mobileitem > thead > tr > th:first-of-type{
     margin-right: 0!important;
     /*word-break: break-word;*/
     /*margin: 0!important;*/
-    color: #333!important;
-    background-color: white!important;
     background-image: none!important;
     display: inline-flex;
     width: auto;
@@ -2320,11 +2325,10 @@ td[colspan]:not([colspan="1"])
 
 #dashcontent .mobileitem td > div.dimslider{
     top: 0!important;
-    height: 20px;
     left:0; 
     width:95%;
     margin-right:10px;
-    border: 5px solid white;
+    border: 2px solid white;
 }
 
 #dashcontent .mobileitem .ui-slider-range{
@@ -2356,13 +2360,16 @@ td[colspan]:not([colspan="1"])
     /*top: -16px;*/
 }
 
+#onMobile.dashboard .mobileitem tr:hover{background:none}
 
+#onMobile.dashboard .mobileitem tr:last-child td:first-child{border-radius: 0;}
 
 
 /* Media queries */
 
-@media all and (max-device-width: 361px){ /* for mobile phones, makes popups work better */
+@media all and (max-device-width: 375px){ /* for mobile phones, makes popups work better */
     
+    #onMobile #clockitem{display:none}
     
     .ui-dialog{
         width:90%!important;
@@ -2597,7 +2604,7 @@ td[colspan]:not([colspan="1"])
     
     #dashcontent .item.withstatus #status > .wrapper > span,
     #dashcontent .item.withstatus .status > .wrapper > span{
-        padding-left:10px;
+        /*padding-left:10px;*/ /* removed to fix big leftside double indent on span3*/
     }
     
     .navbar .navbar-inner{
@@ -2634,7 +2641,7 @@ td[colspan]:not([colspan="1"])
     
     #dashcontent div.item.withstatus td#status > .wrapper > span,
     #dashcontent div.item.withstatus td.status > .wrapper > span{
-        width:50%;
+        width:100%;
         box-shadow: inset 0 -1px 0px 0px rgba(100, 100, 100, 0.3);
     }
     

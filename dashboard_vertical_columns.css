@@ -27,6 +27,35 @@ body.dashboard .span3{max-width:100%}
     body.dashboard .divider .span3{max-width:100%;}     
 }
 
+/* overrule extra fluid, if it's active. */
+
+/*
+@media all and (min-width: 601px) and (max-width: 767px){
+    body:not(.settings) .span4,
+    body:not(.settings) .span3{margin:0 10px}
+}*/
+
+@media all and (min-width: 768px) and (max-width: 1100px){
+     /*body:not(.settings) .span4{max-width:calc(50%);}    
+    body:not(.settings) .span3{max-width:calc(33.33%);}*/
+    body:not(.settings) .divider .span4{max-width:calc(100%);}    
+    body:not(.settings) .divider .span3{max-width:calc(100%);}    
+}
+
+@media all and (min-width: 1101px) and (max-width: 1500px){
+    body:not(.settings) .divider .span4{max-width:calc(100%);}
+    body:not(.settings) .divider .span3{max-width:calc(100%);}    
+    /*body:not(.settings) .span4{max-width:33.33%;}
+    body:not(.settings) .span3{max-width:25%;}*/
+}
+
+@media all and (min-width: 1501px){
+    /*body.dashboard .span4:last-of-type{max-width:400px;padding-right:20px}    
+    body.dashboard .span4:last-of-type{max-width:700px;padding-right:20px}*/
+    body:not(.settings) .divider .span4,
+    body:not(.settings) .divider .span3{max-width:calc(100%);}     
+}
+
 
 
 @media all and (min-width: 769px) and (max-width: 3200){
@@ -92,19 +121,19 @@ body.dashboard .span3{max-width:100%}
     body.dashboard #dashcontent > section:first-of-type:nth-last-of-type(3) .span4,
     body.dashboard #dashcontent > section:first-of-type:nth-last-of-type(3) ~ section * .span4{
         width:100%;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }  
     
     body.dashboard #dashcontent > section:first-of-type:nth-last-of-type(3) .span3{
         width:100%;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }
     
     body.dashboard #dashcontent > section:first-of-type:nth-last-of-type(3) .span4{
         width:100%;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }
     
@@ -137,7 +166,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(4) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(4) ~ section * .span4{
         width:100%;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }  
     
@@ -171,7 +200,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(5) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(5) ~ section * .span4{
         width:100%;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }  
 
@@ -203,7 +232,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(3) .span3,
     #dashcontent > section:first-of-type:nth-last-of-type(3) ~ section * .span3{
         width:49%!important;
-        max-width:calc(50% - 16px)!important;
+        max-width:calc(50% - 20px)!important;
         width:calc(50% - 16px)!important;
     }
     
@@ -212,7 +241,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(6) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(6) ~ section * .span4{
         width:100%!important;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
         margin-bottom:1em;
     }  
     
@@ -245,7 +274,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(7) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(7) ~ section * .span4{
         width:100%!important;
-        width:calc(100% - 15px)!important;
+        width:calc(100% - 20px)!important;
     } 
     
     #dashcontent > section:first-of-type:nth-last-of-type(6) #name,
@@ -261,8 +290,8 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(4) .span3,
     #dashcontent > section:first-of-type:nth-last-of-type(4) ~ section * .span3{
         width:49%;
-        max-width:calc(50% - 16px)!important;
-        width:calc(50% - 16px)!important;
+        max-width:calc(50% - 20px)!important;
+        width:calc(50% - 20px)!important;
     }   
     
     #dashcontent > section:first-of-type:nth-last-of-type(7) #name,
@@ -278,8 +307,8 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(3) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(3) ~ section * .span4{
         width:49%;
-        max-width:calc(50% - 16px)!important;
-        width:calc(50% - 16px)!important;
+        max-width:calc(50% - 20px)!important;
+        width:calc(50% - 20px)!important;
     }   
 }
 
@@ -289,7 +318,7 @@ body.dashboard .span3{max-width:100%}
     #dashcontent > section:first-of-type:nth-last-of-type(4) .span4,
     #dashcontent > section:first-of-type:nth-last-of-type(4) ~ section * .span4{
         width:49%;
-        max-width:calc(50% - 16px)!important;
-        width:calc(50% - 16px)!important;
+        max-width:calc(50% - 20px)!important;
+        width:calc(50% - 20px)!important;
     }   
 }

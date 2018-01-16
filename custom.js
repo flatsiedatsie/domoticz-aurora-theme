@@ -859,6 +859,10 @@ $( document ).ready(function()
         }
     });
 
+    //screenfull.toggle();
+    if (screenfull.enabled) {
+        screenfull.request();
+    }
     
     
     // Many changes to the Domoticz HTML output have been proposed, but not all made it in. This theme adds those changes via JS.  
@@ -1868,7 +1872,7 @@ function showThemeSettings()
             // modifying settings menu
             $('#tabs .pull-right').before('<li id="themeTabButton"><a data-target="#tabtheme" data-toggle="tab" data-i18n="Theme">Theme</a></li>');
             // If were on a mobile phone, make the settingsmenu a dropdown.   
-            $('#onMobile #tabs li:not(.pull-right)').click(function() {
+            $('#tabs li:not(.pull-right)').click(function() {
                 if ($(window).width() < 480) {
                     $(this).parent().toggleClass('menuopen');
                     if( !$(this).parent().hasClass('menuopen') ){

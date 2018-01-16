@@ -21,3 +21,9 @@
 }
 
 body#onMobile .datavizbtn{color:#fff}
+
+.dataviz > div {position: relative}
+.dataviz > div > div.highcharts-container{
+    position: absolute;
+    width: 100%;
+}
