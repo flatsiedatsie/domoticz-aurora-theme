@@ -227,7 +227,10 @@ function checkIfDomoticzHasThemeSettings()
                     console.log("THEME JS - Succesfully received user variable numbers from Domoticz.");
                 }
             } else {
-                console.log("User variable list: data.result was undefined. Weird.");
+                console.log("User variable list: data.result was undefined. So the list must be completely empty. Time to save the variables.");
+                if(typeof theme.name !== "undefined"){
+                    storeThemeSettingsInDomoticz("save");
+                }
             }
         },
         error: function () {

@@ -31,11 +31,11 @@
 
 .MediaRemote{
     position:inherit;
-    height:90%!important;
+    height:auto!important;
     width:auto!important;
     margin: 0 auto;
     /*z-index:300;*/
-    min-height:400px;
+    min-height:200px;
     min-width:200px;    
 }
 
