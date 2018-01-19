@@ -1691,7 +1691,7 @@ function inlineSetPoint(idx,temp,change){
 	$.ajax({
 		url: "json.htm?type=command&param=setsetpoint&idx=" + idx +
 		"&setpoint=" + temp,
-		async: false,
+		async: true,
 		dataType: 'json',
 		success: function (data) {
 			if (data.status == "ERROR") {
