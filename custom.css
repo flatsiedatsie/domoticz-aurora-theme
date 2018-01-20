@@ -1923,11 +1923,16 @@ body.dashboard div.item.SelectorSwitch #bigtext{display:none}
 }
 
 .ui-widget-content {
-    /*background-color: white;
+    /*background-color: white;*/
     background-image: none!important;
-    border-color: #999;
+    /*border-color: #999;
     color: #333;*/
     margin-left:0!important;
+}
+
+.ui-widget-header{
+	background-image:none;
+	background-color:rgba(0,0,0,.5);
 }
 /*
 .ui-widget-content td{display:table-cell;}

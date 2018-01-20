@@ -642,7 +642,7 @@
 
 
 /*  This is important. It makes room for the side-menu. It does this by completely taking over from Bootstrap. */
-
+/*
 @media all and (min-width: 900px) and (max-width: 1300px){
 
     #main-view > .container {width:100%!important}
@@ -655,13 +655,13 @@
         box-sizing: content-box;    
     }
     #main-view > .container {width:100%}
-}
+}*/
 
-
+/*
 @media all and (min-width: 768px) and (max-width: 900px){
 
     /*  Overrides the rule above, to go from 3 columns to 2 columns on narrower screens if the new CSS3 flexible display is available. */
-
+/*
      div.ui-draggable:not(.ui-dialog),
      .span4 {
         width:calc(50% - 21px)!important;
@@ -671,3 +671,4 @@
     }
     #main-view > .container {width:100%} 
 }
+*/

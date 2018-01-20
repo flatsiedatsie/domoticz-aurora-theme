@@ -1,8 +1,5 @@
 /* forced popups to be centered on the screen. */
 
-#dialog-camera-live{}
-
-
 .ui-dialog,
 .ui-popup{
     height:auto!important;
@@ -15,6 +12,7 @@
     min-width:200px!important;
 }
 
+/*
 #dialog-lmsplayer-remote,
 #dialog-heosplayer-remote,
 #dialog-media-remote{
@@ -34,8 +32,7 @@
     height:auto!important;
     width:auto!important;
     margin: 0 auto;
-    /*z-index:300;*/
     min-height:200px;
     min-width:200px;    
 }
-
+*/
