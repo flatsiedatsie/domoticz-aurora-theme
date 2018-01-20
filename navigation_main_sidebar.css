@@ -631,7 +631,7 @@
 
 #IMain{
     /*margin-left:52px;*/
-    left:0;
+    left:52px;
     /*transform: scale(0.9, 0.9);*/
 	width:calc(100% - 52px)!important;
 	height:100%!important;
