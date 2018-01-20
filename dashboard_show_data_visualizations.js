@@ -79,7 +79,7 @@ function generateDatavizButtons(){
     var datavizButtons = '<div class="datavizbtn day active" data-i18n="Day">day</div><div style="display:none" class="datavizbtn month" data-i18n="Month">month</div>';
     
     if( !$('.datavizbtn').length ){
-        $('.hasdataviz .dataviz').append(datavizButtons);
+        $('.hasdataviz .dataviz:has(.highcharts-container)').append(datavizButtons);
     }
 
     $('.datavizbtn').click(function() {

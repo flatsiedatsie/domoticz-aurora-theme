@@ -24,7 +24,7 @@
                         'month': ' Months',
                         'year': ' Years',
                         'ago': ' Ago',
-                        'error': 'NaN'
+                        'error': '0 Seconds'
                     }
                 }, options),
                 contains = $(setting.target);

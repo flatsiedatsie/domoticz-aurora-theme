@@ -1,0 +1,7 @@
+/*  invert the colours of the theme completely  */
+body#onMobile,
+#version img
+    -webkit-filter: invert(100%);
+    filter:invert(100%);
+}
+    

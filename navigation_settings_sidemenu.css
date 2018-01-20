@@ -11,7 +11,7 @@
         overflow:hidden;
         padding-left:1px;
         padding-top:1px;
-        margin-top:35px;
+        margin-top:50px;
     }
     
     #settingscontent .nav-tabs > li{
@@ -161,17 +161,17 @@
     
     
     /* Fixtes the settings tabs at the top of the screen. */
-    #settingscontent .sub-tabs{
+    #settingscontent #tabs{
         position: fixed;
-        width: calc(100% - 120px);
-        /*background-color: #031935;*/
+        /*width: calc(100% - 120px);
+        background-color: #031935;*/
         background:none;
         color:inherit;
         padding-top: 21px;
         top: 0;
-        left: 87px;
+        /*left: 87px;*/
         z-index: 4;
-        box-shadow: 0 5px 10px 0 #031935;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,.1)
     }
     
     #settingscontent{margin-top:70px;}

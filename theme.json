@@ -125,10 +125,15 @@
             "enabled":false,
             "files": ["full_privacy.css"]
         },
-        "item_options_menu_icons.css": {
+        "item_options_menu_icons": {
             "id":24,
             "enabled":true,
             "files": ["item_options_menu_icons.css"]
+        },
+        "invert_mobile_colours": {
+            "id":25,
+            "enabled":true,
+            "files": ["invert_mobile_colours.css"]
         }
     }
 }

@@ -255,12 +255,18 @@ p.tip.warning::before{
 }
 
 #IMain{
-    background-color:#ccc;
-    width:100%!important;
+    /*background-color:#ccc;
     border-bottom: 39px solid #ccc;
     border-top: 10px solid #ccc;
     margin-top: -35px!important;
+    z-index:100;
+    width:100%!important;*/
 }
+#maindiv.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
 
 tr.odd{
     background-color:#f2f4FF;
@@ -3013,10 +3019,11 @@ body #iconsmain table{
 #exportpopup button{height:25px;line-height: .7rem;}
 
 #blocklyimportexportbuttons{
-    z-index:100;
+    z-index: 101;
     position: fixed;
-    bottom: 0;
-    right: 20px;
+    bottom: 20px;
+    right: 10px;
+    width: 220px;
 }
 
 #exportpopupmenu{
@@ -3064,9 +3071,20 @@ body #iconsmain table{
 }
 
 #blocklyimportexportbuttons{display:none}
+
 @media only screen and (min-width: 600px){
     #blocklyimportexportbuttons{display: block}
 }
+
+#blocklyimportexportbuttons .btnstyle3,
+#eventparamstable .btnstyle3,
+#eventparamstable .btnstyle3-dis{
+	font-size:.8rem;
+    text-transform: capitalize;
+}
+
+#blocklyimportbtn{margin-right:5px}
+
 
 
 

@@ -502,6 +502,10 @@ body#onMobile div.item.statusTimeout td.lastupdate > span::before{
     height: 12px;
 }
 
+body#onMobile.weather .status > span:not(.wasbr),
+body#onMobile.temperature .status > span:not(.wasbr){
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
 
 
 /*  SLIDERS AND BUTTONS */

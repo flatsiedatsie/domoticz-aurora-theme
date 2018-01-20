@@ -457,6 +457,7 @@ function unloadThemeFeatureFiles(featureName) // feed this function the feature 
 
 function setUserColors()
 {
+    
     // Should we use the mobile view when on desktop?
     if (theme.features.mobile_phoney.enabled === true && theme.features.mobile_on_non_mobile.enabled === true) {
         console.log("THEME JS - setting mobile tag on non-mobile device");
@@ -697,7 +698,6 @@ function startLoadObserver()
             setTimeout(frontendImprovement,2000);
         }
     }
-
 }
 
 
@@ -729,6 +729,25 @@ function backendImprovement()
     // events    
     if(currentPage == "events"){
         blocklyCreateExportButtons();
+        
+        /* experiment with injecting CSS and JS into the blockly iFrame.
+        var $iframe = $('#IMain');
+        $iframe.ready(function() {
+            console.log("THEME JS - injecting JS and CSS into events iframe");
+            //var iFrameHead = window.frames["IMain"].document.getElementsByTagName("head")[0];         
+            var myscript = document.createElement('script');
+            myscript.type = 'text/javascript';
+            myscript.src = '/acttheme/events.js';
+            $("#IMain").contents().find("head").append(myscript);
+            //iFrameHead.appendChild(myscript);
+            var mycss = document.createElement('link');
+            mycss.rel = 'stylesheet';
+            mycss.type = 'text/css';
+            mycss.href = '/acttheme/events.css';
+            //iFrameHead.appendChild(mycss);
+            $("#IMain").contents().find("head").append(mycss);
+        });
+        */
     }
     
     // settings
@@ -854,10 +873,6 @@ $( document ).ready(function()
             privacyObserver.disconnect();
             delete privacyObserver;
         }
-        /*if (typeof loadObserver !== "undefined") {
-            loadObserver.disconnect();
-            delete loadObserver;
-        }*/
         if (typeof weatherAndTempObserver !== "undefined") {
             weatherAndTempObserver.disconnect();
             delete weatherAndTempObserver;
@@ -1541,7 +1556,7 @@ function newData() //freshJSON
     
     // privacy pruning - removing last update time on dashboard switches
     if (theme.features.extra_privacy.enabled === true && currentPage == "dashboard"){
-        console.log("privacy: should hide last updated on dashboard");
+        console.log("THEME JS - privacy: should hide last updated on dashboard");
         $('#dashSwitches .lastupdate').remove();
         $('#dashSwitches .itemfooter').remove();
     } 
@@ -1773,7 +1788,7 @@ function blocklyCreateExportButtons()
     if ( !$('#blocklyimportexportbuttons').length ){
         
         // append buttons
-        $('<div id="blocklyimportexportbuttons"><button id="blocklyimportbtn" class="btn btn-info">import</button><button id="blocklyexportbtn" class="btn btn-info">export</button></div>').insertAfter($('#IMain'));
+        $('<div id="blocklyimportexportbuttons"><button id="blocklyimportbtn" class="btnstyle3">import</button><button id="blocklyexportbtn" class="btnstyle3">export</button></div>').insertAfter($('#IMain'));
         $('#blocklyexportbtn').click(function(){
             console.log("hoi");
             blocklyExport(); 
@@ -1919,8 +1934,9 @@ function showThemeSettings()
                         console.log("THEME SHOULD BE RESET");
                         if ( typeof theme.upgradeAlerted === "undefined"){
                             HideNotify();
-                            bootbox.alert('<h3>Congratulations on the theme upgrade!</h3><p>Please reset the theme by clicking here:</p><p><a onClick="resetTheme(); return false;" href=""><button class="btn btn-info">reset theme</button></a>, or find the theme reset button on the theme settings page.<p>');
+                            bootbox.alert('<h3>Congratulations on the theme upgrade!</h3><p>Please reset the theme by clicking here:</p><p><a onClick="resetTheme(); return false;" href=""><button class="btn btn-info">reset theme</button></a></p><p>(or find the theme reset button on the theme settings page)<p>');
                             theme.upgradeAlerted = "true";
+                            console.log("theme.upgradeAlerted = " + theme.upgradeAlerted)
                             if (isEmptyObject(theme) === false){
                                 localStorage.setObject("themeObject", theme);
                             }

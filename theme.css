@@ -15,7 +15,7 @@ html {
 }
 
 html body{
-    background: #11213d;
+    background: #001033;
     border:1px solid transparent; /* weird hack. But it works.*/
     /*fill: currentColor; tried to get SVG to play along */
 }
@@ -400,10 +400,13 @@ body.dashboard .item .btn-group{margin:0!important}
     width: 100%!important;
     border:none;
     margin-top: 0!important;
-    height:100%!important;
-    top:0px;
+    /*height:100%!important;*/
+    /*top:0px;*/
+    top:50px!important;
+    height:calc(100vh - 50px)!important;
 }
 
+body.events .container-fluid{padding-left:0;padding-right:0;}
 
 /*  login page  */
 
@@ -954,7 +957,7 @@ body.temperature .status > span.wasbr{display:none}
 
 body.weather .status > span:not(.wasbr),
 body.temperature .status > span:not(.wasbr){
-    background-color:rgba(0,0,0,.1);
+    /*background-color:rgba(0,0,0,.1);*/
     padding:1px 1px 2px 1;
     margin-bottom:2px;
     display:inline-block;
@@ -969,6 +972,7 @@ body.temperature .status > span.ng-binding{
     border-top-right-radius: 3px;*/
     /*border-right:2px solid rgba(255,255,255,.4);*/
 }
+
 
 /*
 .status .ng-binding:not(:last-of-type)::after{content: ", "}
