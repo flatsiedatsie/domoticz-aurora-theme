@@ -96,7 +96,11 @@ function mergeItems()
             } else{
                 $('.' + bandnameClass + ':not(.bandleader)').parent().hide();
                 $('.' + bandnameClass + '.bandleader').parent().show();
-                $('.' + bandnameClass + ':not(.bandleader)').parent().appendTo('#hiddenmerged'); }
+                $('.' + bandnameClass + ':not(.bandleader)').parent().appendTo('#hiddenmerged'); 
+            }
+            // If a column is empty now, then it should be removed.
+            $('.section:not(:has(.item))').hide();
+            
         } else{
             console.log("merging: bandleader already prepared");
         }

@@ -1121,10 +1121,12 @@ div.item.statusLowBattery{
     border-bottom:4px solid #73b6ca;
 }
 
-#settingscontent .sub-tabs li{ /* :not(.active)*/
-    margin-bottom:1px;
+#settingscontent .sub-tabs li.active{border-bottom:1px solid #73b6ca;}
+#settingscontent .sub-tabs li:not(.active){ /* :not(.active)*/
+    /*margin-bottom:2px;*/
+    border-bottom:1px solid transparent;
 }
-#settingscontent .sub-tabs li:not(.active) a {
+#settingscontent .sub-tabs li a:not(.active) {
     border-bottom:2px solid transparent;
     margin-bottom: 0px;
 }
