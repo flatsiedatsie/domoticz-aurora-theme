@@ -104,15 +104,27 @@ body table[id^="itemtable"] tr #lastupdate:before{content:none!important}
 
 * {box-sizing: border-box}
 
-body {height:auto;min-height: 100%;width:auto;min-width:100%;}
 html,
-html body{background:none;padding:0} 
+body {
+    height:100%;
+    min-height: 100vh;
+    width:auto;
+    min-width:100%;}
+
 html,
-html body{background-attachment: fixed;background-size: cover}
+html body{
+    background:none;
+    padding:0
+    background-attachment: fixed;
+    background-size: cover
+}
 
-.bannercontent{height:100%}
+.bannercontent{
+    height:auto;
+    padding-bottom:0;
+}
 
-#main-view{padding-top:0px;height:100%;}
+#main-view{padding-top:0;height:auto;}
 
 
 #holder .container-fluid {
@@ -291,6 +303,7 @@ div.container {
 
 div.navbar-inner {
     border-style: none;
+    border:none;
 }
 
 p.ng-binding {
@@ -441,7 +454,8 @@ p.ng-binding {
     border-bottom-left-radius: 0;
 }
 
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+.navbar-fixed-top .navbar-inner, 
+.navbar-static-top .navbar-inner {
     box-shadow: none;
     padding: 10px 0 0 0;
 }
@@ -2416,6 +2430,7 @@ td[colspan]:not([colspan="1"])
     html body#onMobile .navbar .navbar-inner,
     html body#onMobile .navbar .navbar-inner .container,
     html body#onMobile .navbar .navbar-inner .container #appnavbar{margin:0;width:100%}
+    
     html body#onMobile .navbar .navbar-inner{padding: 10px 10px 0 10px}
     
     html body#onMobile .navbar-inner .container #appnavbar{

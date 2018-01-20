@@ -660,7 +660,7 @@ body#onMobile #settingscontent .sub-tabs{
 }
 
 body#onMobile .sub-tabs > li > a{
-    background-color:white;
+    background-color:transparent;
     color: #69b3d8;
 }
 
@@ -668,7 +668,7 @@ body#onMobile #settingscontent .sub-tabs li:not(.pull-right){
     margin:0;
     margin-left:-1px;
     margin-top:-1px;
-    background-color:white;
+    background-color:transparent;
     color: #69b3d8;
 }
 body#onMobile #settingscontent .sub-tabs li.active:not(.pull-right){

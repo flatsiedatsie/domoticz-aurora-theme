@@ -16,18 +16,20 @@ html {
 
 html body{
     background: #001033;
-    border:1px solid transparent; /* weird hack. But it works.*/
+    /*border:1px solid transparent;*/ /* weird hack. But it works.*/
     /*fill: currentColor; tried to get SVG to play along */
 }
 
 #holder{
     position: inherit;
     min-height:100vh;
+    min-height:100%;
 }
 
 body:not(.login) #holder .container-fluid{
     position: relative;
-    min-height:  height:100vh;
+    min-height:  100%;
+    height: auto;
 }
 
 #main-view{min-height: 100vh;}

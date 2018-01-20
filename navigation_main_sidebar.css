@@ -94,12 +94,16 @@
 
     .navbar{
         width:auto;
-        height:100%;
+        height:100vh;
+        min-height:100vh;
         box-shadow: 0 2px 10px 2px rgba(50,50,50,0.2);
         position:fixed;
         overflow:visible;
-        background-color:#eee;
+        background-color: rgba(255,255,255,.1);
         padding:0;
+        top:0;
+        left:0;
+        bottom:0;
         }
 
     .navbar:hover{
@@ -126,7 +130,9 @@
     .navbar .container {
         width:auto;
         height:100%;
-        background-color:#eee;
+        height:100vh;
+        min-height:100vh;
+        background-color:rgba(255,255,255,.1)
     }
 
     .navbar #appnavbar{
@@ -624,11 +630,11 @@
 /*  Blockly doesn't like a side menu..  */
 
 #IMain{
-    margin-left:52px;
+    /*margin-left:52px;*/
     /*transform: scale(0.9, 0.9);*/
-	width:calc(100% - 52px)!important;
+	/*width:calc(100% - 52px)!important;*/
 	height:100%!important;
-	top:0;
+	top:0!important;
     background: #11213d;
     z-index:100;
 }

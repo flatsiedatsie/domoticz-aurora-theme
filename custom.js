@@ -230,6 +230,7 @@ function checkIfDomoticzHasThemeSettings()
                 console.log("User variable list: data.result was undefined. So the list must be completely empty. Time to save the variables.");
                 if(typeof theme.name !== "undefined"){
                     storeThemeSettingsInDomoticz("save");
+                    enableThemeFeatures();
                 }
             }
         },

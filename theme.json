@@ -130,10 +130,10 @@
             "enabled":true,
             "files": ["item_options_menu_icons.css"]
         },
-        "invert_mobile_colours": {
+        "mobile_invert_colours": {
             "id":25,
-            "enabled":true,
-            "files": ["invert_mobile_colours.css"]
+            "enabled":false,
+            "files": ["mobile_invert_colours.css"]
         }
     }
 }

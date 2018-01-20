@@ -1,0 +1,76 @@
+/*  invert the colours of the theme completely  */
+
+
+/*
+body#onMobile div.item img,
+body#onMobile #version img,
+body#onMobile .navbar img,
+body#onMobile .navbar #appnavbar > li.current_page_item > a > img,
+body#onMobile .navbar #appnavbar > li:not(.current_page_item) > a > img
+*/
+/*
+body#onMobile img{
+    -webkit-filter: none;
+    filter:none;
+    -webkit-filter: invert(100%)!important;
+    filter:invert(100%)!important;    
+}
+
+body#onMobile,
+body#onMobile #tabs,
+body#onMobile #settingscontent select,
+body#onMobile #settingscontent input,
+body#onMobile #settingscontent textarea
+{
+    -webkit-filter: invert(100%);
+    filter:invert(100%);
+}
+*/
+/*
+body#onMobile #appnavbar > li > a > img{filter:none}
+*/
+
+html body#onMobile{
+    background-color:black!important;
+}
+
+body#onMobile #holder{
+    -webkit-filter: invert(100%);
+    filter:invert(100%);
+}
+
+body#onMobile #tabs,
+body#onMobile #settingscontent select,
+body#onMobile #settingscontent input,
+body#onMobile #settingscontent textarea
+{
+    -webkit-filter: invert(100%);
+    filter:invert(100%);
+}
+/*
+body#onMobile .dataTables_wrapper{
+    filter:invert(100%);
+}*/
+
+body#onMobile .navbar{
+    background-color:transparent;
+}
+
+
+btnstyle3,
+btnstyle3-sel,
+body#onMobile #holder img,
+body#onMobile div.dataTables_wrapper .ui-toolbar, 
+body#onMobile div.dataTables_wrapper .ui-widget-header{
+    -webkit-filter: invert(100%);
+    filter:invert(100%);
+}
+
+
+body#onMobile .item.statusTimeout table tr > td#name, 
+body#onMobile .item.statusTimeout table tr > td.name, 
+body#onMobile .item.statusTimeout table tr > td#name span, 
+body#onMobile .item.statusTimeout table tr > td.name span{
+    background-color: #1FD2C5 !important;
+}
+
