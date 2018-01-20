@@ -271,8 +271,8 @@ p.tip.warning::before{
     border-bottom: 39px solid #ccc;
     border-top: 10px solid #ccc;
     margin-top: -35px!important;
-    z-index:100;
     width:100%!important;*/
+    z-index:100;
 }
 #maindiv.container-fluid{
     padding-left:0;
