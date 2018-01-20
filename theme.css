@@ -771,13 +771,13 @@ body:not(.dashboard) div.item .options {
         margin-top:60px;
     }
     
-}
-
-@media all and (max-width: 600px){
-
-   /* #dashcontent .item.withstatus #status .wrapper span{background-color:#D4E1EE!important} */
+    #dashcontent .item.withstatus #status{
+        border-left:2px solid rgba(255,255,255,.1);
+        border-right:2px solid rgba(255,255,255,.1);
+    } 
     
 }
+
 
 /*  status indicators */
 
@@ -832,7 +832,7 @@ body:not(.dashboard) div.item .options {
 }
 
 
-@media all and (min-width: 768px){
+@media all and (min-width: 600px){
     div.item.statusProtected td#name{
         /*color:#fff; */
         -moz-box-shadow: inset 0 -3px 0px 0px #A4B1EE;
@@ -856,8 +856,9 @@ body:not(.dashboard) div.item .options {
         /*box-shadow: inset 0 0 0 3px #DF2D3A; neon glow */
         height:100%;
     }
-    
-    
+}
+
+@media all and (min-width: 768px){
     div.item.statusLowBattery td#name{
         color:#fff; 
         -moz-box-shadow: inset 0 -1px 10px 0px #df982d;

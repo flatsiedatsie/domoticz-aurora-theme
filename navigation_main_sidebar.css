@@ -631,8 +631,9 @@
 
 #IMain{
     /*margin-left:52px;*/
+    left:0;
     /*transform: scale(0.9, 0.9);*/
-	/*width:calc(100% - 52px)!important;*/
+	width:calc(100% - 52px)!important;
 	height:100%!important;
 	top:0!important;
     background: #11213d;

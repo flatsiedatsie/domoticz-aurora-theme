@@ -29,7 +29,7 @@ body:not(.settings) .span4{
 
 @media all and (min-width: 601px) and (max-width: 767px){
     body:not(.settings) .span4,
-    body:not(.settings) .span3{margin:0 10px}
+    body:not(.settings) .span3{margin-left: 10px;margin-right: 10px}
 }
 
 @media all and (min-width: 768px) and (max-width: 1100px){
