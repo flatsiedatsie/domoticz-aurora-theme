@@ -40,9 +40,9 @@ body#onMobile #holder{
 }
 
 body#onMobile #tabs,
-body#onMobile #settingscontent select,
-body#onMobile #settingscontent input,
-body#onMobile #settingscontent textarea
+body#onMobile select,
+body#onMobile input,
+body#onMobile textarea
 {
     -webkit-filter: invert(100%);
     filter:invert(100%);
@@ -56,9 +56,9 @@ body#onMobile .navbar{
     background-color:transparent;
 }
 
-
-btnstyle3,
-btnstyle3-sel,
+.label.label-info.lcursor,
+.btnstyle3,
+.btnstyle3-sel,
 body#onMobile #holder img,
 body#onMobile div.dataTables_wrapper .ui-toolbar, 
 body#onMobile div.dataTables_wrapper .ui-widget-header{
