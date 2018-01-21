@@ -30,9 +30,10 @@ body#onMobile #settingscontent textarea
 body#onMobile #appnavbar > li > a > img{filter:none}
 */
 
+/*
 html body#onMobile{
     background-color:black!important;
-}
+}*/
 
 body#onMobile #holder{
     -webkit-filter: invert(100%);
@@ -56,10 +57,10 @@ body#onMobile .navbar{
     background-color:transparent;
 }
 
-#IMain,
-.label.label-info.lcursor,
-.btnstyle3,
-.btnstyle3-sel,
+body#onMobile.events #main-view,
+body#onMobile .label.label-info.lcursor,
+body#onMobile .btnstyle3,
+body#onMobile .btnstyle3-sel,
 body#onMobile #holder img,
 body#onMobile div.dataTables_wrapper .ui-toolbar, 
 body#onMobile div.dataTables_wrapper .ui-widget-header{
