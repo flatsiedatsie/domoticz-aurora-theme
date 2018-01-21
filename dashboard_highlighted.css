@@ -429,7 +429,7 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;    
     }
-
+/*
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.statusLowBattery{box-shadow:none}
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.statusLowBattery td#name{
         background-color: transparent;    
@@ -439,7 +439,6 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
-
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.statusLowBattery tr:after {
         content : "";
         display: block;
@@ -457,7 +456,7 @@
         opacity : 0.5;
         z-index: 1;
     }
-
+*/
     
     /* content changes  */
     

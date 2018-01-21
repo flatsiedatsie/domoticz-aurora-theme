@@ -128,10 +128,12 @@ body table#itemtablenotype tr td:first-child{
     border-top-right-radius:3px!important;
 }
 
-body:not(#onMobile) div:not(.settingscontent) .span3,
-body:not(#onMobile) div:not(.settingscontent) .span4{ /*  this removes the colour that was set by custom.css, in order to make everything visible when there is a theme error. */
+/*  this removes the colour that was set by custom.css, in order to make everything visible when there is a theme error. */
+/*
+body:not(#onMobile) div:not(#settingscontent) .span3,
+body:not(#onMobile) div:not(#settingscontent) .span4{ 
     background: none;
-}
+}*/
 
 .sub-tabs-apply{
     position:inherit!important;
@@ -480,7 +482,7 @@ select.combobox option{
     border-top: 1px dotted rgba(150,150,150,0.05);
 }
 
-select{background-color: #11213d; color:#fff;border:0} /* rgba(0,0,0,.3); */
+select{background-color: #1c2b46; color:#fff;border:0} /* rgba(0,0,0,.3); */
 
 
 #settingscontent textarea,
@@ -523,7 +525,8 @@ div[class*=dialog] input,
 #settingscontent input {
     width: 26px;
     height: 26px;
-    margin-bottom:5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
 }
 
 input:focus{
@@ -851,20 +854,22 @@ body:not(.dashboard) div.item .options {
         -webkit-box-shadow: inset 0 -3px 0px 0px #DF2D3A;
         box-shadow: inset 0 -3px 0px 0px #DF2D3A;          
     }
+	
     div.item.statusTimeout {
         /*border:5px solid #DF2D3A; */
         /*box-shadow: inset 0 0 0 3px #DF2D3A; neon glow */
         height:100%;
     }
+	
+    div.item.statusLowBattery td#name{
+        color:#fff;
+        -moz-box-shadow: inset 0 -3px 0px 0px #df982d;
+        -webkit-box-shadow: inset 0 -3px 0px 0px #df982d;
+        box-shadow: inset 0 -3px 0px 0px #df982d;   		
+    }	
 }
 
 @media all and (min-width: 768px){
-    div.item.statusLowBattery td#name{
-        color:#fff; 
-        -moz-box-shadow: inset 0 -1px 10px 0px #df982d;
-        -webkit-box-shadow: inset 0 -1px 10px 0px #df982d;
-        box-shadow: inset 0 -1px 10px 0px #df982d;
-    }
 
     /*#dashcontent .withstatus #status .wrapper{background:linear-gradient(to bottom, rgba(0, 158, 255, 0.18) 0%,rgba(121, 54, 195, 0.1) 100%);}*/
     
@@ -1118,3 +1123,10 @@ span.upicon.loading::before{display:none}
 span.upicon.loading::after{display:inline-block}
 
 #clockitem .wrapper{white-space: normal;}
+
+
+#settingscontent div[class^="span"] td{
+    vertical-align: sub;
+}
+
+

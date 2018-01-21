@@ -186,11 +186,14 @@ input{margin-right:3px}
 #status span:empty,
 .status span:empty{display:none!important}
 
+/*  this is overridden later. It helps if there is a javascript error, then you can still see the content. */
+/*
 body:not(#onMobile) .span3,
-body:not(#onMobile) .span4{ /*  this is overridden later. It helps if there is a javascript error, then you can still see the content. */
+body:not(#onMobile) .span4{ 
     background-color: rgba(0,0,0,.4);
     border-radius:3px;
 }
+*/
 
 .span12 > label,
 .span6 > label{padding:5px;}
@@ -226,23 +229,32 @@ br{   content: "A" !important;
 
 p {margin:5px 0!important}
 
+#settingscontent .span6 > span,
+#settingscontent .span6 > div > span,
 p.tip{
     /* margin-left: 25px!important; */
     position: relative;
     padding-left: 30px;
     margin-top: 15px!important;
-    padding: 7px 5px 7px 40px;
+    padding: 10px 5px 10px 40px;
     border-top: 1px dotted #666;
     border-bottom: 1px dotted #666;
 }
 
-p.tip > span{margin-right:5px}
+#settingscontent .span6 > span,
+#settingscontent .span6 > div > span,
+p.tip > span{
+    margin-right:5px;
+    display:inline-block;
+}
 
 p.tip.warning{
     border-top: 1px dotted #f55;
     border-bottom: 1px dotted #f55;
 }
 
+#settingscontent .span6 > span::before,
+#settingscontent .span6 > div > span::before,
 p.tip::before{
     content: "i";
     font-family: serif;
@@ -1441,10 +1453,12 @@ input#AcceptNewHardware:checked ~ button {
     vertical-align: top; 
 }
 
-#settingscontent .span6 td:first-of-type{
+#settingscontent .span4 td:first-of-type,
+#settingscontent .span6 td:first-of-type,
+#settingscontent .span12 td:first-of-type{
     min-width:80px; 
     text-align:left!important;
-    padding-top:7px;
+    padding-top:13px;
 }
 
 #settingscontent .span6 td span{
