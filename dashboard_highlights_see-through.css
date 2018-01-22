@@ -202,12 +202,10 @@ This can give a nice effect with background images. */
     body:not(.dashboard) #type,
     body:not(.dashboard) #lastupdate{
         background-color: transparent;
-        color: rgba(255,255,255,0.6);
     }
     
     body:not(.dashboard) #name{
         background-color: transparent;
-        color: rgba(255,255,255,0.8);
         background: -moz-linear-gradient(top, rgba(125,185,232,0.2) 0%, rgba(89,203,234,0.1) 99%, rgba(89,203,234,0.1) 100%); 
         background: -webkit-linear-gradient(top, rgba(125,185,232,0.2) 0%,rgba(89,203,234,0.1) 99%,rgba(89,203,234,0.1) 100%); 
         background: linear-gradient(to bottom, rgba(125,185,232,0.2) 0%,rgba(89,203,234,0.1) 99%,rgba(89,203,234,0.1) 100%); 
@@ -220,7 +218,6 @@ This can give a nice effect with background images. */
     }    
     
     body:not(.dashboard) #bigtext span{
-        color: rgba(255,255,255,0.8);
         background-image:none;
         background-color: transparent;
     }
