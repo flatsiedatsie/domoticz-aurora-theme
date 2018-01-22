@@ -106,7 +106,7 @@ body table[id^="itemtable"] tr #lastupdate:before{content:none!important}
 
 html,
 body {
-    height:100%;
+    height:auto;
     min-height: 100vh;
     width:auto;
     min-width:100%;}
