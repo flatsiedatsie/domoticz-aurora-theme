@@ -76,3 +76,7 @@ body#onMobile .item.statusTimeout table tr > td.name span{
     background-color: #1FD2C5 !important;
 }
 
+
+html body#onMobile{
+	background-color: #000 !important;
+}
