@@ -1631,6 +1631,34 @@ function newData() //freshJSON
         waterfallRunning = false;
     }
     
+    // Edit text items
+    if(currentPage == "utility"){
+        $( ".item:not(:has(.editable)) .typedata:contains('Text')" ).each(function() {
+            var item = $(this).closest('.item');
+            var mytext = item.find('.status > span').text();
+            var inputHTML = '<input class="editable" value="' + mytext+ '">';
+            item.find('.status').append(inputHTML);
+            item.find('.status .editable').focusout(function() {
+                newValue = $(this).val();
+                $(this).hide();
+                var item = $(this).closest('.item');
+                var itemID = item.find('.idnumber').text();
+                var textSetterURL = baseURL + '/json.htm?type=command&param=udevice&idx=' + itemID + '&nvalue=0&svalue=' + newValue;
+                console.log(textSetterURL);
+                $.get(textSetterURL);
+                
+                item.find('.status > span').text(newValue);
+                item.find('.status > span').show();
+            });
+            item.find('.status .editable').hide();
+            item.find('.status > span').click(function(){
+                $(this).hide();
+                var item = $(this).closest('.item');
+                item.find('.status > input').show();
+            });
+            
+        });
+    }
 }
 
 

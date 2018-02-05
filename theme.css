@@ -1124,3 +1124,7 @@ span.upicon.loading::after{display:inline-block}
 }
 
 
+input.editable{
+    padding:0;
+    border:0;
+}
