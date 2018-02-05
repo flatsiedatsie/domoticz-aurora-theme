@@ -1246,7 +1246,7 @@ function mergeDividers()
         // When we're not on the dashboard div unwrapping works a little different..
         console.log("THEME JS - transforming not the dashboard: removing dividers");
         if( $('div.divider').length > 1  ){
-            $('div.divider:not(div[id="weatherwidgets"]:not(div[id="tempwidgets"]) > div.item').unwrap();
+            $('div.divider:not(div[id="weatherwidgets"]:not(div[id="tempwidgets"])) > div.item').unwrap();
             $( ".container > div.item" ).wrapAll( "<div class='row divider' />");
         }
     }
