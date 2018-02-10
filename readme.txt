@@ -4,6 +4,15 @@ Aurora theme
 This is a theme for Domoticz. It's a darker coloured theme, which can be used well in the evening. It adds a lot of features to Domoticz via javascript.
 
 
+
+INSTALLING
+
+On your Raspbery Pu, go into the Domoticz directory via the terminal:
+
+  cd domoticz/www/styles
+  git clone https://github.com/flatsiedatsie/domoticz-aurora-theme.git aurora
+  sudo /etc/init.d/domoticz.sh restart
+
 GENERAL FEATURES
 
 __Show Version Number
