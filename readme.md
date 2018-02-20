@@ -6,7 +6,7 @@ This is a theme for Domoticz. It's a darker coloured theme, which can be used we
 
 ## Installing
 
-On your Raspbery Pu, go into the Domoticz directory via the terminal:
+On your Raspberry Pi, go into the Domoticz directory via the terminal:
 
 ```
 cd domoticz/www/styles
