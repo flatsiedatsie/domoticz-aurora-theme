@@ -45,7 +45,7 @@ Enable this if you want items on the dashboard to also display the time they wer
 ### Dashboard Merge Items With Same Name
 This merges items that have the same name before a dash. It places all their data into the list of data outputs, and uses the parts after the dash as the name for those values. For example:
 
-MiFlora plant 1 - Moisture 
+MiFlora plant 1 - Moisture
 MiFlora plant 1 - Light level
 
 ..would be merged into one item with the new name "MiFlora", and it would display data called "Moisture" and "Light Level". The feature will only merge simple items with just one data value.
