@@ -1608,6 +1608,15 @@ function newData() //freshJSON
                 });
                 $('div[class^="span"][id$="' + itemData.idx + '"] .item.baro.statusNormal').addClass(prediction);
             }
+			
+			// Remove Confort and Dew Point data in Temp Hum Baro devices.
+			if( theme.features.dashboard_remove_dewpoint.enabled === true){
+				$( "body.dashboard .item:contains('Dew Point')" ).removeClass('withstatus');
+				console.log("THEME JS - hiding Dew Point data");
+			}else{
+				$( "body.dashboard .item:contains('Dew Point')" ).addClass('withstatus');
+				console.log("THEME JS - showing Dew Point data");
+			}
         });
 
         // A small fix for some items that have a weird status output.
