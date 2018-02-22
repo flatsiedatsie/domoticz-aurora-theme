@@ -1128,3 +1128,8 @@ input.editable{
     padding:0;
     border:0;
 }
+
+/* there's a bug on mobile view on tempHumBAro devices. This is a quick fix.*/
+#onMobile .status .value0 .value1{
+	margin-left: 5px;
+}
