@@ -1670,6 +1670,30 @@ function newData() //freshJSON
             
         });
     }
+	
+	if(currentPage == "dashboard"){
+		$( ".item:not(.miniframe) .status .value1:contains('http')" ).each(function() {
+			var item = $(this).closest('.item');
+			textValue = item.find('.status .value1').text();
+			console.log("possible url" + textValue);
+			if (textValue.startsWith("http")){
+				console.log("THEMEJS - creating miniframe for " + textValue);
+				item.find('.bigtext').hide();
+				item.find('.img').hide();
+				iframeHtml = '<td class="frameholder"><iframe src="' + textValue + '" /></td>';
+				item.find('.status').after(iframeHtml);
+
+				item.find('.status').hide();
+				item.addClass('miniframe');
+				
+				//item.find('.lastupdate').hide();
+				//item.find('.itemfooter').hide();
+			}
+			
+		});
+		$( ".miniframe .frameholder" ).resizable();
+	}
+	
 }
 
 

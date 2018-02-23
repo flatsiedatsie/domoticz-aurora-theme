@@ -1133,3 +1133,18 @@ input.editable{
 #onMobile .status .value0 .value1{
 	margin-left: 5px;
 }
+
+
+/*  miniframe feature */
+
+.miniframe .name{height:35px!important}
+.miniframe .frameholder{z-index:5}
+.miniframe iframe{
+	width:100%;
+	height:100%;
+	border:0;
+}
+.miniframe iframe::-webkit-scrollbar{
+	width:10px;
+}
+
