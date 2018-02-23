@@ -1814,6 +1814,21 @@ table.dataTable td:first-of-type{padding-left:10px;}
     justify-content: center;
 }
 
+rgbw_popup > span{
+	display: inline-block;
+    margin-bottom: 3px;
+    padding: 0 0 3px 20px;
+}
+
+rgbw_popup > div:not(.ui-close){
+	display: inline-block;
+    position: relative;
+    height: auto;
+    min-height: 12px;
+    margin: 0;
+    padding: 0;
+}
+
 #setpoint_popup tr{
     display:flex;
     flex-direction: row;
