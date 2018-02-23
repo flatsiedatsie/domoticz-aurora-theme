@@ -1353,7 +1353,8 @@ function improveClasses()
         $('img[src*="images/lux"]').closest('.item').addClass('lux');
         $('img[src*="images/Custom"]').closest('.item').addClass('custom');
         $('img[src*="images/Wind"]').closest('.item').addClass('wind'); 
-		$('img[src*="images/ice"]').closest('.item').addClass('ice'); 
+		$('img[src*="images/ice"]').closest('.item').addClass('ice');
+		$('img[src*="images/rain"]').closest('.item').addClass('rain'); 
     }
 
     // give all banner navigation tables a class name.
