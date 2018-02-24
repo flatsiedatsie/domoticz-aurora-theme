@@ -2187,7 +2187,6 @@ body.weather #weatherwidgets .img1 img:hover,
     width:calc(100% - 26px);
     line-height: 1.2em;
     white-space:initial;
-    text-transform: capitalize;
 }
 
 @media all and (min-width: 1200px){
