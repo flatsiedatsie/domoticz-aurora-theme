@@ -45,12 +45,24 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"temp", "ba");
                 });
-                /*
+                $(this).find('.item.rain:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"rain", "mm");
+                });								            
                 $(this).find('.item.wind:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
-                    generateDataviz($(this),"temp", "ws");
+                    generateDataviz($(this),"wind", "sp");
                 });
-                */          
+                /*
+				$(this).find('.item.uv:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"uv", "uvi");
+                });
+                $(this).find('.item.visibility:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+								*/         
             });
             
             if($('.datavizbtn').length < 1){
