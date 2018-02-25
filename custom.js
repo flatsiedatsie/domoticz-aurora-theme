@@ -1354,7 +1354,11 @@ function improveClasses()
         $('img[src*="images/Custom"]').closest('.item').addClass('custom');
         $('img[src*="images/Wind"]').closest('.item').addClass('wind'); 
 		$('img[src*="images/ice"]').closest('.item').addClass('ice');
-		$('img[src*="images/rain"]').closest('.item').addClass('rain'); 
+		$('img[src*="images/rain"]').closest('.item').addClass('rain');
+		$('img[src*="images/air"]').closest('.item').addClass('air');
+		$('img[src*="images/speaker"]').closest('.item').addClass('speaker'); 
+		$('img[src*="images/moisture"]').closest('.item').addClass('moisture'); 
+		$('img[src*="images/leaf]').closest('.item').addClass('leaf'); 
     }
 
     // give all banner navigation tables a class name.
