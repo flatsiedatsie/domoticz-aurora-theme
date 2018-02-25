@@ -1948,7 +1948,7 @@ function showThemeSettings()
     
     // make info prettier
     $('#settings td > span + a.norm-link').each(function(){
-        $(this).prev('span').andSelf().wrapAll('<p class="tip" />');
+        $(this).prev('span').addBack().wrapAll('<p class="tip" />');
     });
     
     // actually adding the settings tab.
