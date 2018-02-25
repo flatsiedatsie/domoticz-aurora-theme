@@ -25,6 +25,10 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this), "temp", "te");
                 });
+		$(this).find('.item.ice:not(.bandmember):not(:has(.dataviz))').each(function(){
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this), "temp", "te");
+                });
                 $(this).find('.item.percentage:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"Percentage", "any");
