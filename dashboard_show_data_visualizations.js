@@ -25,6 +25,10 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this), "temp", "te");
                 });
+		$(this).find('.item.ice:not(.bandmember):not(:has(.dataviz))').each(function(){
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this), "temp", "te");
+                });
                 $(this).find('.item.percentage:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"Percentage", "any");
@@ -53,8 +57,19 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"wind", "sp");
                 });
-                /*
-				$(this).find('.item.uv:not(.bandmember):not(:has(.dataviz))').each(function () {
+                $(this).find('.item.air:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "co2");
+                }); 
+                $(this).find('.item.speaker:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+                $(this).find('.item.moisture:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+                $(this).find('.item.uv:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"uv", "uvi");
                 });
@@ -62,7 +77,15 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"counter", "v");
                 });
-								*/         
+                /* Leaf don't seem to have history? gas no viz for some reason.
+		$(this).find('.item.gas:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+		$(this).find('.item.leaf:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"temp", "hu");
+                }); */
             });
             
             if($('.datavizbtn').length < 1){
