@@ -1353,12 +1353,15 @@ function improveClasses()
         $('img[src*="images/lux"]').closest('.item').addClass('lux');
         $('img[src*="images/Custom"]').closest('.item').addClass('custom');
         $('img[src*="images/Wind"]').closest('.item').addClass('wind'); 
-		$('img[src*="images/ice"]').closest('.item').addClass('ice');
-		$('img[src*="images/rain"]').closest('.item').addClass('rain');
-		$('img[src*="images/air"]').closest('.item').addClass('air');
-		$('img[src*="images/speaker"]').closest('.item').addClass('speaker'); 
-		$('img[src*="images/moisture"]').closest('.item').addClass('moisture'); 
-		$('img[src*="images/leaf]').closest('.item').addClass('leaf'); 
+	$('img[src*="images/ice"]').closest('.item').addClass('ice');
+	$('img[src*="images/rain"]').closest('.item').addClass('rain');
+	$('img[src*="images/air"]').closest('.item').addClass('air');
+	$('img[src*="images/Speaker"]').closest('.item').addClass('speaker'); 
+	$('img[src*="images/moisture"]').closest('.item').addClass('moisture'); 
+	$('img[src*="images/uv"]').closest('.item').addClass('uv');
+        $('img[src*="images/visibility"]').closest('.item').addClass('visibility');
+        //$('img[src*="images/Gas"]').closest('.item').addClass('gas');
+	//$('img[src*="images/leaf]').closest('.item').addClass('leaf');
     }
 
     // give all banner navigation tables a class name.
