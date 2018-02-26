@@ -20,12 +20,11 @@ addDataviz = function ()
             
             //$('section .span3, section .span4').each(function(){
             $('section .span4:nth-child(-n+3), section .span3:nth-child(-n+3)').each(function(){
-                
                 $(this).find('.item.temp:not(.bandmember):not(:has(.dataviz))').each(function(){
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this), "temp", "te");
                 });
-		$(this).find('.item.ice:not(.bandmember):not(:has(.dataviz))').each(function(){
+                $(this).find('.item.ice:not(.bandmember):not(:has(.dataviz))').each(function(){
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this), "temp", "te");
                 });
@@ -77,15 +76,35 @@ addDataviz = function ()
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"counter", "v");
                 });
-                /* Leaf don't seem to have history? gas no viz for some reason.
-		$(this).find('.item.gas:not(.bandmember):not(:has(.dataviz))').each(function () {
+                $(this).find('.item.radiation:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"counter", "v");
                 });
-		$(this).find('.item.leaf:not(.bandmember):not(:has(.dataviz))').each(function () {
+                $(this).find('.item.leaf:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+                $(this).find('.item.thermostat:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"temp", "te");
+                });
+                $(this).find('.item.gauge:not(.bandmember):not(:has(.dataviz))').each(function () {
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this),"temp", "hu");
-                }); */
+                });
+                $(this).find('.item.scale:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
+                /*       Waterflow uses same image as moisture but percent instead of counter as moisture but seem to work */
+                $(this).find('.item.Waterflow:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"Percentage", "v");
+                });
+                $(this).find('.item.gasmeter:not(.bandmember):not(:has(.dataviz))').each(function () {
+                    $(this).addClass('hasdataviz');
+                    generateDataviz($(this),"counter", "v");
+                });
             });
             
             if($('.datavizbtn').length < 1){
