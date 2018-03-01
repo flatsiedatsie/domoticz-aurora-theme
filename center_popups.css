@@ -16,7 +16,8 @@
 #dialog-lmsplayer-remote,
 #dialog-heosplayer-remote,
 #dialog-media-remote{
-    margin: 0 auto;
+
+	margin: 0 auto;
     min-height:300px;
     min-width:200px;
     height: 50vh;

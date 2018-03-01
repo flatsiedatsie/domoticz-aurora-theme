@@ -1148,3 +1148,11 @@ input.editable{
 	width:10px;
 }
 
+
+/*  remote experiment  */
+
+#dialog-lmsplayer-remote,
+#dialog-heosplayer-remote,
+#dialog-media-remote{
+    min-height:300px;
+}
