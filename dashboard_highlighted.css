@@ -563,25 +563,29 @@
         padding-left:10px;
     }  
     
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount4 td#status > .wrapper img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount4 td.status > .wrapper img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount4 td#status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount4 td.status > .wrapper img{
         height:24px;
         width:24px;
     }
    
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount5 td#status > .wrapper img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount5 td.status > .wrapper img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount6 td#status > .wrapper img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount6 td.status > .wrapper img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount5 td#status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount5 td.status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount6 td#status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount6 td.status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount7 td#status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount7 td.status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount8 td#status > .wrapper img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount8 td.status > .wrapper img{
         height:16px;
         width:16px;
         /*top:8px*/
         display: inline-block!important;
     }
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount5 td#status > .wrapper > span,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount5 td.status > .wrapper > span,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount6 td#status > .wrapper > span,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.withstatus.statuscount6 td.status > .wrapper > span{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount5 td#status > .wrapper > span,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount5 td.status > .wrapper > span,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount6 td#status > .wrapper > span,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) div.item.bandleader.statuscount6 td.status > .wrapper > span,{
         /*width:calc(50% - 16px);*/
         font-size:14px;
         padding: 0 0 0 5px
