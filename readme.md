@@ -13,6 +13,13 @@ cd domoticz/www/styles
 git clone https://github.com/flatsiedatsie/domoticz-aurora-theme.git aurora
 sudo /etc/init.d/domoticz.sh restart
 ```
+
+## Updating
+```
+cd domoticz/www/styles/aurora
+git pull
+```
+
 ## General features
 
 ### Show Version Number
