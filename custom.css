@@ -1816,7 +1816,7 @@ table.dataTable td:first-of-type{padding-left:10px;}
 
 #rgbw_popup_colour .jQWCP-wWidget{
 	display:flex;
-	width:229px;
+	width:auto!important;
 }
 
 #rgbw_popup > span{
