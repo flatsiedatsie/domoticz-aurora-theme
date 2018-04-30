@@ -1808,19 +1808,25 @@ table.dataTable td:first-of-type{padding-left:10px;}
     height:220px!important;
 }
 #rgbw_popup table#ledtable td:last-of-type{
-    display:flex;
+    /*display:flex;
     flex-direction:column;
     padding-top:50px;
-    justify-content: center;
+    justify-content: center;*/
 }
 
-rgbw_popup > span{
-	display: inline-block;
+#rgbw_popup_colour .jQWCP-wWidget{
+	display:flex;
+	width:229px;
+}
+
+#rgbw_popup > span{
+    /*display: inline-block;
     margin-bottom: 3px;
-    padding: 0 0 3px 20px;
+    padding: 0 0 3px 20px;*/
+	display:none;
 }
 
-rgbw_popup > div:not(.ui-close){
+#rgbw_popup > div:not(.ui-close){
 	display: inline-block;
     position: relative;
     height: auto;
