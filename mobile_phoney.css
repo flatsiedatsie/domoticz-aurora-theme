@@ -433,7 +433,7 @@ body#onMobile #dashcontent .item.withstatus .status > .wrapper > span{
 
 body#onMobile .divider .span3 table > tbody > tr > td:last-of-type:not(.selectors), 
 body#onMobile .divider .span4 table > tbody > tr > td:last-of-type:not(.selectors){
-    background-color: #bee5f2;/*#309abd;*/
+    /*background-color: #bee5f2;*//*#309abd;*/
 }
 body#onMobile div.item .options{
     background-image: none;
