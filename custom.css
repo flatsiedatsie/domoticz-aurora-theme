@@ -1922,10 +1922,13 @@ body:not(.dashboard) div.item div.selectorlevels .ui-buttonset{
 .selectorlevels .ui-button.ui-state-active{box-shadow: inset 0px 0px 20px 2px rgba(250, 250, 250, 0.1);}
 .selectorlevels .ui-button.ui-state-active .ui-button-text{
     color:#ddd;
+	margin-right:0;
 }
 
 .selectorlevels .ui-selectmenu-button span.ui-icon{
     /*filter: contrast(0);*/ /* turns the dropdown triangle darker */
+	position:absolute;
+	right:15px;
 }
 
 .span3 .selectorlevels .ui-selectmenu-button,
