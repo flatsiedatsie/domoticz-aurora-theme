@@ -331,6 +331,8 @@ p.ng-binding {
 
 /* HEADER CONTENT*/
 
+body:not(.login) #holder .container-fluid {padding-top:50px}
+
 #temptophtm .bannav{
     width:auto;
     margin-bottom:1em;
