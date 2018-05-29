@@ -3,7 +3,8 @@
 
 /* the animations have been disabled for now, as they seemed to interfere with smooth operation. */
 
-
+/*  remove padding at the top that is required when the mani menu is horizontal  */
+body:not(.login) #holder .container-fluid {padding-top:50px}
 
 /*This media query is there until Domoticz has a 'mobile' tag in the body, so that we know if a user is on a mobile phone. */
 @media screen and (min-width : 480px){
