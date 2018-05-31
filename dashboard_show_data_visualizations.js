@@ -135,7 +135,8 @@ function generateDatavizButtons(){
     if( !$('.datavizbtn').length ){
         $('.hasdataviz .dataviz:has(.highcharts-container)').append(datavizButtons);
     }
-
+    $(".datavizbtn").i18n(); //Make the translation
+    
     $('.datavizbtn').click(function() {
         $(this).hide();
         var item = $(this).closest('.item');
