@@ -899,6 +899,7 @@ $( document ).ready(function()
         $('#mFullscreen').click(function() {
             screenfull.toggle();
         });
+	$("#appnavbar").i18n(); // Make the translation (Add tags in languagefile mnually)
     }
     
     // hooking into the ajax responses.
@@ -1738,7 +1739,8 @@ function addDashboardGoodies()
                 $('#dashSwitches .divider').prepend(clockitem);
             }
         }
-
+	 $("#name").i18n(); // Make the translation (Add tags in languagefile mnually)
+	    
         if (theme.features.dashboard_highlighted.enabled === true && theme.features.dashboard_show_data_visualizations.enabled === true && currentPage == "dashboard") {
             if (typeof addDataviz === "function") {
                 setTimeout(addDataviz,1000);
@@ -1981,7 +1983,8 @@ function showThemeSettings()
                     $(this).parent().removeClass('menuopen');
                 }
             });
-            
+            $("#tabs").i18n(); // Make the translation
+		
             // inserting the themesettings.html
             $('#my-tab-content').append('<div class="tab-pane" id="tabtheme"><section id="theme">Loading..</section></div>');
             $('#my-tab-content #theme').load("acttheme/themesettings.html",loadedSettingsHTML);
