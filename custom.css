@@ -764,7 +764,7 @@ body .item tr > .name {
     overflow: hidden;
     box-sizing: border-box;
     padding: 13px 5px 9px 35px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     margin:0!important;
 }
 body .item tr > #name > span,
