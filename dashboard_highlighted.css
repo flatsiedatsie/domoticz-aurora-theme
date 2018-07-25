@@ -177,25 +177,25 @@
     /*  image repositioning  */
     
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img1,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img2,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img3{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img1,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img2,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img3{
         border-radius:2px;
         overflow:visible;    
     }
     
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img img:hover,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img1 img:hover,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img2 img:hover,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img3 img:hover{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img1 img:hover,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img2 img:hover,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img3 img:hover{
         border-radius: 5px;
         transition: none;
     }    
 
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img1 img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img2 img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img3 img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img1 img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img2 img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img3 img{
         /*width:60px;
         height:60px;*/
         display:block;
@@ -207,14 +207,14 @@
     }
 
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img img:after,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img1 img:after,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img2 img:after,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img3 img:after{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img1 img:after,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img2 img:after,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img3 img:after{
         display:none;
     }    
     
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr #img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr #img1{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr .img1{
         width: 30%;
         /*top: 14px;*/
         position: relative;        
@@ -227,7 +227,7 @@
 
 
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr #img img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr #img1 img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) #itemtablesmall tr .img1 img{
         width: 100%;
         height: auto;
         max-width: 80px;
@@ -237,7 +237,7 @@
         
     
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img1{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img1{
         right:10%;  
         top: 55px; /* was 38% */
         display: flex;
@@ -245,7 +245,7 @@
         flex-direction: row;
     }
 
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img2{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img2{
         right:50%;
         margin-right:-25px!important;
         top: 55px; /*top: 38%;*/
@@ -254,7 +254,7 @@
         flex-direction: row;    
     }
 
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img3{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img3{
         float:left!important;
         left:10%;
         top: 55px;  /* top: 38%;*/
@@ -263,9 +263,9 @@
         flex-direction: row;
     }
 
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img1 img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr #img2 img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img1 img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalltrippleicon tr .img2 img{
         /*width:20%;
         height:20%;*/
         max-width:60px!important;
@@ -279,7 +279,7 @@
     }
 
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img1{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr .img1{
         float:none!important;
         width:35%;
         max-width:80px;
@@ -291,7 +291,7 @@
         flex-direction: row;
     }
 
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img2{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr .img2{
         width:35%;
         max-width:80px;
         right:10%;
@@ -303,8 +303,8 @@
     }
 
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img1 img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr #img2 img{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr .img1 img,
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) #itemtablesmalldoubleicon tr .img2 img{
         width:100%;
         height:auto;
     }
@@ -495,7 +495,7 @@
     }
     
     #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img,
-    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr #img1{
+    #dashcontent h2 + div.divider .span4:nth-child(-n+3) .item:not(.keepclear) tr .img1{
         float:none!important;
     }
     
