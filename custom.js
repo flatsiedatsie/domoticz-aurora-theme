@@ -899,7 +899,7 @@ $( document ).ready(function()
         $('#mFullscreen').click(function() {
             screenfull.toggle();
         });
-	$("#appnavbar").i18n(); // Make the translation (Add tags in languagefile mnually)
+	//$("#appnavbar").i18n(); // Make the translation (Add tags in languagefile mnually)
     }
     
     // hooking into the ajax responses.
