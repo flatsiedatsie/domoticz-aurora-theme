@@ -3065,6 +3065,7 @@ body #iconsmain table{
 
 /*  blockly import export  */
 
+/*
 #exportpopup h1,
 #exportpopup h2,
 #exportpopup h3{font-size:1.1rem;display: inline-block;}
@@ -3143,7 +3144,7 @@ body #iconsmain table{
 }
 
 #blocklyimportbtn{margin-right:5px}
-
+*/
 div.events-editor-file__header{
 	height:auto;
 }
