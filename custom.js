@@ -729,7 +729,7 @@ function backendImprovement()
     
     // events    
     if(currentPage == "events"){
-        blocklyCreateExportButtons();
+        //blocklyCreateExportButtons();
         
         /* experiment with injecting CSS and JS into the blockly iFrame.
         var $iframe = $('#IMain');
