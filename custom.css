@@ -3144,7 +3144,9 @@ body #iconsmain table{
 
 #blocklyimportbtn{margin-right:5px}
 
-
+div.events-editor-file__header{
+	height:auto;
+}
 
 
 /*  finally, load the theme.js file. IN the future it might be fun to load different sub-theme files via JS. But for now let's load it. This way the theme still looks good if javascript fails. */
