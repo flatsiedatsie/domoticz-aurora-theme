@@ -3149,6 +3149,9 @@ div.events-editor-file__header{
 	height:auto;
 }
 
+body table#itemtable tbody tr{
+	color:inherit;
+}
 
-/*  finally, load the theme.js file. IN the future it might be fun to load different sub-theme files via JS. But for now let's load it. This way the theme still looks good if javascript fails. */
+/*  finally, load the theme.css file. In the future it might be fun to load different sub-theme files via JS. But for now let's load it. This way the theme still looks good if javascript fails. */
 @import url("theme.css");
