@@ -128,11 +128,11 @@ function mergeItems()
             }
         });
         
-        // clean up
+        // clean up band leader
         $("#" + member[0].id + " .item .name > span").html('<span>' + key + '</span>');
         $("#" + member[0].id + " .item .bigtext").hide();
-        $("#" + member[0].id + " .item .img a").hide();
-        $("#" + member[0].id + " .item .status img").show();
+        $("#" + member[0].id + " .item .img").hide(); // hide original image
+        $("#" + member[0].id + " .item .status a").show(); // show new image inside status td
         
         //dramatic entrance
         if( theme.features.extras_and_animations.enabled == true && alreadyAnimated == false){
