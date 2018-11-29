@@ -875,7 +875,8 @@ body:not(.dashboard) div.item .options {
     /*  footer  */
 
     #copyright{
-        background-color: rgba(0,0,0,.1)
+        background-color: rgba(0,0,0,.1);
+	position:inherit;
     }
 
 
