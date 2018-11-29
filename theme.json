@@ -143,7 +143,7 @@
         "dashboard_highlight_all": {
             "id":26,
             "enabled":true,
-            "files": ["dashboard_highlight-all.css"]
+            "files": ["dashboard_highlight_all.css"]
 
         }
     }
