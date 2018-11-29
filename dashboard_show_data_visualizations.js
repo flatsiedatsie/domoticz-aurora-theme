@@ -19,7 +19,14 @@ addDataviz = function ()
         setTimeout(function () { // small delay to make sure the main html has been generated, and to lower the burden on the system.
             
             //$('section .span3, section .span4').each(function(){
-            $('section .span4:nth-child(-n+3), section .span3:nth-child(-n+3)').each(function(){
+            
+            if (theme.features.dashboard_highlight_all.enabled === true){
+                var selection = "section .span4, section .span3";
+            }else{
+                var selection = "section .span4:nth-child(-n+3), section .span3:nth-child(-n+3)";
+            }
+            
+            $(selection).each(function(){
                 $(this).find('.item.temp:not(.bandmember):not(:has(.dataviz))').each(function(){
                     $(this).addClass('hasdataviz');
                     generateDataviz($(this), "temp", "te");
