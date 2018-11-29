@@ -136,9 +136,15 @@
             "files": ["mobile_invert_colours.css"]
         },
         "dashboard_remove_dewpoint": {
+            "id":31,
+            "enabled":false,
+            "files": []
+        },
+        "dashboard_highlight_all": {
             "id":26,
             "enabled":true,
-            "files": []
+            "files": ["dashboard_highlight-all.css"]
+
         }
     }
 }
