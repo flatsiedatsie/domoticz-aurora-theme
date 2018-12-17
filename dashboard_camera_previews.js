@@ -8,9 +8,9 @@ function prepareCameraPreviews()
     
     /*
     if (theme.features.dashboard_highlight_all.enabled === true){
-                var selection = "section .span4 .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ";
+                var selection = 'section .span4 .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ';
             }else{
-                var selection = "section .span4:nth-child(-n+3) .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ";
+                var selection = 'section .span4:nth-child(-n+3) .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ';
             }
     $(selection).each(function(){ //img[src~="' + camera + '"]
     */
