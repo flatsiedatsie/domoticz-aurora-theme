@@ -43,6 +43,18 @@ body:not(.login) #holder .container-fluid{
         padding-top:10px;
         height:100%;
     }
+	
+	#scenecontent .span4,
+	#utilitycontent .span4,
+	#lightcontent .span4 {
+		width: 373px;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		padding-top: 0em;
+		padding-bottom: 0em;
+		height: 130px;
+		background-color: rgba(255,255,255,0.1);
+	}
 }
 
 /* settings/hardware background color*/
@@ -665,8 +677,18 @@ body#onMobile table.mobileitem td{color:inherit;box-shadow: none}
         clear: both;
         overflow: visible;
     }
-    
-    
+        
+	#scenecontent .span4,
+	#utilitycontent .span4,
+	#lightcontent .span4 {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		padding-top: 0em;
+		padding-bottom: 0em;
+		height: 130px;
+		background-color: rgba(255,255,255,0.1);
+	}
+	
     #tabs li a:not(.pull-right){display:block}
     
     #tabs li:not(.active):not(.pull-right){display:none;float:none}
@@ -826,6 +848,17 @@ body:not(.dashboard) div.item .options {
         height:auto;
     }
 
+	#scenecontent .span4,
+	#utilitycontent .span4,
+	#lightcontent .span4 {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		padding-top: 0em;
+		padding-bottom: 0em;
+		height: 130px;
+		background-color: rgba(255,255,255,0.1);
+	}
+	
 }
 
 
@@ -901,9 +934,6 @@ body:not(.dashboard) div.item .options {
     .dd-desc{color:#eee;}
 
 }
-
-
-
 
 
 
