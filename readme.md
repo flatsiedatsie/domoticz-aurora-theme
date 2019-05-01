@@ -2,7 +2,7 @@
 
 This is a theme for Domoticz. It's a darker coloured theme, which can be used well in the evening. It adds a lot of features to Domoticz via javascript.
 
-#If you would like to be the new maintainer of the theme, create an issue in the issue que.
+# If you would like to be the new maintainer of the theme, create an issue in the issue que.
 
 
 ## Installing
