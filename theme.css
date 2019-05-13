@@ -1185,5 +1185,6 @@ input.editable{
 #dialog-lmsplayer-remote,
 #dialog-heosplayer-remote,
 #dialog-media-remote{
-    min-height:300px;
+min-height:400px!important;
+padding: 0 20px 0 20px;
 }
