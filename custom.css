@@ -1112,7 +1112,7 @@ div.item.statusLowBattery{
 }
 
 /*  options TD content (still doesn't have a class name)*/
-.item .btn-group{display:flex}
+.item .btn-group{display:flex!important}
 .item .btn-group button{flex-grow:1}
 
 
