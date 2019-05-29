@@ -112,8 +112,13 @@ function mergeItems()
         // copy values and images from bandmembers to the bandleader
         $.each(member, function(index, memberProperties){
             // Remove old images, and replace with updated image.
+			// When icons are displayed only with the Tag <img> then
+            $("." + bandnameClass + ".bandleader .status > .wrapper > .iconholder" + index + " > img").remove();
+            $("#" + memberProperties.id + " .img > img").clone().appendTo($("." + bandnameClass + ".bandleader .status > .wrapper > .iconholder" + index));
+			// When icons are displayed with the Tag <img> and encapsulated in a Tag <a> then
             $("." + bandnameClass + ".bandleader .status > .wrapper > .iconholder" + index + " > a").remove();
             $("#" + memberProperties.id + " .img a").clone().appendTo($("." + bandnameClass + ".bandleader .status > .wrapper > .iconholder" + index));
+			
             // Copy new data values into span holders.
             var newValue = ""+ $("#" + memberProperties.id + " .bigtext").text();
             var doublecheck = newValue.toLowerCase();
