@@ -194,7 +194,7 @@ function checkIfDomoticzHasThemeSettings()
         async: true,
         dataType: 'json',
         success: function (data) {
-            if (data.status == "ERROR") {
+            if (data.status == "ERR") {
                 console.log("server responded with error while getting user variables");
                 $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your preferences from Domoticz.');
             }
@@ -222,14 +222,14 @@ function checkIfDomoticzHasThemeSettings()
                 if(didDomoticzHaveSettings === false){
                     console.log("THEME JS - Domoticz didn't have settings for the theme, will create them now from defaults.");
                     enableThemeFeatures(); // load defaults from the object
-                    storeThemeSettingsInDomoticz("save"); // store new default settings in Domoticz, for next time..
+                    storeThemeSettingsInDomoticz("add"); // store new default settings in Domoticz, for next time..
                 }else{
                     console.log("THEME JS - Succesfully received user variable numbers from Domoticz.");
                 }
             } else {
                 console.log("User variable list: data.result was undefined. So the list must be completely empty. Time to save the variables.");
                 if(typeof theme.name !== "undefined"){
-                    storeThemeSettingsInDomoticz("save");
+                    storeThemeSettingsInDomoticz("add");
                     enableThemeFeatures();
                 }
             }
@@ -251,7 +251,7 @@ function getThemeStylingSettingsFromDomoticz(idx)
         async: true,
         dataType: 'json',
         success: function (data) {
-            if (data.status == "ERROR") {
+            if (data.status == "ERR") {
                 console.log("THEME JS - Although they seem to exist, there was an error loading theme styling settings from Domoticz");
             }
             // If we got good data from Domoticz, load the preferences.
@@ -285,7 +285,7 @@ function getThemeFeatureSettingsFromDomoticz(idx)
         async: true,
         dataType: 'json',
         success: function (data) {
-            if (data.status == "ERROR") {
+            if (data.status == "ERR") {
                 console.log("THEME JS - Although they seem to exist, there was an error loading theme preferences from Domoticz");
                 $.get('/json.htm?type=command&param=addlogmessage&message=Theme Error - The theme was unable to load your user variable.');
                 loadedSettingsFromDomoticz = false;
@@ -344,7 +344,7 @@ function storeThemeSettingsInDomoticz(action)
         async: true,
         dataType: 'json',
         success: function (data) {
-            if (data.status == "ERROR") {   
+            if (data.status == "ERR") {   
                 HideNotify();
                 bootbox.alert($.t('Unable to store theme settings in Domoticz. Try clearing ALL your cache.'));
                 console.log("THEME JS - unable to create theme settings storage in Domoticz. (tip:max datasze is 200 bytes)");
@@ -378,7 +378,7 @@ function storeThemeSettingsInDomoticz(action)
         async: true,
         dataType: 'json',
         success: function (data) {
-            if (data.status == "ERROR") {   
+            if (data.status == "ERR") {   
                 HideNotify();
                 bootbox.alert($.t('Unable to store theme styling settings in Domoticz. Try clearing ALL your cache.'));
                 console.log("THEME JS - unable to create theme styling settings storage in Domoticz. (tip:max datasze is 200 bytes)");
@@ -1785,7 +1785,7 @@ function inlineSetPoint(idx,temp,change){
 		async: true,
 		dataType: 'json',
 		success: function (data) {
-			if (data.status == "ERROR") {
+			if (data.status == "ERR") {
 				HideNotify();
 				bootbox.alert($.t('Problem setting Setpoint value'));
 			}
@@ -2148,7 +2148,7 @@ function resetTheme(){
                 async: true,
                 dataType: 'json',
                 success: function (data) {
-                    if (data.status == "ERROR") {
+                    if (data.status == "ERR") {
                         console.log("THEME JS - server responded with error while deleting user variable that stored feature settings");
                         HideNotify();
                         bootbox.alert($.t('Domoticz gave an error when trying to remove the theme feature settings data'));
@@ -2277,12 +2277,3 @@ function getScope(ctrlName) {
 }
 
 console.log( "THEME JS - loaded" );
-
-
-
-
-
-
-
-
-
