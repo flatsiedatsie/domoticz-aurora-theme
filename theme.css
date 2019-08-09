@@ -715,8 +715,9 @@ body:not(.dashboard) div.item .options {
 
 .item .btn-group{
     margin-left:15px;
-    display:flex;
+    display:flex !important;
     z-index: 1;
+    overflow-x: auto;
 }
 
 .item a.btnsmall-sel{
