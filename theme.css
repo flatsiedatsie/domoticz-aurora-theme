@@ -717,7 +717,31 @@ body:not(.dashboard) div.item .options {
     margin-left:15px;
     display:flex !important;
     z-index: 1;
-    overflow-x: auto;
+	overflow-x: auto;
+	scrollbar-color: rgb(122,153,217) #001133;/*Scrollbar Firefox for dashboard selectors*/
+    scrollbar-width: thin;/*Scrollbar Firefox for dashboard selectors*/
+}
+
+/*Scrollbar Chrome for dashboard selectors*/
+.item .btn-group::-webkit-scrollbar {
+   height: 8px;
+} 
+
+.item .btn-group::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.54, rgb(142,173,237)),color-stop(0.82, rgb(93,145,209)),color-stop(0.96, rgb(48,78,168)));
+}
+
+.item .btn-group::-webkit-scrollbar-thumb:hover {
+	background: #1b5670;
+	border-radius:  1px solid white;
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.54, rgb(122,153,217)),color-stop(0.82, rgb(73,125,189)),color-stop(0.96, rgb(28,58,148)));
+}
+
+.item .btn-group::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius:  1px solid black;
+	background: #001133;
 }
 
 .item a.btnsmall-sel{
