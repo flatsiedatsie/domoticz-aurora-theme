@@ -713,12 +713,43 @@ body:not(.dashboard) div.item .options {
     /*padding:0 7px;*/
 }
 
+/*Scrollbar Firefox*/
 .item .btn-group{
     margin-left:15px;
     display:flex !important;
     z-index: 1;
-    overflow-x: auto;
+	overflow-x: auto;
+	scrollbar-color: rgb(95,114,140) #001133;/*Scrollbar Firefox*/
+    scrollbar-width: thin;
 }
+
+.item .btn-group:hover{
+	scrollbar-color: rgb(68,172,214) #001133;/*Scrollbar Firefox*/
+}
+/*End of Firefox Scrollbar*/
+
+/*Scrollbar Chrome*/
+.item .btn-group::-webkit-scrollbar {
+   height: 8px;
+} 
+
+.item .btn-group::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,left bottom, left top, color-stop(0.34, rgb(95,114,140)), color-stop(0.82, rgb(49,66,93)), color-stop(0.96, rgb(45,60,84)));
+}
+
+.item .btn-group::-webkit-scrollbar-thumb:hover {
+	background: #3c5b7e;
+	border-radius:  1px solid white;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.34, rgb(68,173,214)), color-stop(0.82, rgb(40,122,177)), color-stop(0.96, rgb(40,122,177)));
+}
+
+.item .btn-group::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius:  1px solid black;
+	background: #001133;
+}
+/*End of Chrome Scrollbar*/
 
 .item a.btnsmall-sel{
     margin-right:0;
