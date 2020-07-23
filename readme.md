@@ -8,6 +8,13 @@ I am no longer supporting this theme, as I have switched from Domoticz to the Mo
 
 ## Installing
 
+Option 1: With the Domoticz Theme manager plugin:
+https://github.com/galadril/domoticz-theme-manager
+
+
+
+Option 2: Manually
+
 On your Raspberry Pi, go into the Domoticz directory via the terminal:
 
 ```
