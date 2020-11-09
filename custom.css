@@ -1611,6 +1611,16 @@ input#AcceptNewHardware:checked ~ button {
 }
 
 
+/*  EVENTS PAGE  */
+.events-editor__tree {
+    padding-top: 16px;
+}
+
+.events-editor__file-list {
+    padding: 26px 24px 0 24px;
+}
+
+
 /*  SLIDERS */
 
 .span3 #type > .dimslider,
