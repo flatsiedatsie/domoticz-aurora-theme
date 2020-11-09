@@ -210,6 +210,7 @@ This can give a nice effect with background images. */
         background: -webkit-linear-gradient(top, rgba(125,185,232,0.2) 0%,rgba(89,203,234,0.1) 99%,rgba(89,203,234,0.1) 100%); 
         background: linear-gradient(to bottom, rgba(125,185,232,0.2) 0%,rgba(89,203,234,0.1) 99%,rgba(89,203,234,0.1) 100%); 
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#337db9e8', endColorstr='#1a59cbea',GradientType=0 );
+        border-radius: 3px;
     }
     body:not(.dashboard) .item .lastupdate > span, /* the modern way of selecting an element */
     body:not(.dashboard) .item .name > span{ 
