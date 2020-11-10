@@ -14,11 +14,13 @@ function prepareCameraPreviews()
             }
     $(selection).each(function(){ //img[src~="' + camera + '"]
     */
-    $('section .span4:nth-child(-n+3) .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ').each(function(){ //img[src~="' + camera + '"]
+    
+    $('section .span4:nth-child(-n+4) .item:not(.keepclear) .bigtext a[href*="ShowCameraLiveStream"] ').each(function(){ //img[src~="' + camera + '"]
         console.log("THEME JS - found camera item, preparing it for live preview");
         var href = $(this).attr('href');
         var cameraidx = href.substring(href.lastIndexOf("','")+3,href.lastIndexOf("')"));
         console.log("camera ID = #" + cameraidx);
+        $('section .span4:nth-child(-n+4) .camera .status ').attr("Style", "display:block !important; height:88px !important; position: inherit;");
         var item = $(this).closest('.item');
         item.addClass('keepclear');
         item.find('.status').before('<div class="cameraPlayButtons"><button class="playpause playing"></button>'); //<br/><br/><span class="play" style="display:none">playing</span><span class="pause"></span></div>');
@@ -48,7 +50,7 @@ function startcamera(cameraimg)
     function updateCamImage() {
         if(currentPage == "dashboard" && item.find('.cameraPlayButtons .playpause').hasClass('playing')){
             console.log("THEME JS - grabbing new camera image for #" + cameraidx);
-            var newBG = 'background-image: url(/camsnapshot.jpg?idx=' + cameraidx + '&dtime=' + Math.floor(Date.now() / 1000) + ')!important;background-size:100%!important;background-position: center!important';
+            var newBG = 'background-image: url(/camsnapshot.jpg?idx=' + cameraidx + '&dtime=' + Math.floor(Date.now() / 1000) + ')!important;background-size:100% 100% !important;background-position: center!important;border-radius:3px;';
             //console.log(newBG);
             item.find('tr').attr('style', newBG);
             setTimeout(updateCamImage, 20000);
