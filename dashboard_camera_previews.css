@@ -32,7 +32,7 @@ button.playpause::before {
     transition: .218s ease;
 }
 button.playpause {
-    position: relative;
+    position: absolute;
     background: transparent;
     border: none;
     outline: none;
@@ -40,7 +40,7 @@ button.playpause {
     width: 5em;
     font-size: 0.5em;
     cursor: pointer;
-    top: 70px;
+    top: 110px;
 }
 
 /*
