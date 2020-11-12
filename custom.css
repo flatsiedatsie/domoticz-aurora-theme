@@ -1791,10 +1791,10 @@ table.dataTable td:first-of-type{padding-left:10px;}
 
 /*  some datatable tweaks  */
 
-#lighttable_wrapper > .dataTable.no-footer#lighttable td:first-of-type thead th{width:150px!important}
+#lighttable_wrapper > .dataTable.no-footer#lighttable td:first-of-type thead th{width:150px!important;}
 
 /*  devices table: keep icons horizontal*/
-.table3icons{width:70px!important}
+.table3icons{width:70px!important;}
 
 
 
@@ -1810,10 +1810,17 @@ table.dataTable td:first-of-type{padding-left:10px;}
     display: none;
 }
 
+.ui-close { 
+/*  Crop and realign "close" button in popup to avoid shifted button */
+    width: 29px;
+    height: 29px; 
+	top: 2px;
+}
+
 #rgbw_popup td,
 #setpoint_popup td{
     width:auto!important;
-    padding:10px
+    padding:10px;
 }
 
 #rgbw_popup table#ledtable #popup_picker{
@@ -1827,9 +1834,14 @@ table.dataTable td:first-of-type{padding-left:10px;}
     justify-content: center;*/
 }
 
-#rgbw_popup_colour .jQWCP-wWidget{
+#rgbw_popup_colour .jQWCP-wWidget {
 	display:flex;
-	width:auto!important;
+}
+
+.jQWCP-wWidget {
+	display:flex;
+	width:232px!important;
+    height:200px!important;
 }
 
 #rgbw_popup > span{
@@ -1844,7 +1856,7 @@ table.dataTable td:first-of-type{padding-left:10px;}
     position: relative;
     height: auto;
     min-height: 12px;
-    margin: 0;
+    margin: 8px;
     padding: 0;
 }
 
