@@ -130,6 +130,10 @@ div.ui-popup {
 	color: #FFF;
 }
 
+.modal:not(.bootbox) > .modal-dialog > .modal-content .modal-body {
+	box-sizing: content-box !important;
+}
+
 .modal:not(.bootbox) > .modal-dialog > .modal-content .modal-footer {
 	background-color: rgb(25,41,71);
 	border-radius: 0px 0px 5px 5px;
@@ -145,7 +149,6 @@ div.ui-popup {
 .bootbox > .modal-dialog > .modal-content > .modal-body {
 	background: rgb(47,70,103);
 	border-radius: 5px 5px 0px 0px;
-	box-sizing: content-box !important;
 }
 
 .bootbox > .modal-dialog > .modal-content > .modal-body > .bootbox-body {
