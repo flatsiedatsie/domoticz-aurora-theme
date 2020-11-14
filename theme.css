@@ -106,6 +106,62 @@ div.ui-popup,
 }
 
 
+/*  Items popup   */
+
+div.ui-popup {
+    background-color: rgb(26,41,72)!important;
+    background: linear-gradient(to bottom, rgba(125,185,232,0.4) 0px,rgba(89,203,234,0.1) 32px,rgb(26,41,72)33px);
+}
+
+
+/*  MODAL form only (no bootbox) with no ui popup close boutton  */
+.modal:not(.bootbox) > .modal-dialog {
+	background-color:  rgb(0,17,51);
+	border-radius: 5px;
+}
+
+.modal:not(.bootbox) > .modal-dialog > .modal-content > .modal-header {
+	background: rgb(47,70,103);
+	border-radius: 5px 5px 0px 0px;
+}
+
+.modal:not(.bootbox) > .modal-dialog > .modal-content > .modal-header > .modal-title {
+	font-weight: bold;
+	color: #FFF;
+}
+
+.modal:not(.bootbox) > .modal-dialog > .modal-content .modal-footer {
+	background-color: rgb(25,41,71);
+	border-radius: 0px 0px 5px 5px;
+}
+
+
+/*  MODAL form (bootbox) with ui popup close boutton  */
+.bootbox > .modal-dialog {
+	background-color:  rgb(0,17,51);
+	border-radius: 5px;
+}
+
+.bootbox > .modal-dialog > .modal-content > .modal-body {
+	background: rgb(47,70,103);
+	border-radius: 5px 5px 0px 0px;
+}
+
+.bootbox > .modal-dialog > .modal-content > .modal-body > .bootbox-body {
+	font-weight: bold;
+	color: #fff;
+}
+
+.bootbox > .modal-dialog > .modal-content .modal-footer {
+	background-color: rgb(25,41,71);
+	border-radius: 0px 0px 5px 5px;
+}
+
+.bootbox > .modal-dialog > .modal-content > .modal-body > button {
+	font-weight: bold;
+	color: #fff;
+}
+
 /*  navigation  */
 
 #dashcontent h2, 
@@ -346,7 +402,7 @@ body:not(.dashboard) .selectorlevels .ui-buttonset .ui-button{border-radius:3px!
     /*border-radius:0!important;*/
 }
 .ui-corner-all:not(.dimslider){
-    border-radius:0!important;
+    border-radius:3!important;
 }
 
 /* PRAGMATIC -  temporarily disabled to make everything look similar
