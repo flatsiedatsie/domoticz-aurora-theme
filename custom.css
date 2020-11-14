@@ -1839,8 +1839,8 @@ table.dataTable td:first-of-type{padding-left:10px;}
 }
 
 .jQWCP-wWidget {
-	display:flex;
-	width:232px!important;
+	display:flex!important;
+	width:auto!important;
     height:200px!important;
 }
 
