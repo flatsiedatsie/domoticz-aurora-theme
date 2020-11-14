@@ -145,6 +145,7 @@ div.ui-popup {
 .bootbox > .modal-dialog > .modal-content > .modal-body {
 	background: rgb(47,70,103);
 	border-radius: 5px 5px 0px 0px;
+	box-sizing: content-box !important;
 }
 
 .bootbox > .modal-dialog > .modal-content > .modal-body > .bootbox-body {
