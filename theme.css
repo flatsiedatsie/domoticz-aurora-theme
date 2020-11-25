@@ -130,6 +130,10 @@ div.ui-popup {
 	color: #FFF;
 }
 
+.modal:not(.bootbox) > .modal-dialog > .modal-content .modal-body {
+	box-sizing: content-box !important;
+}
+
 .modal:not(.bootbox) > .modal-dialog > .modal-content .modal-footer {
 	background-color: rgb(25,41,71);
 	border-radius: 0px 0px 5px 5px;
