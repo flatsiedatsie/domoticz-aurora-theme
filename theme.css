@@ -67,7 +67,12 @@ body:not(.login) #holder .container-fluid{
 /* hacking around all the parts that don't follow span convention*/
 div.ui-popup{box-shadow: 5px 5px 5px rgba(0,0,0,.5)}
 
+.modal-title, .bootbox-body {
+        color: #FFF;
+}
+
 div.ui-popup,
+.modal,
 #protectiontable, 
 #loghistory table, 
 #notifications>table, 
