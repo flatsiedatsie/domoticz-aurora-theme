@@ -298,7 +298,6 @@ tr.odd{
 }
 
 .row_selected{
-    /* text-decoration: underline; This decoration is giving confusing underlines in HW view*/
     color:white;
 }
 
