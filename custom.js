@@ -148,7 +148,7 @@ function themeLoadObject() {
     if (typeof (Storage) !== "undefined") {
         if (localStorage.getItem("themeObject") === null) {
             console.log("THEME JS - No locally stored theme object found, now loading the theme json.");
-            loadJSON('acttheme/theme.json',
+            loadJSON('styles/aurora/theme.json',
                 function (themex) {
                     theme = themex; // set global object
                     console.log("THEME JS - Theme name = " + theme.name);
@@ -170,7 +170,7 @@ function themeLoadObject() {
         }
     } else {
         // FALL BACK. No Web Storage support.. Old browser? Loading backup css file.
-        var CSSfile = "acttheme/oldbrowser.css";
+        var CSSfile = "styles/aurora/oldbrowser.css";
         var fileref = document.createElement("link");
         fileref.setAttribute("rel", "stylesheet");
         fileref.setAttribute("type", "text/css");
@@ -432,13 +432,13 @@ function loadThemeFeatureFiles(featureName) // feed this function the feature na
     for (var i = 0; i < arrayLength; i++) {
         if(files[i].split('.').pop() == "js"){
             console.log("THEME JS - loading javascript for " + featureName + " feature");
-            var getviarequire = "../acttheme/" + featureName;
+            var getviarequire = "../styles/aurora/" + featureName;
             requirejs([getviarequire], function(util) {
                 console.log("THEME JS - Javascript loaded by RequireJS");
             });
         }
         if(files[i].split('.').pop() == "css"){
-            var CSSfile = "" + baseURL + "/acttheme/" + files[i] + "?" + themeMachineName;
+            var CSSfile = "" + baseURL + "/styles/aurora/" + files[i] + "?" + themeMachineName;
             console.log(CSSfile);
             var fileref = document.createElement("link");
             fileref.setAttribute("rel", "stylesheet");
@@ -738,13 +738,13 @@ function backendImprovement()
             //var iFrameHead = window.frames["IMain"].document.getElementsByTagName("head")[0];         
             var myscript = document.createElement('script');
             myscript.type = 'text/javascript';
-            myscript.src = '/acttheme/events.js';
+            myscript.src = '/styles/aurora/events.js';
             $("#IMain").contents().find("head").append(myscript);
             //iFrameHead.appendChild(myscript);
             var mycss = document.createElement('link');
             mycss.rel = 'stylesheet';
             mycss.type = 'text/css';
-            mycss.href = '/acttheme/events.css';
+            mycss.href = '/styles/aurora/events.css';
             //iFrameHead.appendChild(mycss);
             $("#IMain").contents().find("head").append(mycss);
         });
@@ -845,7 +845,7 @@ $( document ).ready(function()
     
     // first, load in the CSS file with the most changes to the styling. This could become a settings option with a dropdown, so the user can pick a 'subtheme' styling variant.
     console.log("THEME JS - Loading theme.css");
-    var CSSfile = "acttheme/theme.css?aurora";
+    var CSSfile = "styles/aurora/theme.css?aurora";
     var fileref = document.createElement("link");
     fileref.setAttribute("rel", "stylesheet");
     fileref.setAttribute("type", "text/css");
@@ -1987,7 +1987,7 @@ function showThemeSettings()
 		
             // inserting the themesettings.html
             $('#my-tab-content').append('<div class="tab-pane" id="tabtheme"><section id="theme">Loading..</section></div>');
-            $('#my-tab-content #theme').load("acttheme/themesettings.html",loadedSettingsHTML);
+            $('#my-tab-content #theme').load("styles/aurora/themesettings.html",loadedSettingsHTML);
             
             // loadedSettingsHTML() was here
             
