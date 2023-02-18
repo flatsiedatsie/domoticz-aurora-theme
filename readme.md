@@ -3,7 +3,11 @@
 This is a theme for Domoticz. It's a darker coloured theme, which can be used well in the evening. It adds a lot of features to Domoticz via javascript.
 
 # If you would like to be the new maintainer of the theme, create an issue in the issue queue.
-I am no longer supporting this theme, as I have switched from Domoticz to the Mozilla WebThings Gateway. I will look at and incorporate pull requests, but I will not actively fix bugs.
+I am no longer supporting this theme, as I have switched from Domoticz to Candle. 
+
+https://www.candlesmarthome.com
+
+I will look at and incorporate pull requests, but I will not actively fix bugs.
 
 
 ## Installing
