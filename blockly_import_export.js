@@ -3,7 +3,9 @@
 function makeBlocklyExportHTML()
 {
     $.ajax({
-        url: "/json.htm?type=events&param=list",
+        /* url: "/json.htm?type=events&param=list", */
+        url: "/json.htm?type=command&param=events&param=list",
+
         async: true,
         dataType: 'json',
         success: function (data) {
@@ -38,7 +40,8 @@ function makeBlocklyExportHTML()
 
 function getExportCode(id)
 {   
-    var getThis = '/json.htm?type=events&param=load&event=' + id;
+    /* var getThis = '/json.htm?type=events&param=load&event=' + id; */
+    var getThis = '/json.htm?type=command&param=events&param=load&event=' + id;
     $.get( getThis, function( data ) {
         console.log(data);
         console.log("interpreter: " + data.result[0].interpreter);
