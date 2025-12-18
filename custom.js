@@ -929,13 +929,15 @@ $( document ).ready(function()
             console.log("__make favourite__");
             frontendImprovement();
         }
-        else if ( settings.url.startsWith("json.htm?type=plans") ) {
+        /* else if ( settings.url.startsWith("json.htm?type=plans") ) { */
+        else if ( settings.url.startsWith("json.htm?type=command&param=getplans") ) {
             console.log("plans:");
             console.log(xhr.responseJSON.result);
             //oldschool();
         }
         
-        else if ( settings.url.startsWith("json.htm?type=devices") ) { 
+        /* else if ( settings.url.startsWith("json.htm?type=devices") ) { */
+        else if ( settings.url.startsWith("json.htm?typecommand&param=getdevices") ) { 
             if(limbo === true){limbo = false; return;}
             console.log("__//ajax devices__");
             //frontendImprovement();
