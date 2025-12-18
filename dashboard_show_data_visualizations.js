@@ -182,7 +182,8 @@ generateDataviz = function (item, sensor, thekey)
     var n = agent.lastIndexOf('_');
     var idx = agent.substring(n + 1);
     console.log('making dataviz for item: ' + agent);
-    var urltoload = 'json.htm?type=graph&sensor=' + sensor + '&idx=' + idx + '&range=' + range;
+    /* var urltoload = 'json.htm?type=graph&sensor=' + sensor + '&idx=' + idx + '&range=' + range; */
+    var urltoload = 'json.htm?type=command&param=graph&sensor=' + sensor + '&idx=' + idx + '&range=' + range;
 
     var datavizArray = [];
     $.getJSON(urltoload, function (data) {
