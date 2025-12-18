@@ -733,8 +733,8 @@ table#prebannav select {width:auto!important}
 .span3 td:last-of-type:not(.status) .lcursor,
 .span4 td:last-of-type:not(.status) .lcursor{
     position: relative;
-    top: -29px;
-    left: 13px;
+    top: 0px;   /* -29px; */
+    left: 33px; /* 13px; */
     border-radius: 5px;
 }
 
